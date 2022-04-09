@@ -1,3 +1,0 @@
-## Kiernan Preve
-
-Hello world!
