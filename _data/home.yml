@@ -7,17 +7,21 @@ navbar_entries:
 
 project_entries:
 
-  - title: LibreLab
+  - title: sLibreLab
     url: overview-post
     desc: Science educative kit for school and university, Arduino based.
     highlight: NOW
     
-  - title: Lic. in Physics
+  - title: ⚛️ Lic. in Physics
     url: overview-post
     desc: On the final stretchs...
     highlight: NOW
     
 old_project_entries:
+
+  - title: 🎼 Soundtracks 
+    url: overview-post
+    desc: I made some music some years ago.
 
 footer_entries:
 
