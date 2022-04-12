@@ -7,10 +7,10 @@ navbar_entries:
 
 project_entries:
 
-  - title: Project 4
+  - title: LibreLab
     url: overview-post
-    desc: This project uses highlight markup, configured in _data/home.yml
-    highlight: WIP
+    desc: Science educative kit for school and university, Arduino based.
+    highlight: NOW
     
 old_project_entries:
 
