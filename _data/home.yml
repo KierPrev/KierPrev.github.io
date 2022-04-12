@@ -12,6 +12,11 @@ project_entries:
     desc: Science educative kit for school and university, Arduino based.
     highlight: NOW
     
+  - title: Lic. in Physics
+    url: overview-post
+    desc: On the final stretchs...
+    highlight: NOW
+    
 old_project_entries:
 
 footer_entries:
