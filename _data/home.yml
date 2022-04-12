@@ -1,6 +1,10 @@
 navbar_entries:
   - title: about
     url: about
+    
+   - title: contact
+    url: contact 
+    
 
 project_entries:
 
