@@ -7,7 +7,7 @@ navbar_entries:
 
 project_entries:
 
-  - title: sLibreLab
+  - title: LibreLab
     url: overview-post
     desc: Science educative kit for school and university, Arduino based.
     highlight: NOW
