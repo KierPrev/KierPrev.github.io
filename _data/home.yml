@@ -8,23 +8,23 @@ navbar_entries:
 project_entries:
 
   - title: LibreLab
-    url: overview-post
+    url: librelab
     desc: Science educative kit for school and university, Arduino based
     highlight: NOW
     
   - title: ⚛️ Lic. in Physics
-    url: overview-post
+    url: physics
     desc: On the final stretchs...
     highlight: NOW
     
 old_project_entries:
 
   - title: 🎼 Soundtracks 
-    url: overview-post
+    url: soundtracks
     desc: I made some music some years ago
     
   - title: 📖 Stories/Books
-    url: overview-post
+    url: stories
     desc: I've written some fantasy/Sci-Fi
 
 
