@@ -29,10 +29,7 @@ hr.page-break {
 
 p { margin: 1em 0; }
 
-li {
-	margin: 0.4em 0;
-	font-weight: bold;
-}
+li { margin: 0.4em 0; }
 
 .w {
   max-width: 720px;
@@ -115,6 +112,7 @@ blockquote {
 }
 a {
   color: var(--links);
+  font-weight: bold;
 }
 *:target { background-color: var(--bg-secondary); }
 
