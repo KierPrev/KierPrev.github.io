@@ -9,7 +9,7 @@ project_entries:
 
   - title: LibreLab
     url: overview-post
-    desc: Science educative kit for school and university, Arduino based.
+    desc: Science educative kit for school and university, Arduino based
     highlight: NOW
     
   - title: ⚛️ Lic. in Physics
@@ -21,7 +21,12 @@ old_project_entries:
 
   - title: 🎼 Soundtracks 
     url: overview-post
-    desc: I made some music some years ago.
+    desc: I made some music some years ago
+    
+  - title: 📖 Stories/Books
+    url: overview-post
+    desc: I've written some fantasy/Sci-Fi
+
 
 footer_entries:
 
