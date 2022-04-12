@@ -3,7 +3,10 @@ navbar_entries:
     url: about
     
   - title: contact
-    url: contact 
+    url: contact
+    
+  - title: location
+    url: https://www.nasa.gov/sites/default/files/thumbnails/image/as17-148-22727_lrg_0.jpg
     
 
 project_entries:
