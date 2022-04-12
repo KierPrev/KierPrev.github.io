@@ -120,6 +120,7 @@ blockquote {
 }
 a {     				////////LINKS
   color: var(--links);
+  font-weight: bold;
 }
 *:target { background-color: var(--bg-secondary); }
 
