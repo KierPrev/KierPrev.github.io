@@ -8,10 +8,6 @@ Currently, I'm studying at [UNSL](http://unsl.edu.ar) to become a Licentiate in 
 Previously, I studied Music Production and someday I will record another album :)
 
 
-### 
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mcssw3utx7o?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ### 🎵  Music that makes me cry
 <iframe width="360" height="203" src="https://www.youtube.com/embed/kaoqCARilbA?controls=0&amp;start=54" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
