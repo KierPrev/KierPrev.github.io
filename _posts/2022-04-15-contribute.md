@@ -9,6 +9,10 @@ Before giving to me, consider [donating to UNICEF](https://donate.unicef.org/don
 
 If you still want to collaborate to my daily life,
 
+- Bitcoin Adress  bc1qj5qt438e0te8js6fz2tn0futcw2w8xgjktr2zn
+
+- If you're in Argentina 🇦🇷
+
 <div id="html" markdown="0">
 <a mp-mode="dftl" href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084802a37ba01802bb17b2e0016" name="MP-payButton" class='blue-ar-l-rn-none'>Suscribirme</a>
 <script type="text/javascript">
