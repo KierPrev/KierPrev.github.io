@@ -5,8 +5,6 @@ navbar_entries:
   - title: contact
     url: contact
     
-  - title: contribute
-    url: contribute
     
 
 project_entries:
