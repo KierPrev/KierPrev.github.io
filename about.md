@@ -9,5 +9,5 @@ I enjoy creation and analysis. It could be anything. A song that drives your emo
 
 I love [upbeat jazz](https://www.youtube.com/watch?v=tEfV9m2ereg), [random indie bands](https://www.youtube.com/watch?v=PwDRU6LCV1M) and music in general
 
-Feel free to [reach out](Contact)!
+Feel free to [reach out](contact)!
 
