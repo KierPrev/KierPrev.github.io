@@ -12,4 +12,4 @@ Physics came out for me as a method for understanding the underlying processes t
 
 ### 🛠️ What tools do I use?
 
-For gathering and summarizing information, I use [Logseq](https://logseq.com/) as my knowledge platform.
+For gathering and summarizing information, I use [Obsidian](https://obsidian.md) as my knowledge platform.
