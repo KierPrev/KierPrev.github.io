@@ -3,8 +3,8 @@ layout: post
 title: About
 ---
 
-Currently, I'm studying at [UNSL](http://unsl.edu.ar) to become a Licentiate in Physics.
+Currently, I'm studying at [UNSL](http://unsl.edu.ar) to become a Licentiate in Physics. I completed a Music Production degree at the same institute previously.
 
-Previously, I studied Music Production and someday I will record another album :)
+[Download my CV](CV_Kiernan_Preve.pdf)
 
 
