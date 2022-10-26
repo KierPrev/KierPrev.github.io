@@ -4,6 +4,9 @@ navbar_entries:
     
   - title: contact
     url: contact
+
+  - title: CV
+    url: CV_Kiernan_Preve.pdf
     
     
 
