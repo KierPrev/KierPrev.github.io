@@ -54,7 +54,8 @@ body {
 
 #timeline {
     color: #FFF;
-    font-size: 1.3em;
+    font-size: 1.2em;
+    font-style: bold;
     padding-left: 20px;
     padding-right: 20px;
 
