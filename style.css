@@ -54,11 +54,11 @@ body {
 
 #timeline {
     color: #FFF;
-    font-size: 1.6em;
-    padding-left: 10px;
-    padding-right: 10px;
+    font-size: 1.5em;
+    padding-left: 20px;
+    padding-right: 20px;
 	
-    .header {
+.header {
         font-size:2em;
 }
 
