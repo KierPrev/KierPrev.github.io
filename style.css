@@ -175,12 +175,12 @@ body {
 
 .popup-quote {
     font-family : Baskerville, Georgia, serif;
-    font-style : italic;
+    font-style : bold;
     position: flex;
     color: #FFF;
-    padding: 20px;
+    padding: 10px;
     text-align: justify;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .popup-photo {
