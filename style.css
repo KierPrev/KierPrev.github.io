@@ -52,6 +52,14 @@ body {
     margin: 27px auto;
 }
 
+#timeline {
+    color: #FFF;
+    font-size: 1.3em
+
+
+}
+
+
 .link {
     position: relative;
     background-color: #ffd0c3;
