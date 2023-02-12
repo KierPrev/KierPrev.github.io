@@ -8,6 +8,11 @@
     --delay: .3s;
 }
 
+a {
+    color: lightskyblue;
+    text-decoration: none; 
+}
+
 body {
     margin: 0;
     padding: 0;
