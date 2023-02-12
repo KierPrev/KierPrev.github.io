@@ -780,8 +780,8 @@ body {
     content: '';
     position: absolute;
     top: auto;
-    width: 4px;
-    height: 4px;
+    width: 3px;
+    height: 2px;
     background: transparent;
 
     box-shadow: 387px 1878px #fff, 760px 1564px #fff, 1487px 999px #fff,
