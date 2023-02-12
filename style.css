@@ -90,8 +90,8 @@ body {
 
 @media (hover: hover) {
     .link:hover {
-        background-color: var(--accentColor);
-        color: var(--bgColor2);
+        background-color: #c9efd9;
+        color: var(--accentColor);
     }
 }
 
