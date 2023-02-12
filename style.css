@@ -253,6 +253,7 @@ body {
 #stars1 {
     width: 1px;
     height: 1px;
+    opacity: 0.7;
     background: transparent;
     animation: animStar 110s linear infinite;
 
@@ -439,6 +440,7 @@ body {
     content: '';
     position: absolute;
     top: auto;
+    opacity: 0.5;
     width: 1px;
     height: 1px;
     background: transparent;
