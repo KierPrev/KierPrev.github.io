@@ -95,7 +95,7 @@ body {
 
 #hashtag {
     position: relative;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
     color: #FFF;
     font-size: 1rem;
     display: block;
