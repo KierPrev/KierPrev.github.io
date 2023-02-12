@@ -253,7 +253,7 @@ body {
 #stars1 {
     width: 1px;
     height: 1px;
-    opacity: 0.7;
+    opacity: 1;
     background: transparent;
     animation: animStar 110s linear infinite;
 
@@ -440,7 +440,7 @@ body {
     content: '';
     position: absolute;
     top: auto;
-    opacity: 0.5;
+    opacity: 1;
     width: 1px;
     height: 1px;
     background: transparent;
@@ -627,6 +627,7 @@ body {
 #stars2 {
     width: 2px;
     height: 2px;
+    opacity: 0.7;
     background: transparent;
     animation: animStar 200s linear infinite;
 
@@ -686,6 +687,7 @@ body {
 #stars2:after {
     content: '';
     position: absolute;
+    opacity: 0.7;
     top: auto;
     width: 2px;
     height: 2px;
@@ -747,6 +749,7 @@ body {
 #stars3 {
     width: 3px;
     height: 3px;
+    opacity: 0.5;
     background: transparent;
     animation: animStar 350s linear infinite;
 
@@ -781,6 +784,7 @@ body {
 #stars3:after {
     content: '';
     position: absolute;
+    opacity: 0.5;
     top: auto;
     width: 3px;
     height: 3px;
