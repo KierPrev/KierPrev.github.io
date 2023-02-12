@@ -743,8 +743,8 @@ body {
 }
 
 #stars3 {
-    width: 4px;
-    height: 4px;
+    width: 5px;
+    height: 5px;
     background: transparent;
     animation: animStar 320s linear infinite;
 
@@ -781,7 +781,7 @@ body {
     position: absolute;
     top: auto;
     width: 3px;
-    height: 2px;
+    height: 3px;
     background: transparent;
 
     box-shadow: 387px 1878px #fff, 760px 1564px #fff, 1487px 999px #fff,
