@@ -91,7 +91,7 @@ body {
 @media (hover: hover) {
     .link:hover {
         background-color: var(--accentColor);
-        color: var(--bgColor);
+        color: var(--bgColor2);
     }
 }
 
