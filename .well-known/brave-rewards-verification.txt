@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: kierprev.github.io
+Token: cfcdca1261ad2d38760b03b3212ebc2a0fc53c319341b72653d32bb7c287a61e
