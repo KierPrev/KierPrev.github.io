@@ -11,7 +11,7 @@ img {
     margin-left: auto;
     margin-right: auto;
     height: 350px;
-    border-radius: 10%;
+    border-radius: 4em;
   }
 
 select {
