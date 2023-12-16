@@ -17,6 +17,9 @@ img {
 select {
   font-size: 1rem;
   padding: 2px 5px;
+  border-radius: 50px;
+  border-color: white;
+  margin-bottom: 0.2em;
 }
   
 
@@ -29,6 +32,7 @@ select {
   text-decoration: none;
   display: inline-block;
   font-size: 1em;
+  border-radius: 70px 20px;
 }
 
 div.fixed {
@@ -38,6 +42,9 @@ div.fixed {
 
 .input {
   font-size: 1em;
+  border-radius: 50px;
+  border-color: white;
+  text-align: center;
 }
 
 
