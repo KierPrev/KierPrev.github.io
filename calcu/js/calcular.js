@@ -3,15 +3,32 @@ function gastoMes() {
     gastoTotal = gastoHoy;
     plataTotal = Number(document.getElementById("billetera").value);
 
-    for (let i = 1; i < 30; i++) {
+// Días hasta fin de mes
+    function daysUntilEndOfMonth() {
+      const currentDate = new Date();
+      const currentYear = currentDate.getFullYear();
+      const currentMonth = currentDate.getMonth();
+      const currentMonthLastDate = new Date(currentYear, currentMonth + 1, 0).getDate();
+      const daysLeftInMonth = currentMonthLastDate - currentDate.getDate();
+      return daysLeftInMonth;
+    }  
+    const diasRestantes = daysUntilEndOfMonth();
+
+
+    for (let i = 1; i < diasRestantes; i++) {
       gastoTotal = gastoTotal + gastoHoy*(1+0.01*i);
     }
 
+    plataFinDeMes = plataTotal - gastoTotal;
     document.getElementById("gastoTotal").innerHTML = "&emsp; $ " + String(gastoTotal.toLocaleString('en-US'));
 
-    document.getElementById("plataTotal").innerHTML = "&emsp; $ " + String((plataTotal - gastoTotal).toLocaleString('en-US'));
+    document.getElementById("plataTotal").innerHTML = "&emsp; $ " + String(plataFinDeMes.toLocaleString('en-US'));
+    
+  
 
-  if (plataTotal - gastoTotal <= 0) {
+    
+
+  if (plataFinDeMes <= 0) {
     document.getElementById('milei').style.display = 'block';
   }
   else {
