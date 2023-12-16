@@ -21,12 +21,10 @@ function gastoMes() {
 
 
     for (let i = 1; i < diasRestantes; i++) {
-      gastoTotal = gastoTotal + gastoHoy*(1+0.01*i);
+      gananciaBilletera = plataTotal + plataTotal*(0.967/365)*i - gastoHoy;
+      gastoTotal = gastoTotal + gastoHoy*(1+0.01*i);      
     }
 
-    for (let i = 1; i < diasRestantes; i++) {
-      gananciaBilletera = plataTotal + plataTotal*(0.967/365)*i;
-    }
 
     gananciaNeta = gananciaBilletera - plataTotal;
 
