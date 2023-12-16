@@ -36,7 +36,7 @@ select {
   text-decoration: none;
   display: inline-block;
   font-size: 1.2em;
-  border-radius: 70px 20px;
+  border-radius: 4em 1.5em;
 }
 
 div.fixed {
