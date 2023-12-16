@@ -57,12 +57,12 @@ function gastoMes() {
   
 
     
-  /*
+  
   if (neto <= 0) {
-    document.getElementById('milei').style.display = 'block';
+    document.getElementById('llegas').style.display = 'block';
   }
   else {
-    document.getElementById('milei').style.display = 'none';
+    document.getElementById('llegas').style.display = 'none';
   }
-  */
+  
   }
