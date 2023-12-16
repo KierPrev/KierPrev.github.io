@@ -31,7 +31,7 @@ select {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 1em;
+  font-size: 1.2em;
   border-radius: 70px 20px;
 }
 
@@ -52,6 +52,7 @@ div.fixedright {
   border-radius: 50px;
   border-color: white;
   text-align: center;
+  padding: 4px 0px;
 }
 
 
