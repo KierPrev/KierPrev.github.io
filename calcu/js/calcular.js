@@ -21,7 +21,7 @@ function gastoMes() {
     }
 
     for (let i = 1; i < diasRestantes; i++) {
-      gananciaBilletera = plataTotal + plataTotal*(0.967/365);
+      gananciaBilletera = plataTotal + plataTotal*(0.967/365)*i;
     }
 
     gananciaNeta = gananciaBilletera - plataTotal;
