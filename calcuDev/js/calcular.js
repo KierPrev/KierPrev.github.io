@@ -10,6 +10,10 @@ function cambiarTasa() {
     tasa=123.01;
     console.log("Prex");
   }
+  else if (value=="naranjax") {
+    tasa=110;
+    console.log("naranjax");
+  }
 
 document.getElementById("tasaActual").innerHTML = "Tasa: " + tasa + " %"
 }
