@@ -2,6 +2,7 @@ function gastoMes() {
     gastoHoy = Number(document.getElementById("gastos").value);
     gastoTotal = gastoHoy;
     plataTotal = Number(document.getElementById("billetera").value);
+    tasa=96.7;
 
 // Días hasta fin de mes
     function daysUntilEndOfMonth() {
@@ -19,7 +20,13 @@ function gastoMes() {
       gastoTotal = gastoTotal + gastoHoy*(1+0.01*i);
     }
 
-    plataFinDeMes = plataTotal - gastoTotal;
+    for (let i = 1; i < diasRestantes; i++) {
+      gananciaBilletera = plataTotal + plataTotal*(0.967/365);
+    }
+
+    gananciaNeta = gananciaBilletera - plataTotal;
+
+    plataFinDeMes = plataTotal - gastoTotal + gananciaNeta;
     document.getElementById("gastoTotal").innerHTML = "&emsp; $ " + String(gastoTotal.toLocaleString('en-US'));
 
     document.getElementById("plataTotal").innerHTML = "&emsp; $ " + String(plataFinDeMes.toLocaleString('en-US'));
