@@ -15,8 +15,8 @@ img {
   }
 
 select {
-  font-size: 1.2rem;
-  padding: 2px 5px;
+  font-size: 1rem;
+  padding: 0.4em 1em;
   border-width: 0.1em;
   border-radius: 50px;
   border-color: #58c29b;
@@ -30,7 +30,7 @@ select {
   background-color: #58c29b; /* Green */
   border: none;
   color: white;
-  padding: 0.7em 1.2em;
+  padding: 0.6em 1.1em;
   text-align: center;
   text-decoration: none;
   display: inline-block;
