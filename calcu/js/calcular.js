@@ -21,12 +21,10 @@ function gastoMes() {
 
 
     for (let i = 1; i < diasRestantes; i++) {
-      //gananciaBilletera = plataTotal + plataTotal*(0.967/365)*i - gastoHoy*(1+0.01*i);
       gastoTotal = gastoTotal + gastoHoy*(1+0.01*i);
-      neto = plataTotal + plataTotal*(0.967/365)*i - gastoTotal;
+      neto = plataTotal - gastoTotal + (plataTotal-gastoTotal)*(0.967/365)*i;
     }
 
-    //plataFinDeMes = gananciaBilletera - gastoTotal;
     document.getElementById("gastoTotal").innerHTML = "&emsp; $ " + String(round(gastoTotal).toLocaleString('en-US'));
 
     document.getElementById("plataTotal").innerHTML = "&emsp; $ " + String(round(neto).toLocaleString('en-US'));
