@@ -16,15 +16,16 @@
     </head>
 
     <body>
-
-            <h2>Calculadora de gastos e inflación diaria</h2>
+            <p style="margin-bottom: 0em; font-size:1.7em; color:rgb(255, 255, 255)">¿Llego a fin de mes?</p>
+            <p style="margin-top: 0.3em; margin-bottom: 2em; font-size:0.9em; color:rgb(255, 255, 255)">Calculadora de gastos e inflación  🇦🇷</p>
             
-            <p style="font-size:0.8em; color:rgb(178, 215, 186)">Inflación diaria estimada: 1%</p>
-            
+                      
             Gastás por día
             <br>
             <input class="input" type="text" id="gastos" value="0">
-            <br><br>
+            <br>
+            <p style="font-size:0.8em; color:rgb(178, 215, 186)">Inflación diaria estimada: 1%</p>
+            <br>
             Tenés en <select onchange=cambiarTasa() id="cual-billetera">
                 <option value="mercadopago">MercadoPago</option>
                 <option value="naranjax">Naranja X</option>
@@ -32,7 +33,7 @@
               </select>
             <br>
             <input class="input" type="text" id="billetera" value="0">
-            <p id="tasaActual" style="font-size:0.7em; color:rgb(178, 215, 186)">Tasa: 96.7%</p>
+            <p id="tasaActual" style="font-size:1em; color:rgb(178, 215, 186)">Tasa: 96.7%</p>
 
             <button class="button" onclick="gastoMes()" type="button">¿Llego a fin de mes?</button>
 
@@ -58,9 +59,13 @@
             <br>
             <br>
             <br>
+
+            <!--
             <div class="fixed"><strong>
             <a href='https://cafecito.app/kier' rel='noopener' target='_blank'><img style="width:12em; height:auto" srcset='https://cdn.cafecito.app/imgs/buttons/button_6.png 1x, https://cdn.cafecito.app/imgs/buttons/button_6_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_6_3.75x.png 3.75x' src='https://cdn.cafecito.app/imgs/buttons/button_6.png' alt='Invitame un café en cafecito.app' /></a>
             </strong></div>
+            -->
+            
     </body>
 
 </html>
