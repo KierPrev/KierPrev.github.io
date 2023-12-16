@@ -20,7 +20,7 @@ document.getElementById("tasaActual").innerHTML = "Tasa: " + tasa + " %"
 
 function gastoMes() {
   gastoHoy = Number(document.getElementById("gastos").value);
-  gastoTotal = gastoHoy;
+  gastoTotal = 0;
   plataTotal = Number(document.getElementById("billetera").value);
   
 
@@ -40,7 +40,7 @@ function gastoMes() {
   }
 
 
-    for (let i = 1; i < diasRestantes; i++) {
+    for (let i = 0; i < diasRestantes; i++) {
       gastoTotal = gastoTotal + gastoHoy*((1+0.01)**i);
       if (plataTotal>0) {
         neto = plataTotal - gastoTotal + (plataTotal-gastoTotal)*((tasa/100)/365)*i;
