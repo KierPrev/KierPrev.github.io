@@ -38,6 +38,13 @@ select {
 div.fixed {
   position: fixed;
   bottom: 10px;
+}
+
+div.fixedright {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 0.6em;
 } 
 
 .input {
