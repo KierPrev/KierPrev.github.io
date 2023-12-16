@@ -54,4 +54,7 @@ div.fixed {
     img {
       height: 750px;
     }
+    select {
+      font-size: 1.8rem;
+    }
   }
