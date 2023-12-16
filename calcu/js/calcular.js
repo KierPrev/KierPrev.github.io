@@ -12,9 +12,9 @@ function gastoMes() {
     document.getElementById("plataTotal").innerHTML = String((plataTotal - gastoTotal).toLocaleString('en-US'));
 
   if (plataTotal - gastoTotal <= 0) {
-    document.getElementById('nohayplata').style.display = 'block';
+    document.getElementById('milei').style.display = 'block';
   }
   else {
-    document.getElementById('nohayplata').style.display = 'none';
+    document.getElementById('milei').style.display = 'none';
   }
   }
