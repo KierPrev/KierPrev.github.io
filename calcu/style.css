@@ -14,9 +14,23 @@ img {
     border-radius: 10%;
   }
 
+.button {
+  background-color: #58c29b; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+}
+
 
   @media only screen and (max-width: 1081px) {
     body {
       font-size: 2em;
+    }
+    img {
+      height: 550px;
     }
   }
