@@ -25,6 +25,11 @@ img {
   font-size: 1em;
 }
 
+div.fixed {
+  position: fixed;
+  bottom: 10px;
+} 
+
 .input {
   font-size: 1em;
 }
