@@ -1,19 +1,23 @@
+function cambiarTasa() {
+  var e = document.getElementById("cual-billetera");
+  var value = e.value;
+
+  if (value=="mercadopago") {
+    tasa=96.7;
+    console.log("MP");
+  }
+  else if (value=="prex") {
+    tasa=123.01;
+    console.log("Prex");
+  }
+
+document.getElementById("tasaActual").innerHTML = "Tasa: " + tasa + " %"
+}
+
 function gastoMes() {
   gastoHoy = Number(document.getElementById("gastos").value);
   gastoTotal = gastoHoy;
   plataTotal = Number(document.getElementById("billetera").value);
-
-  var e = document.getElementById("cual-billetera");
-  var value = e.value;
-  
-  if (value=="mercadopago") {
-    tasa=96.7/100;
-    console.log("MP");
-  }
-  else if (value=="prex") {
-    tasa=123.01/100;
-    console.log("Prex");
-  }
   
 
 // Días hasta fin de mes
@@ -35,7 +39,7 @@ function gastoMes() {
     for (let i = 1; i < diasRestantes; i++) {
       gastoTotal = gastoTotal + gastoHoy*(1+0.01*i);
       if (plataTotal>0) {
-        neto = plataTotal - gastoTotal + (plataTotal-gastoTotal)*(tasa/365)*i;
+        neto = plataTotal - gastoTotal + (plataTotal-gastoTotal)*((tasa/100)/365)*i;
       }
       else {
         neto = plataTotal - gastoTotal;

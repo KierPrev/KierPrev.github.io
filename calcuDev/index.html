@@ -25,13 +25,13 @@
             <br>
             <input class="input" type="text" id="gastos" value="0">
             <br><br>
-            Tenés en <select id="cual-billetera">
+            Tenés en <select onchange=cambiarTasa() id="cual-billetera">
                 <option value="mercadopago">MercadoPago</option>
                 <option value="prex">Prex</option>
               </select>
             <br>
             <input class="input" type="text" id="billetera" value="0">
-            <p style="font-size:0.7em; color:rgb(178, 215, 186)">Tasa: 96.7%</p>
+            <p id="tasaActual" style="font-size:0.7em; color:rgb(178, 215, 186)">Tasa: 96.7%</p>
 
             <button class="button" onclick="gastoMes()" type="button">¿Llego a fin de mes?</button>
 
