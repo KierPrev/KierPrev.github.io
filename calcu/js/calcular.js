@@ -22,7 +22,12 @@ function gastoMes() {
 
     for (let i = 1; i < diasRestantes; i++) {
       gastoTotal = gastoTotal + gastoHoy*(1+0.01*i);
-      neto = plataTotal - gastoTotal + (plataTotal-gastoTotal)*(0.967/365)*i;
+      if (plataTotal>0) {
+        neto = plataTotal - gastoTotal + (plataTotal-gastoTotal)*(0.967/365)*i;
+      }
+      else {
+        neto = plataTotal - gastoTotal;
+      }
     }
 
     document.getElementById("gastoTotal").innerHTML = "&emsp; $ " + String(round(gastoTotal).toLocaleString('en-US'));
