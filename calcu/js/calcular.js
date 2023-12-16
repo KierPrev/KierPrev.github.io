@@ -7,9 +7,9 @@ function gastoMes() {
       gastoTotal = gastoTotal + gastoHoy*(1+0.01*i);
     }
 
-    document.getElementById("gastoTotal").innerHTML = String(gastoTotal.toLocaleString('en-US'));
+    document.getElementById("gastoTotal").innerHTML = "&emsp; $ " + String(gastoTotal.toLocaleString('en-US'));
 
-    document.getElementById("plataTotal").innerHTML = String((plataTotal - gastoTotal).toLocaleString('en-US'));
+    document.getElementById("plataTotal").innerHTML = "&emsp; $ " + String((plataTotal - gastoTotal).toLocaleString('en-US'));
 
   if (plataTotal - gastoTotal <= 0) {
     document.getElementById('milei').style.display = 'block';

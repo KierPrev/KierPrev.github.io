@@ -19,29 +19,28 @@
 
             <h2>Calculadora de gastos e inflación diaria</h2>
             
-            Inflación diaria estimada: 1%
-            <br>
-            <br>
-            Gastos de hoy:
+            <p style="font-size:0.8em; color:rgb(178, 215, 186)">Inflación diaria estimada: 1%</p>
+            
+            Gastos que tuviste hoy:
             <br>
             <input type="text" id="gastos" value="0">
             <br><br>
-            Plata en MercadoPago - Tasa 96.7%
+            Tenés en MercadoPago
             <br>
             <input type="text" id="billetera" value="0">
-            <br><br>
+            <p style="font-size:0.7em; color:rgb(178, 215, 186)">Tasa: 96.7%</p>
 
             <button onclick="gastoMes()" type="button">Calcular</button>
 
             <br><br>
 
-            Gastos en 30 días: 
-            <p style="display:inline" id="gastoTotal">0</p>
+            Gastos proyectados a 30 días: 
+            <p style="display:inline" id="gastoTotal">&emsp; $ 0</p>
             
             <br>
             <br> 
-            Plata en 30 días:
-            <p style="display:inline" id="plataTotal">0</p>
+            Plata proyectada a 30 días:
+            <p style="display:inline" id="plataTotal">&emsp; $ 0</p>
 
             <img
             id="milei"
