@@ -33,7 +33,7 @@ function gastoMes() {
 
     
 
-  if (plataFinDeMes <= 0) {
+  if (neto <= 0) {
     document.getElementById('milei').style.display = 'block';
   }
   else {
