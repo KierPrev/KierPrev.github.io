@@ -15,6 +15,10 @@ function gastoMes() {
     }  
     const diasRestantes = daysUntilEndOfMonth();
 
+  function round(v) {
+      return Math.sign(v) * Math.round(Math.abs(v));
+  }
+
 
     for (let i = 1; i < diasRestantes; i++) {
       gastoTotal = gastoTotal + gastoHoy*(1+0.01*i);
@@ -27,9 +31,9 @@ function gastoMes() {
     gananciaNeta = gananciaBilletera - plataTotal;
 
     plataFinDeMes = plataTotal - gastoTotal + gananciaNeta;
-    document.getElementById("gastoTotal").innerHTML = "&emsp; $ " + String(gastoTotal.toLocaleString('en-US'));
+    document.getElementById("gastoTotal").innerHTML = "&emsp; $ " + String(round(gastoTotal).toLocaleString('en-US'));
 
-    document.getElementById("plataTotal").innerHTML = "&emsp; $ " + String(plataFinDeMes.toLocaleString('en-US'));
+    document.getElementById("plataTotal").innerHTML = "&emsp; $ " + String(round(plataFinDeMes).toLocaleString('en-US'));
     
   
 
