@@ -26,17 +26,17 @@
                       
             Gastás por día
             <br>
-            <input class="input" type="number" id="gastos" value="0" size="15em">
+            <input class="input" type="number" id="gastos" value="0" size="15em" oninput="cambiarTasa(), gastoMes()">
             <br>
             <p style="font-size:0.8em; color:rgb(178, 215, 186)">Inflación diaria estimada: 1%</p>
             <br>
-            Tenés en <select onchange=cambiarTasa() id="cual-billetera">
+            Tenés en <select onchange="cambiarTasa(), gastoMes()" id="cual-billetera">
                 <option value="mercadopago">MercadoPago</option>
                 <option value="naranjax">Naranja X</option>
                 <option value="prex">Prex</option>
               </select>
             <br>
-            <input class="input" type="number" id="billetera" value="0" size="15em">
+            <input class="input" type="number" id="billetera" value="0" size="15em" oninput="cambiarTasa(), gastoMes()">
             <p id="tasaActual" style="font-size:1em; color:rgb(178, 215, 186)">Tasa: 96.7%</p>
 
             <button class="button" onclick="cambiarTasa(), gastoMes()" type="button">Calcular</button>
