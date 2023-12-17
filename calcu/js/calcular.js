@@ -1,6 +1,7 @@
 function cambiarTasa() {
   var e = document.getElementById("cual-billetera");
   var value = e.value;
+  inflacion = document.getElementById("tasainflacion").value;
 
   if (value=="mercadopago") {
     tasa=96.7;
@@ -41,7 +42,7 @@ function gastoMes() {
 
 
     for (let i = 0; i < diasRestantes; i++) {
-      gastoAjustado = gastoHoy*1.01**i;
+      gastoAjustado = gastoHoy*(1+inflacion/100)**i;
       gastoTotal = gastoTotal + gastoAjustado;
       if ((plataTotal - gastoAjustado)>0) {
         plataTotal = (plataTotal - gastoAjustado) + (plataTotal - gastoAjustado)*tasa/100/365;
