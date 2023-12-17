@@ -41,18 +41,21 @@ function gastoMes() {
 
 
     for (let i = 0; i < diasRestantes; i++) {
-      gastoTotal = gastoTotal + gastoHoy*((1+0.01)**i);
-      if (plataTotal>0) {
-        neto = plataTotal - gastoTotal + (plataTotal-gastoTotal)*((tasa/100)/365)*i;
+      gastoAjustado = gastoHoy*1.01**i;
+      gastoTotal = gastoTotal + gastoAjustado;
+      if ((plataTotal - gastoAjustado)>0) {
+        plataTotal = (plataTotal - gastoAjustado) + (plataTotal - gastoAjustado)*tasa/100/365;
       }
       else {
-        neto = plataTotal - gastoTotal;
+        plataTotal = plataTotal - gastoAjustado;
       }
     }
 
+    
+
     document.getElementById("gastoTotal").innerHTML = "&emsp; $ " + String(round(gastoTotal).toLocaleString('en-US'));
 
-    document.getElementById("plataTotal").innerHTML = "&emsp; $ " + String(round(neto).toLocaleString('en-US'));
+    document.getElementById("plataTotal").innerHTML = "&emsp; $ " + String(round(plataTotal).toLocaleString('en-US'));
     
   
 
