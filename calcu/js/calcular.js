@@ -61,7 +61,7 @@ function gastoMes() {
 
     
   
-  if (neto <= 0) {
+  if (plataTotal <= 0) {
     document.getElementById('llegas').style.display = 'block';
   }
   else {
