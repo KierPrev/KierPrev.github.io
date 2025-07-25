@@ -194,6 +194,8 @@ body {
     text-align: center;
     font-size: 1.5em;
     margin-bottom: 0.5em;
+    font-weight: 600;
+    line-height: 1.6em;
     /* Separación tras la cita */
 }
 
