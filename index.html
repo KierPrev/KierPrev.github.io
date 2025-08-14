@@ -22,9 +22,10 @@
   </section>
   <!-- End of Parallax Pixel Background Animation -->
 
-  <p id="profilePicture" href="https://kier.ar">
-    <img src="profile.png">
-  </p>
+  <div id="profilePicture">
+  <img class="foto-principal" src="profile.png" alt="Logo">
+  <img class="foto-hover" src="Arte/portrait.jpg" alt="Retrato">
+</div>
 
 
   <div id="userName">
@@ -37,13 +38,12 @@
     <br>
   </center>
 
+  <br>
 
   <div id="links">
 
 
-    <a class="link" href="deforestacion.html" target="_self">
-      <i class="fas fa-tree">&nbsp;</i>Deforestación en San Luis
-    </a>
+   
     
     <a class="link" href="https://www.youtube.com/@kier_liz" target="_self">
       <i class="fab fa-youtube">&nbsp;</i>YT
@@ -54,9 +54,7 @@
     </a>
 
 
-    <a class="link" href="unpocodemi.html" target="_self">
-      <i class="fas fa-book">&nbsp;</i>Un poco de mí</a>
-    </a>
+    
 
     
 
@@ -66,14 +64,49 @@
     </a>
     -->
 
+    
+
 
 
   </div>
 
-  <br>
+ 
+   
+
+    <div class="proyectos-container">
+  <a class="link link-proyectos" href="deforestacion.html" target="_self">
+    <i class="fas fa-tree">&nbsp;</i>Deforestación en San Luis
+  </a>
+</div>
+
+<div class="proyectos-container">
+  <a class="link link-proyectos" href="unpocodemi.html" target="_self">
+    <i class="fas fa-book">&nbsp;</i>Un poco de mí
+  </a>
+</div>
 
 
+<div class="proyectos-container">
+  <a class="link link-proyectos" href="javascript:void(0);" onclick="toggleSeccion()" role="button">
+    <i class="fas fa-star">&nbsp;</i>Proyectos
+  </a>
+</div>
 
+
+<!-- Sección oculta inicialmente -->
+<div id="miSeccion" style="
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.75s ease, opacity 0.75s ease, padding-top 0.75s ease, padding-bottom 0.75s ease;
+  text-align: center;
+  color: white;
+  padding: 0 1em; /* lateral fijo */
+  border-radius: 8px;
+  margin: 0 auto;
+  width: fit-content;
+">
+  
   <div class="columns-container">
     <!-- Columna izquierda -->
     <div class="column">
@@ -181,9 +214,33 @@
     </div>
 
     
+
+    
   </div>
 
+</div>
 
+<script>
+function toggleSeccion() {
+  const seccion = document.getElementById('miSeccion');
+  const isHidden = seccion.style.maxHeight === '' || seccion.style.maxHeight === '0px';
+
+  if (isHidden) {
+    seccion.style.maxHeight = seccion.scrollHeight + 'px';
+    seccion.style.opacity = '1';
+    seccion.style.paddingTop = '1em';
+    seccion.style.paddingBottom = '1em';
+  } else {
+    seccion.style.maxHeight = '0';
+    seccion.style.opacity = '0';
+    seccion.style.paddingTop = '0';
+    seccion.style.paddingBottom = '0';
+  }
+}
+</script>
+
+
+  
 
 
 
@@ -193,69 +250,12 @@
   <br>
 
 
-  <!--
 
 
 
-
-  <center style="color:white; font-weight:bold; font-size:1.6em">
-    <br>
-    Otros proyectos
-    <br>
-    <hr style="width:15em; border: 0.1px solid white;">
-  </center>
-  <br>
-
-  <center style="color:white; font-weight:bold; font-size:1.4em">
-    LibreLab UNSL (2022)
-  </center>
-  <br>
-  <center style="color:white; font-weight:bold; font-size:1.1em">
-    Kit educativo de ciencia para experimentos en el aula, basado en Arduino.<br>Un puente entre el aula y TIC de bajo
-    costo.<br>
-    <br>Desarrollado bajo la convocatoria:<br> “Proyectos para el Desarrollo e Innovación Científica y Tecnológica”
-    <br>
-    <a style="color:	Cyan" href="https://labunsl.github.io/"">LabUNSL.github.io</a>
-</center>
-<br>
-<br>
-<br>
-<br>
-<center style=" color:white; font-weight:bold; font-size:1.4em">
-      Jornadas Argentinas de Informatica - 49 Edición (2019)
-  </center>
-  <br>
-  <center style="color:white; font-weight:bold; font-size:1.1em">
-    <a style="color:	Cyan" href="Pluviómetro - Proy. Investigación CyT.pdf" target="_blank">Pluviómetro electrónico de
-      bajo costo para mejorar la resolucion espacio-temporal del registro de lluvias en condiciones de campo</a>
-  </center>
-  <br><br><br>
-  <br>
-
-  <center style="color:white; font-weight:bold; font-size:1.4em">
-    Proyecto Final de Física Experimental III (2019)
-  </center>
-  <br>
-  <center style="color:white; font-weight:bold; font-size:1.1em">
-    <a style="color:	Cyan" href="Póster Hidrodinámica - Kiernan Preve.pdf" target="_blank">Hidrodinámica de ondas piloto
-      como analogía cuántica macroscópica</a>
-  </center>
-  <br><br>
-  <br>
+ 
 
 
-
-  <center style="color:white; font-weight:bold; font-size:1.4em">
-    Publicación de novela: Dentro del Origen (2023)
-  </center>
-  <br>
-  <center style="color:white; font-weight:bold; font-size:1.1em">
-    <a style="color:	Cyan" href="https://www.tintalibre.com.ar/book/1465/Dentro_del_origen">Tinta Libre Ediciones</a>
-  </center>
-  <br><br>
-  <br>
-
--->
 
   <div id="hashtag">
     <br><img src="icon.png" alt="❤️"
