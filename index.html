@@ -1,3 +1,8 @@
+---
+layout: null
+title: "Inicio"
+---
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -48,20 +53,21 @@
     </a>
   </div>
 
-  ---
-layout: post
-title: "Blog"
----
 
-<h1>Blog</h1>
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <small>— {{ post.date | date: "%d %b %Y" }}</small>
-    </li>
-  {% endfor %}
-</ul>
+
+<section id="blog" class="sec">
+    <h1>Blog</h1>
+    <ul>
+      {% for post in site.posts %}
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <small>— {{ post.date | date: "%d/%m/%Y" }}</small>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  
 
   <div class="proyectos-container">
     <a class="link link-proyectos" href="blog/index.html" target="_self">
