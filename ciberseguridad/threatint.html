@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiernan Preve</title>
+    <!-- Favicon -->
+    <link rel="icon" href="icon.png" />
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <!-- Core theme CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Parallax Pixel Background Animation -->
+    <section class="animated-background">
+        <div id="stars1"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </section>
+    <!-- End of Parallax Pixel Background Animation -->
+
+   <section id="security-portfolio" class="sec-ti">
+  <div class="ti-hero">
+    <h1>Threat Intelligence</h1>
+    <p class="ti-sub">Convierto señales en acción: <strong>briefs ejecutivos</strong> de 1 página y hallazgos claros.</p>
+
+    <div class="ti-chips" aria-label="Habilidades">
+      <span class="chip"><i class="fas fa-terminal"></i> Linux & Terminal</span>
+      <span class="chip"><i class="fas fa-sitemap"></i> Redes: HTTP/HTTPS</span>
+      <span class="chip"><i class="fas fa-globe"></i> DNS</span>
+      <span class="chip"><i class="fas fa-plug"></i> IPs & Puertos</span>
+      <span class="chip"><i class="fas fa-file-alt"></i> Briefs claros</span>
+    </div>
+  </div>
+
+  <div class="ti-grid">
+    <!-- Caso destacado -->
+    <article class="ti-card">
+      <header>
+        <h2 class="ti-h3"><i class="fas fa-bolt"></i> Caso 001 — SSH brute force (log simulado)</h2>
+        <p class="ti-meta">Ventana: 09:12–09:41 • 2 IPs ofensores • Enumeración de usuarios</p>
+      </header>
+      <p>
+        Analicé intentos fallidos de SSH desde <code>203.0.113.8</code> y <code>198.51.100.22</code> contra
+        usuarios comunes (<em>admin, test, oracle…</em>) y <code>root</code>. Separé actividad legítima
+        (<em>alice</em>, <em>dev</em>) del ruido y prioricé mitigaciones.
+      </p>
+      <ul class="ti-findings">
+        <li>Patrones: múltiples <code>Failed password</code> desde las mismas IPs en minutos.</li>
+        <li>Accesos legítimos identificados y documentados.</li>
+        <li>Mitigación propuesta: bloquear IPs, deshabilitar login de <code>root</code>, Fail2Ban.</li>
+      </ul>
+      <div class="ti-actions">
+        <a class="btn" href="brief.pdf" target="_blank" aria-label="Leer brief PDF">
+          <i class="fas fa-file-pdf"></i> Leer brief (PDF)
+        </a>
+        
+      </div>
+    </article>
+
+    <!-- Habilidades en acción -->
+    <article class="ti-card">
+      <header>
+        <h2 class="ti-h3"><i class="fas fa-tools"></i> Habilidades técnicas</h2>
+        <p class="ti-meta">Lo que uso en mi día a día</p>
+      </header>
+      <ul class="ti-skills">
+        <li><i class="fas fa-terminal"></i> <strong>Linux/WSL</strong>: grep, less, pipelines, scripting básico.</li>
+        <li><i class="fas fa-sitemap"></i> <strong>Redes</strong>: HTTP/HTTPS, DNS, rutas, IPs/puertos, SSH seguro.</li>
+        <li><i class="fas fa-search"></i> <strong>Análisis de logs</strong>: patrones, priorización y reducción de ruido.</li>
+        <li><i class="fas fa-clipboard-check"></i> <strong>Documentación</strong>: briefs de 1 pág claros y accionables.</li>
+      </ul>
+      <div class="ti-actions">
+        <a class="btn" href="../cv.pdf" target="_blank"><i class="fas fa-id-card"></i> Ver CV</a>
+        <a class="btn ghost" href="/contacto"><i class="fas fa-paper-plane"></i> Contacto</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+
+
+    <div id="hashtag">
+        <br><img src="../icon.png" alt="❤️"
+            style="width:45px;height:45px; filter: grayscale(75%) brightness(140%); opacity:0.9">
+    </div>
+
+    <br>
+</body>
+
+</html>
