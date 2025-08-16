@@ -407,8 +407,7 @@ body {
     color: var(--bgColor);
 }
 
-#blog { outline: 3px solid red; }   /* quítalo luego */
-.post h1 { letter-spacing: .4px; }
+
 
 
 /*-----------------------parallax-----------------------*/
