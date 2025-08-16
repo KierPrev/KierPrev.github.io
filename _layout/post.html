@@ -1,17 +1,8 @@
-<!doctype html>
-<html lang="es">
-  
-<head>
-  <meta charset="utf-8">
-  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
-  <link rel="stylesheet" href="{{ 'style.css' | relative_url }}">
-</head>
-
-<body>
-  <main class="post">
-    <h1>{{ page.title }}</h1>
-    <p><small>{{ page.date | date: "%d %b %Y" }}</small></p>
-    {{ content }}
-  </main>
-</body>
-</html>
+---
+layout: default
+---
+<article class="post">
+  <h1>{{ page.title }}</h1>
+  <p class="post-meta">{{ page.date | date: "%d/%m/%Y" }}</p>
+  <div class="post-content">{{ content }}</div>
+</article>
