@@ -407,7 +407,8 @@ body {
     color: var(--bgColor);
 }
 
-
+#page.glamour { filter: url(#glamour-filter); }
+#page.chroma  { filter: url(#chroma-filter); }
 
 
 /*-----------------------parallax-----------------------*/
