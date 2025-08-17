@@ -31,11 +31,26 @@
     Kiernan Preve
   </div>
 
-  <center style="color:white; font-weight:bold; font-size:1.1em">
-    <br>
-    <span data-i18n="tagline">Creadora en creación</span>
-    <br>
-  </center>
+  <center style="color:white; font-weight:bold; font-size:1.1em; margin-top:10px;">
+  <a href="unpocodemi.html" class="glow-link">
+    <i class="fas fa-info-circle"></i> Creadora en creación
+  </a>
+</center>
+
+<style>
+  .glow-link {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    animation: glow 2.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    0%   { text-shadow: 0 0 4px #fff, 0 0 8px #87cefa, 0 0 12px #87cefa; }
+    25%  { text-shadow: 0 0 8px #fff, 0 0 14px #00ffff, 0 0 24px #00ffff; }
+  }
+</style>
+
 
   <br>
 
@@ -71,7 +86,7 @@
     </a>
   </div>
 
-  <!--
+ <!--
   <div class="proyectos-container">
     <a class="link link-proyectos" href="unpocodemi.html" target="_self">
       <i class="fas fa-book">&nbsp;</i>
@@ -79,6 +94,7 @@
     </a>
   </div>
   -->
+ 
 
   <div class="proyectos-container">
     <a class="link link-proyectos" href="javascript:void(0);" onclick="toggleSeccion()" role="button">
