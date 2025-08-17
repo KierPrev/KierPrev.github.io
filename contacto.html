@@ -55,6 +55,126 @@
   </div>
 </section>
 
+<!-- Botón existente "Contacto" -> dale este id -->
+<a id="openContact" class="link btn">💬 Contacto</a>
+
+<!-- Modal de contacto -->
+<div id="contactModal" class="modal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <button class="close" id="closeContact" aria-label="Cerrar">×</button>
+    <h2 id="contactTitle">Escribime</h2>
+
+    <form id="contactForm" novalidate>
+      <!-- Ajusta con tu endpoint de Formspree -->
+      <input type="hidden" name="formspreeEndpoint" value="https://formspree.io/f/REEMPLAZA_AQUI" />
+
+      <label>
+        Nombre
+        <input name="name" type="text" autocomplete="name" />
+      </label>
+
+      <label>
+        Email (para responderte)
+        <input name="email" type="email" autocomplete="email" />
+      </label>
+
+      <label>
+        Mensaje
+        <textarea name="message" rows="5" required></textarea>
+      </label>
+
+      <!-- Honeypot anti-spam (no tocar) -->
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-10000px" />
+
+      <button class="btn" type="submit" id="sendBtn">Enviar</button>
+      <p id="formStatus" class="status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+
+<style>
+/* Modal (encapsulado en #contactModal) */
+#contactModal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+  padding:16px;background:rgba(0,0,0,.45);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);
+  z-index:9999}
+#contactModal[aria-hidden="false"]{display:flex}
+#contactModal, #contactModal * , #contactModal *::before, #contactModal *::after{box-sizing:border-box}
+
+#contactModal .modal-card{
+  width:min(92vw,520px);max-height:min(86vh,640px);overflow:auto;overscroll-behavior:contain;
+  background:rgba(20,26,40,.9);border:1px solid rgba(255,255,255,.12);border-radius:20px;
+  padding:20px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.35);position:relative
+}
+#contactModal h2{margin:0 0 8px}
+#contactModal .close{
+  position:absolute;top:10px;right:12px;background:transparent;border:0;color:#fff;
+  font-size:24px;cursor:pointer;line-height:1
+}
+
+#contactModal label{display:block;font-size:.95rem;margin:10px 0 6px}
+#contactModal input,#contactModal textarea{
+  display:block;width:100%;margin:0 0 12px;padding:12px 14px;border-radius:12px;
+  border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.28);color:#fff
+}
+#contactModal input:focus,#contactModal textarea:focus{
+  outline:2px solid rgba(255,255,255,.35);outline-offset:0
+}
+
+#contactModal .btn{
+  display:inline-block;padding:.7em 1.1em;border-radius:14px;background:#f6c6bb;color:#111;
+  border:0;box-shadow:0 6px 0 #000;cursor:pointer
+}
+#contactModal .btn:hover{transform:translateY(-2px)}
+
+body.modal-open{overflow:hidden}
+
+
+</style>
+
+<script>
+// Abrir/cerrar modal
+const openBtn = document.querySelector('#openContact');
+const modal = document.querySelector('#contactModal');
+const closeBtn = document.querySelector('#closeContact');
+openBtn?.addEventListener('click', e => { e.preventDefault(); modal.setAttribute('aria-hidden','false'); });
+closeBtn?.addEventListener('click', () => modal.setAttribute('aria-hidden','true'));
+modal.addEventListener('click', e => { if(e.target === modal) modal.setAttribute('aria-hidden','true'); });
+
+// Envío sin recargar (Formspree)
+const form = document.querySelector('#contactForm');
+const statusEl = document.querySelector('#formStatus');
+const sendBtn = document.querySelector('#sendBtn');
+
+form?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const endpoint = form.querySelector('input[name="formspreeEndpoint"]').value;
+  const data = Object.fromEntries(new FormData(form).entries());
+  // Quitar campos internos
+  delete data.formspreeEndpoint;
+  sendBtn.disabled = true; statusEl.textContent = 'Enviando…';
+
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    });
+    if (res.ok) {
+      statusEl.textContent = '¡Gracias! Te responderé pronto.';
+      form.reset();
+      setTimeout(()=> modal.setAttribute('aria-hidden','true'), 1200);
+    } else {
+      statusEl.textContent = 'Hubo un problema. Probá de nuevo más tarde.';
+    }
+  } catch {
+    statusEl.textContent = 'Sin conexión. Intenta más tarde.';
+  } finally {
+    sendBtn.disabled = false;
+  }
+});
+</script>
+
+
 
     <div id="hashtag">
         <br><img src="icon.png" alt="❤️"

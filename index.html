@@ -72,12 +72,41 @@
     </a>
   </div>
 
-  <div class="proyectos-container">
-    <a class="link link-proyectos" href="contacto.html" target="_self">
-      <i class="fas fa-comments">&nbsp;</i>
-      <span data-i18n="contact">Contacto</span>
-    </a>
+  <!-- Botón/contacto existente: solo asegúrate de que tenga este id -->
+   <div class="proyectos-container">
+<a class="link link-proyectos" id="openContact" class="link btn">
+  <i class="fas fa-comments">&nbsp;</i>Contacto</a>
+</div>
+
+<!-- Modal de contacto -->
+<div id="contactModal" class="modal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <button class="close" id="closeContact" aria-label="Cerrar">×</button>
+    <h2 id="contactTitle">Escribime</h2>
+
+    <!-- Funciona con o sin JS -->
+    <form id="contactForm"
+          action="https://formspree.io/f/mjkodebv"
+          method="POST" novalidate>
+      <label for="name">Nombre</label>
+      <input id="name" name="name" type="text" autocomplete="name" />
+
+      <label for="email">Email (para responderte)</label>
+      <input id="email" name="email" type="email" autocomplete="email" />
+
+      <label for="message">Mensaje</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <!-- Honeypot anti-spam -->
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"
+             style="position:absolute;left:-10000px" />
+
+      <button class="btn" type="submit" id="sendBtn">Enviar</button>
+      <p id="formStatus" class="status" role="status" aria-live="polite"></p>
+    </form>
   </div>
+</div>
+
 
   <div class="proyectos-container">
     <a class="link link-proyectos" href="apoyar.html" target="_self">
@@ -317,6 +346,33 @@
     applyI18n(detectLang());
   </script>
 
+<script>
+// Botones y modal
+const openBtn = document.querySelector('#openContact');
+const modal = document.querySelector('#contactModal');
+const closeBtn = document.querySelector('#closeContact');
+
+// abrir
+openBtn?.addEventListener('click', e => {
+  e.preventDefault();
+  modal.setAttribute('aria-hidden','false');
+  document.body.classList.add('modal-open');
+});
+
+// cerrar (botón X)
+closeBtn?.addEventListener('click', () => {
+  modal.setAttribute('aria-hidden','true');
+  document.body.classList.remove('modal-open');
+});
+
+// cerrar clickeando el fondo
+modal?.addEventListener('click', e => {
+  if (e.target === modal) {
+    modal.setAttribute('aria-hidden','true');
+    document.body.classList.remove('modal-open');
+  }
+});
+</script>
 
 
 </body>

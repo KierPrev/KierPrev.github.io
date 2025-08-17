@@ -420,6 +420,50 @@ img {
 #page.chroma  { filter: url(#chroma-filter); }
 
 
+/* ===== Modal de contacto (encapsulado) ===== */
+#contactModal{
+position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+  padding:16px;background:rgba(0,0,0,.45);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);
+  z-index:9999
+}
+#contactModal[aria-hidden="false"]{display:flex}
+#contactModal, #contactModal * , #contactModal *::before, #contactModal *::after{box-sizing:border-box}
+
+#contactModal .modal-card{
+    
+  width:min(92vw,520px);max-height:min(86vh,640px);overflow:auto;overscroll-behavior:contain;
+  background:rgba(20,26,40,.9);border:1px solid rgba(255,255,255,.12);border-radius:20px;
+  padding:20px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.35);position:relative
+}
+#contactModal h2{margin:0 0 8px}
+#contactModal .close{
+  position:absolute;top:10px;right:12px;background:transparent;border:0;color:#fff;
+  font-size:24px;cursor:pointer;line-height:1
+}
+
+#contactModal label{display:block;font-size:.95rem;margin:10px 0 6px}
+#contactModal input,#contactModal textarea{
+  display:block;width:100%;margin:0 0 12px;padding:12px 14px;border-radius:12px;
+  border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.28);color:#fff
+}
+#contactModal input:focus,#contactModal textarea:focus{
+  outline:2px solid rgba(255,255,255,.35);outline-offset:0
+}
+
+#contactModal .btn{
+    
+  display:inline-block;padding:.7em 1.1em;border-radius:14px;background:#f6c6bb;color:#111;
+  border:0;box-shadow:0 6px 0 #000;cursor:pointer
+}
+#contactModal .btn:hover{transform:translateY(-2px)}
+
+#contactModal .status{min-height:1.4em;opacity:.9;margin-top:8px}
+
+/* Evita scroll del body cuando el modal está abierto (lo maneja tu JS) */
+body.modal-open{overflow:hidden}
+
+
+
 /*-----------------------parallax-----------------------*/
 /* credits: https://www.youtube.com/watch?v=aywzn9cf-_U */
 #stars1 {
