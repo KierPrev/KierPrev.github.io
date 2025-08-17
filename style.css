@@ -19,7 +19,7 @@ a {
 
 a:hover {
     background: rgba(106, 178, 255, 0.5);
-    transform: translateY(-3px);
+    transform: translateY(-4px);
 }
 
 body {
