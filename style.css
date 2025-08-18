@@ -201,6 +201,16 @@ img {
     font-size: 1.4em;
 }
 
+.item-title > a[href]{
+  animation:glowless 1.5s ease-in-out infinite alternate-reverse;
+}
+
+
+
+@keyframes glowless {
+    0%   { text-shadow: 0 0 8px #fff, 0 0 4px #87cefa; }
+  }
+
 .spacer-large {
     height: 7em;
 }
