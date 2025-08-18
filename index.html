@@ -144,7 +144,25 @@
     border-radius: 8px;
     margin: 0 auto;
     width: fit-content;
+    position: relative;
   ">
+
+   <!-- Botón flotante (empieza oculto) -->
+<button id="closeSeccion" type="button" aria-label="Colapsar" title="Colapsar" style="
+  position: fixed;           /* ← flota respecto a la ventana */
+  right: 16px;
+  bottom: 16px;
+  width: 84px; height: 84px; /* más cómodo para tap */
+  border-radius: 50%;
+  background: #ffd0c3;
+  border: 2px solid #000;
+  cursor: pointer;
+  display: none;             /* ← oculto hasta abrir */
+  z-index: 2147483647;       /* por encima de todo */
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+  align-items: center; justify-content: center; font-size: 22px; line-height: 1;
+">×</button>
+
     <div class="columns-container">
       <!-- Columna izquierda -->
       <div class="column">
@@ -270,23 +288,32 @@
 
   <br>
 
-  <script>
-    function toggleSeccion() {
-      const seccion = document.getElementById('miSeccion');
-      const isHidden = seccion.style.maxHeight === '' || seccion.style.maxHeight === '0px';
 
-      if (isHidden) {
-        seccion.style.maxHeight = seccion.scrollHeight + 'px';
-        seccion.style.opacity = '1';
-        seccion.style.paddingTop = '1em';
-        seccion.style.paddingBottom = '1em';
-      } else {
-        seccion.style.maxHeight = '0';
-        seccion.style.opacity = '0';
-        seccion.style.paddingTop = '0';
-        seccion.style.paddingBottom = '0';
-      }
-    }
+
+
+
+  <script>
+function toggleSeccion() {
+  const seccion = document.getElementById('miSeccion');
+  const closeBtn = document.getElementById('closeSeccion');
+  const isHidden = seccion.style.maxHeight === '' || seccion.style.maxHeight === '0px';
+
+  if (isHidden) {
+    seccion.style.maxHeight = seccion.scrollHeight + 'px';
+    seccion.style.opacity = '1';
+    seccion.style.paddingTop = '1em';
+    seccion.style.paddingBottom = '1em';
+    closeBtn.style.display = 'block';
+  } else {
+    seccion.style.maxHeight = '0';
+    seccion.style.opacity = '0';
+    seccion.style.paddingTop = '0';
+    seccion.style.paddingBottom = '0';
+    closeBtn.style.display = 'none';
+  }
+}
+
+document.getElementById('closeSeccion')?.addEventListener('click', toggleSeccion);
 
     // Diccionario de traducción
     const I18N = {
