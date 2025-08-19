@@ -221,6 +221,19 @@ img {
   }
 }
 
+.brillito{
+  animation:glowless 1.5s ease-in-out infinite alternate-reverse;
+}
+
+
+@keyframes glowless {
+  0% {
+    text-shadow:
+      0 0 8px rgba(255,255,255,0.75),
+      0 0 4px rgba(135,206,250,0.65);
+  }
+}
+
 .spacer-large {
     height: 7em;
 }

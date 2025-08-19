@@ -44,12 +44,109 @@
 
         <!-- Bloque de post con video de YouTube pequeño -->
         <style>
-        .yt-post{max-width:1080px;margin:20px auto 28px}
-        .yt-post .yt-wrapper{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.25)}
-        .yt-post .yt-wrapper iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-        .yt-post .yt-title{font-size:1.35rem;margin:.6rem 0 .2rem;line-height:1.3}
-        .yt-post .yt-desc{font-size:1.15rem;opacity:.85;margin:1}
-        </style>
+  .yt-post {
+    max-width: 1080px;
+    margin: 20px auto 28px;
+  }
+
+  .yt-post .yt-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+  }
+
+  .yt-post .yt-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .yt-post .yt-title {
+    font-size: 1.35rem;
+    margin: 2.5rem 0 .2rem;
+    line-height: 1.3;
+  }
+
+  .yt-post .yt-desc {
+    font-size: 1.15rem;
+    opacity: .85;
+    margin-top: 1rem; /* corregido */
+  }
+
+  /* NUEVO: fila texto + imagen */
+  .yt-post .post-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 1rem;
+  }
+
+  .yt-post .post-row .text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .yt-post .post-row .thumb {
+    flex: 0 0 350px; /* ancho fijo de la imagen */
+  }
+
+  .yt-post .post-row .thumb img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+  }
+
+  /* Responsive: en pantallas chicas se apila */
+  @media (max-width: 720px) {
+    .yt-post .post-row {
+      flex-direction: column;
+    }
+    .yt-post .post-row .thumb {
+      flex: 0 1 auto;
+      max-width: 100%;
+    }
+  }
+</style>
+
+
+        <article class="yt-post">
+  <h2 class="yt-title">18 Agosto, 2025 <br>Mapa Mental de Magnetobiología: punto de partida</h2>
+
+  <article class="yt-post">
+  <div class="post-row">
+    <div class="text">
+      <p class="yt-desc">
+        Hoy inicio el mapa mental de <strong>Magnetobiología</strong>, que será mi Trabajo Final Integrador.
+        El objetivo es organizar conceptos y evidencias (magnetita biológica, transducción, campo geomagnético, SNR) y conectarlos con cálculos de orden de magnitud.
+        Curso con el Bioing. y Dr. en Física
+        <a class="brillito" href="https://bicyt.conicet.gov.ar/fichas/p/leonardo-makinistian" target="_blank" rel="noopener">Leonardo Makinistian</a>.
+      </p>
+    </div>
+
+    <a class="thumb" href="https://kierprev.github.io/magnetobiologia/" target="_blank" rel="noopener" title="Ver el mapa en vivo">
+      <img src="../Arte/mapamental.png" alt="Vista del grafo inicial del mapa de Magnetobiología">
+    </a>
+  </div>
+
+    <p class="yt-desc">
+    🔗 <a href="https://kierprev.github.io/magnetobiologia/" target="_blank" rel="noopener">Ver el mapa en vivo</a> · 
+    
+  </p>
+</article>
+
+
+  
+  
+
+  
+</article>
+
 
         <article class="yt-post">
             <h2 class="yt-title">15 Abril, 2025 <br>Explorando ProjectEuler en VSCode: ¿Te animás a entrenar tu mente?</h2>
