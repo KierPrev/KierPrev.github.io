@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kiernan Preve</title>
-  <meta name="description" content="Consultorías en ciencia de datos y tecnología, escritura y producción musical. Proyectos abiertos.">
+  <meta name="description"
+    content="Consultorías en ciencia de datos y tecnología, escritura y producción musical. Proyectos abiertos.">
 
   <!-- Favicon -->
   <link rel="icon" href="icon.png" />
@@ -34,34 +35,45 @@
   </div>
 
   <center style="color:white; font-weight:bold; font-size:1.1em; margin-top:10px;">
-  <a href="unpocodemi.html" class="glow-link">
-    <i class="fas fa-info-circle"></i> Creadora en creación
-  </a>
-</center>
+    <a href="unpocodemi.html" class="glow-link">
+      <i class="fas fa-info-circle"></i> Creadora en creación
+    </a>
+  </center>
 
-<style>
-  .glow-link {
-    color: white;
-    text-decoration: none;
-    position: relative;
-    animation: glow 2.5s ease-in-out infinite alternate;
-  }
+  <style>
+    .glow-link {
+      color: white;
+      text-decoration: none;
+      position: relative;
+      animation: glow 2.5s ease-in-out infinite alternate;
+    }
 
-  @keyframes glow {
-    0%   { text-shadow: 0 0 4px #fff, 0 0 8px #87cefa, 0 0 12px #87cefa; }
-    25%  { text-shadow: 0 0 8px #fff, 0 0 14px #00ffff, 0 0 24px #00ffff; }
-  }
-</style>
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 4px #fff, 0 0 8px #87cefa, 0 0 12px #87cefa;
+      }
+
+      25% {
+        text-shadow: 0 0 8px #fff, 0 0 14px #00ffff, 0 0 24px #00ffff;
+      }
+    }
+  </style>
 
 
   <br>
 
   <div id="links">
-    <a href="https://www.youtube.com/@kiernanpreve" target="_self" style="border:none;background:none;padding:0;margin:0 8px;color:white;font-size:1.7em;vertical-align:middle;text-decoration:none;">
+    <a href="https://www.youtube.com/@kiernanpreve" target="_self"
+      style="border:none;background:none;padding:0;margin:0 8px;color:white;font-size:1.7em;vertical-align:middle;text-decoration:none;">
       <i class="fab fa-youtube"></i>
     </a>
-    <a href="https://instagram.com/kierprev" target="_self" style="border:none;background:none;padding:0;margin:0 8px;color:white;font-size:1.7em;vertical-align:middle;text-decoration:none;">
+    <a href="https://instagram.com/kierprev" target="_self"
+      style="border:none;background:none;padding:0;margin:0 8px;color:white;font-size:1.7em;vertical-align:middle;text-decoration:none;">
       <i class="fab fa-instagram"></i>
+    </a>
+    <a href="CV Agosto 2025.pdf" target="_self"
+      style="border:none;background:none;padding:0;margin:0 8px;color:white;font-size:1.5em;vertical-align:middle;text-decoration:none;">
+      <strong>CV</strong>
     </a>
   </div>
 
@@ -75,39 +87,36 @@
   </div>
 
   <!-- Botón/contacto existente: solo asegúrate de que tenga este id -->
-   <div class="proyectos-container">
-<a class="link link-proyectos" id="openContact" class="link btn">
-  <i class="fas fa-comments">&nbsp;</i>Contacto</a>
-</div>
-
-<!-- Modal de contacto -->
-<div id="contactModal" class="modal" aria-hidden="true">
-  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
-    <button class="close" id="closeContact" aria-label="Cerrar">×</button>
-    <h2 id="contactTitle">Escribime</h2>
-
-    <!-- Funciona con o sin JS -->
-    <form id="contactForm"
-          action="https://formspree.io/f/mjkodebv"
-          method="POST" novalidate>
-      <label for="name">Nombre</label>
-      <input id="name" name="name" type="text" autocomplete="name" />
-
-      <label for="email">Email (para responderte)</label>
-      <input id="email" name="email" type="email" autocomplete="email" />
-
-      <label for="message">Mensaje</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-
-      <!-- Honeypot anti-spam -->
-      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"
-             style="position:absolute;left:-10000px" />
-
-      <button class="btn" type="submit" id="sendBtn">Enviar</button>
-      <p id="formStatus" class="status" role="status" aria-live="polite"></p>
-    </form>
+  <div class="proyectos-container">
+    <a class="link link-proyectos" id="openContact" class="link btn">
+      <i class="fas fa-comments">&nbsp;</i>Contacto</a>
   </div>
-</div>
+
+  <!-- Modal de contacto -->
+  <div id="contactModal" class="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+      <button class="close" id="closeContact" aria-label="Cerrar">×</button>
+      <h2 id="contactTitle">Escribime</h2>
+
+      <!-- Funciona con o sin JS -->
+      <form id="contactForm" action="https://formspree.io/f/mjkodebv" method="POST" novalidate>
+        <label for="name">Nombre</label>
+        <input id="name" name="name" type="text" autocomplete="name" />
+
+        <label for="email">Email (para responderte)</label>
+        <input id="email" name="email" type="email" autocomplete="email" />
+
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <!-- Honeypot anti-spam -->
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-10000px" />
+
+        <button class="btn" type="submit" id="sendBtn">Enviar</button>
+        <p id="formStatus" class="status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
 
 
   <div class="proyectos-container">
@@ -117,7 +126,7 @@
     </a>
   </div>
 
- <!--
+  <!--
   <div class="proyectos-container">
     <a class="link link-proyectos" href="unpocodemi.html" target="_self">
       <i class="fas fa-book">&nbsp;</i>
@@ -125,7 +134,7 @@
     </a>
   </div>
   -->
- 
+
 
   <div class="proyectos-container">
     <a class="link link-proyectos" href="javascript:void(0);" onclick="toggleSeccion()" role="button">
@@ -149,8 +158,8 @@
     position: relative;
   ">
 
-   <!-- Botón flotante (empieza oculto) -->
-<button id="closeSeccion" type="button" aria-label="Colapsar" title="Colapsar" style="
+    <!-- Botón flotante (empieza oculto) -->
+    <button id="closeSeccion" type="button" aria-label="Colapsar" title="Colapsar" style="
   position: fixed;           /* ← flota respecto a la ventana */
   right: 16px;
   bottom: 16px;
@@ -171,7 +180,8 @@
         <div class="section-title" data-i18n="books">Libros</div>
         <hr class="section-divider">
         <div class="item-title">
-          <a href="https://www.wattpad.com/story/396226382-andra-m%C3%A1s-all%C3%A1-del-origen" target="_blank" style="color:inherit; text-decoration:none;">
+          <a href="https://www.wattpad.com/story/396226382-andra-m%C3%A1s-all%C3%A1-del-origen" target="_blank"
+            style="color:inherit; text-decoration:none;">
             Andra: Más allá del origen
           </a>
         </div>
@@ -196,7 +206,8 @@
         </div>
         <br>
         <div class="item-title">
-          <a href="https://github.com/KierPrev/PIDController" target="_blank" style="color:inherit; text-decoration:none;">
+          <a href="https://github.com/KierPrev/PIDController" target="_blank"
+            style="color:inherit; text-decoration:none;">
             Controlador PID
           </a>
         </div>
@@ -226,14 +237,16 @@
         <div>2019</div>
         <br>
         <div class="item-title">
-          <a href="https://soundcloud.com/kierprev/sets/argentum-online-soundtrack" target="_blank" style="color:inherit; text-decoration:none;">
+          <a href="https://soundcloud.com/kierprev/sets/argentum-online-soundtrack" target="_blank"
+            style="color:inherit; text-decoration:none;">
             Argentum Online Soundtrack
           </a>
         </div>
         <div>2015</div>
         <br>
         <div class="item-title">
-          <a href="https://soundcloud.com/kierprev/sets/cr-nicas-del-cosmos" target="_blank" style="color:inherit; text-decoration:none;">
+          <a href="https://soundcloud.com/kierprev/sets/cr-nicas-del-cosmos" target="_blank"
+            style="color:inherit; text-decoration:none;">
             Crónicas del cosmos
           </a>
         </div>
@@ -253,12 +266,12 @@
         <div>2025</div>
         <br>
 
-              <div class="item-title">
+        <div class="item-title">
           <a href="deforestacion.html" target="_self" style="color:inherit; text-decoration:none;">
             <i class="fas fa-tree"></i>&nbsp;
             <span data-i18n="deforestation">Deforestación en San Luis</span>
           </a>
-          
+
         </div>
         <div>2025</div>
 
@@ -280,14 +293,16 @@
         <div>2022</div>
         <br>
         <div class="item-title">
-          <a href="Pluviómetro - Proy. Investigación CyT.pdf" target="_blank" style="color:inherit; text-decoration:none;">
+          <a href="Pluviómetro - Proy. Investigación CyT.pdf" target="_blank"
+            style="color:inherit; text-decoration:none;">
             Pluviómetro electrónico
           </a>
         </div>
         <div>2019</div>
         <br>
         <div class="item-title">
-          <a href="Póster Hidrodinámica - Kiernan Preve.pdf" target="_blank" style="color:inherit; text-decoration:none;">
+          <a href="Póster Hidrodinámica - Kiernan Preve.pdf" target="_blank"
+            style="color:inherit; text-decoration:none;">
             Hidrodinámica
           </a>
         </div>
@@ -311,27 +326,27 @@
 
 
   <script>
-function toggleSeccion() {
-  const seccion = document.getElementById('miSeccion');
-  const closeBtn = document.getElementById('closeSeccion');
-  const isHidden = seccion.style.maxHeight === '' || seccion.style.maxHeight === '0px';
+    function toggleSeccion() {
+      const seccion = document.getElementById('miSeccion');
+      const closeBtn = document.getElementById('closeSeccion');
+      const isHidden = seccion.style.maxHeight === '' || seccion.style.maxHeight === '0px';
 
-  if (isHidden) {
-    seccion.style.maxHeight = seccion.scrollHeight + 'px';
-    seccion.style.opacity = '1';
-    seccion.style.paddingTop = '1em';
-    seccion.style.paddingBottom = '1em';
-    closeBtn.style.display = 'block';
-  } else {
-    seccion.style.maxHeight = '0';
-    seccion.style.opacity = '0';
-    seccion.style.paddingTop = '0';
-    seccion.style.paddingBottom = '0';
-    closeBtn.style.display = 'none';
-  }
-}
+      if (isHidden) {
+        seccion.style.maxHeight = seccion.scrollHeight + 'px';
+        seccion.style.opacity = '1';
+        seccion.style.paddingTop = '1em';
+        seccion.style.paddingBottom = '1em';
+        closeBtn.style.display = 'block';
+      } else {
+        seccion.style.maxHeight = '0';
+        seccion.style.opacity = '0';
+        seccion.style.paddingTop = '0';
+        seccion.style.paddingBottom = '0';
+        closeBtn.style.display = 'none';
+      }
+    }
 
-document.getElementById('closeSeccion')?.addEventListener('click', toggleSeccion);
+    document.getElementById('closeSeccion')?.addEventListener('click', toggleSeccion);
 
     // Diccionario de traducción
     const I18N = {
@@ -353,22 +368,22 @@ document.getElementById('closeSeccion')?.addEventListener('click', toggleSeccion
         physics_notes: "Reflexiones en Física"
       },
       en: {
-      tagline: "A creator in the making",
-      contact: "Contact",
-      about: "About",
-      projects: "Projects",
-      books: "Books",
-      writing: "Writing",
-      programming: "Programming",
-      thesis_in_progress: "Thesis (In Progress)",
-      cybersecurity: "Cybersecurity",
-      helping: "Support my work",
-      analysis_example: "Sample Analysis",
-      music: "Music",
-      science: "Science",
-      deforestation: "Deforestation in San Luis",
-      physics_notes: "Physics Notes"
-    }
+        tagline: "A creator in the making",
+        contact: "Contact",
+        about: "About",
+        projects: "Projects",
+        books: "Books",
+        writing: "Writing",
+        programming: "Programming",
+        thesis_in_progress: "Thesis (In Progress)",
+        cybersecurity: "Cybersecurity",
+        helping: "Support my work",
+        analysis_example: "Sample Analysis",
+        music: "Music",
+        science: "Science",
+        deforestation: "Deforestation in San Luis",
+        physics_notes: "Physics Notes"
+      }
     };
 
     function detectLang() {
@@ -391,33 +406,33 @@ document.getElementById('closeSeccion')?.addEventListener('click', toggleSeccion
     applyI18n(detectLang());
   </script>
 
-<script>
-// Botones y modal
-const openBtn = document.querySelector('#openContact');
-const modal = document.querySelector('#contactModal');
-const closeBtn = document.querySelector('#closeContact');
+  <script>
+    // Botones y modal
+    const openBtn = document.querySelector('#openContact');
+    const modal = document.querySelector('#contactModal');
+    const closeBtn = document.querySelector('#closeContact');
 
-// abrir
-openBtn?.addEventListener('click', e => {
-  e.preventDefault();
-  modal.setAttribute('aria-hidden','false');
-  document.body.classList.add('modal-open');
-});
+    // abrir
+    openBtn?.addEventListener('click', e => {
+      e.preventDefault();
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+    });
 
-// cerrar (botón X)
-closeBtn?.addEventListener('click', () => {
-  modal.setAttribute('aria-hidden','true');
-  document.body.classList.remove('modal-open');
-});
+    // cerrar (botón X)
+    closeBtn?.addEventListener('click', () => {
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+    });
 
-// cerrar clickeando el fondo
-modal?.addEventListener('click', e => {
-  if (e.target === modal) {
-    modal.setAttribute('aria-hidden','true');
-    document.body.classList.remove('modal-open');
-  }
-});
-</script>
+    // cerrar clickeando el fondo
+    modal?.addEventListener('click', e => {
+      if (e.target === modal) {
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+      }
+    });
+  </script>
 
 
 </body>
