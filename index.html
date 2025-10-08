@@ -5,8 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kiernan Preve</title>
-  <meta name="description"
-    content="Consultorías en ciencia de datos y tecnología, escritura y producción musical. Proyectos abiertos.">
+  <meta name="description" content="Escritora de «Dentro del Origen». Estudiante Lic. Física. Productora musical.">
 
   <!-- Favicon -->
   <link rel="icon" href="icon.png" />
@@ -36,7 +35,7 @@
 
   <center style="color:white; font-weight:bold; font-size:1.1em; margin-top:10px;">
     <a href="unpocodemi.html" class="glow-link">
-      <i class="fas fa-info-circle"></i> Creadora en creación
+      <i class="fas fa-info-circle"></i> <span data-i18n="tagline">Creadora en creación</span>
     </a>
   </center>
 
@@ -82,14 +81,14 @@
   <div class="proyectos-container">
     <a class="link link-proyectos" href="blog/index.html" target="_self">
       <i class="fas fa-book">&nbsp;</i>
-      Blog
+      <span data-i18n="blog">Blog</span>
     </a>
   </div>
 
   <!-- Botón/contacto existente: solo asegúrate de que tenga este id -->
   <div class="proyectos-container">
-    <a class="link link-proyectos" id="openContact" class="link btn">
-      <i class="fas fa-comments">&nbsp;</i>Contacto</a>
+    <a class="link link-proyectos" id="openContact" href="javascript:void(0);">
+      <i class="fas fa-comments">&nbsp;</i><span data-i18n="contact">Contacto</span></a>
   </div>
 
   <!-- Modal de contacto -->
@@ -271,7 +270,6 @@
             <i class="fas fa-tree"></i>&nbsp;
             <span data-i18n="deforestation">Deforestación en San Luis</span>
           </a>
-
         </div>
         <div>2025</div>
 
@@ -336,7 +334,7 @@
         seccion.style.opacity = '1';
         seccion.style.paddingTop = '1em';
         seccion.style.paddingBottom = '1em';
-        closeBtn.style.display = 'block';
+        closeBtn.style.display = 'flex';
       } else {
         seccion.style.maxHeight = '0';
         seccion.style.opacity = '0';
@@ -347,63 +345,83 @@
     }
 
     document.getElementById('closeSeccion')?.addEventListener('click', toggleSeccion);
+  </script>
 
-    // Diccionario de traducción
-    const I18N = {
-      es: {
-        tagline: "Creadora en creación",
-        contact: "Contacto",
-        about: "Un poco de mí",
-        projects: "Proyectos",
-        books: "Libros",
-        writing: "Escribiendo...",
-        programming: "Programación",
-        thesis_in_progress: "Proyecto en curso (Tesis)",
-        cybersecurity: "Ciberseguridad",
-        analysis_example: "Ejemplo de Análisis",
-        music: "Música",
-        science: "Ciencia",
-        helping: "Apoyar mi trabajo",
-        deforestation: "Deforestación en San Luis",
-        physics_notes: "Reflexiones en Física"
-      },
-      en: {
-        tagline: "A creator in the making",
-        contact: "Contact",
-        about: "About",
-        projects: "Projects",
-        books: "Books",
-        writing: "Writing",
-        programming: "Programming",
-        thesis_in_progress: "Thesis (In Progress)",
-        cybersecurity: "Cybersecurity",
-        helping: "Support my work",
-        analysis_example: "Sample Analysis",
-        music: "Music",
-        science: "Science",
-        deforestation: "Deforestation in San Luis",
-        physics_notes: "Physics Notes"
+  <script>
+    // Sistema de internacionalización simplificado
+    (function () {
+      // Diccionario de traducción
+      const I18N = {
+        es: {
+          tagline: "Creadora en creación",
+          contact: "Contacto",
+          about: "Un poco de mí",
+          projects: "Proyectos",
+          books: "Libros",
+          writing: "Escribiendo...",
+          programming: "Programación",
+          thesis_in_progress: "Proyecto en curso (Tesis)",
+          cybersecurity: "Ciberseguridad",
+          analysis_example: "Ejemplo de Análisis",
+          music: "Música",
+          science: "Ciencia",
+          helping: "Apoyar mi trabajo",
+          deforestation: "Deforestación en San Luis",
+          physics_notes: "Reflexiones en Física"
+        },
+        en: {
+          tagline: "A creator in the making",
+          contact: "Contact",
+          about: "About",
+          projects: "Projects",
+          books: "Books",
+          writing: "Writing",
+          programming: "Programming",
+          thesis_in_progress: "Thesis (In Progress)",
+          cybersecurity: "Cybersecurity",
+          helping: "Support my work",
+          analysis_example: "Sample Analysis",
+          music: "Music",
+          science: "Science",
+          deforestation: "Deforestation in San Luis",
+          physics_notes: "Physics Notes"
+        }
+      };
+
+      function detectLang() {
+        const pref = (navigator.languages && navigator.languages[0]) || navigator.language || "es";
+        const lower = pref.toLowerCase();
+        if (lower.startsWith("en")) return "en";
+        if (lower.startsWith("es")) return "es";
+        return "es";
       }
-    };
 
-    function detectLang() {
-      const pref = (navigator.languages && navigator.languages[0]) || navigator.language || "es";
-      const lower = pref.toLowerCase();
-      if (lower.startsWith("en")) return "en";
-      if (lower.startsWith("es")) return "es";
-      return "es";
-    }
+      function applyI18n(lang) {
+        document.documentElement.setAttribute("lang", lang);
+        const elements = document.querySelectorAll("[data-i18n]");
+        console.log(`Applying ${lang} translations to ${elements.length} elements`);
 
-    function applyI18n(lang) {
-      document.documentElement.setAttribute("lang", lang);
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        const text = I18N[lang] && I18N[lang][key];
-        if (text) el.textContent = text;
-      });
-    }
+        elements.forEach(el => {
+          const key = el.getAttribute("data-i18n");
+          const text = I18N[lang] && I18N[lang][key];
+          if (text) {
+            el.textContent = text;
+          } else {
+            console.warn(`Translation key not found: ${key} for language ${lang}`);
+          }
+        });
+      }
 
-    applyI18n(detectLang());
+      // Aplicar traducciones cuando el DOM esté listo
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () {
+          applyI18n(detectLang());
+        });
+      } else {
+        // DOM ya está cargado
+        applyI18n(detectLang());
+      }
+    })();
   </script>
 
   <script>
