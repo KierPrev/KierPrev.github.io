@@ -34,27 +34,52 @@
     Kiernan Preve
   </div>
 
-  <center style="color:white; font-weight:bold; font-size:1.1em; margin-top:10px;">
+  <center class="intro-copy">
     <a href="unpocodemi.html" class="glow-link">
-      <i class="fas fa-info-circle"></i> <span data-i18n="tagline">Creadora en creación</span>
+      <i class="fas fa-info-circle"></i>
+      <span class="intro-main" data-i18n="tagline">Investigadora en física trabajando en magnetobiología — diseño, construyo y estudio.</span>
+      <span class="intro-also" data-i18n="tagline_also">También: autora, compositora y firme creyente de que la curiosidad nos va a salvar.</span>
     </a>
   </center>
 
   <style>
+    .intro-copy {
+      color: white;
+      font-weight: bold;
+      font-size: 1.05em;
+      margin: 10px auto 0;
+      max-width: 620px;
+      padding: 0 1rem;
+      line-height: 1.35;
+    }
+
     .glow-link {
       color: white;
       text-decoration: none;
       position: relative;
       animation: glow 2.5s ease-in-out infinite alternate;
+      display: inline-block;
+    }
+
+    .intro-main,
+    .intro-also {
+      display: block;
+    }
+
+    .intro-also {
+      margin-top: 0.35rem;
+      font-size: 0.86em;
+      font-weight: 400;
+      opacity: 0.78;
     }
 
     @keyframes glow {
       0% {
-        text-shadow: 0 0 4px #fff, 0 0 8px #87cefa, 0 0 12px #87cefa;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.75), 0 0 5px rgba(135, 206, 250, 0.55), 0 0 8px rgba(135, 206, 250, 0.4);
       }
 
       25% {
-        text-shadow: 0 0 8px #fff, 0 0 14px #00ffff, 0 0 24px #00ffff;
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.85), 0 0 8px rgba(0, 255, 255, 0.45), 0 0 13px rgba(0, 255, 255, 0.3);
       }
     }
   </style>
@@ -67,7 +92,7 @@
       style="border:none;background:none;padding:0;margin:0 8px;color:white;font-size:1.7em;vertical-align:middle;text-decoration:none;">
       <i class="fab fa-youtube"></i>
     </a>
-    <a href="https://instagram.com/kiernanpreve" target="_self"
+    <a href="https://instagram.com/kier.preve" target="_self"
       style="border:none;background:none;padding:0;margin:0 8px;color:white;font-size:1.7em;vertical-align:middle;text-decoration:none;">
       <i class="fab fa-instagram"></i>
     </a>
@@ -356,7 +381,8 @@
       // Diccionario de traducción
       const I18N = {
         es: {
-          tagline: "Creadora en creación",
+          tagline: "Investigadora en física trabajando en magnetobiología — diseño, construyo y estudio.",
+          tagline_also: "También: autora, compositora y firme creyente de que la curiosidad nos va a salvar.",
           contact: "Contacto",
           about: "Un poco de mí",
           projects: "Proyectos",
@@ -375,7 +401,8 @@
           contact: "Contacto"
         },
         en: {
-          tagline: "A creator in the making",
+          tagline: "Physics researcher working on magnetobiology — I design, build, and study.",
+          tagline_also: "Also: author, composer, and firm believer that curiosity will save us.",
           contact: "Contact",
           about: "About",
           projects: "Projects",
