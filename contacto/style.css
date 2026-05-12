@@ -39,47 +39,13 @@ body {
     position: relative;
 }
 
-#profilePicture {
-    position: relative; /* importante para que el centrado sea relativo a este contenedor */
-    margin-top: 80px;
-}
-
-#profilePicture img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 123px;
-    height: 123px;
-    border-radius: 50%;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.5s ease;
-    -webkit-tap-highlight-color: transparent;
-
-    /* sombra suave */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-}
-
-
-#profilePicture .foto-hover {
-  opacity: 0;
-}
-
-#profilePicture:hover .foto-hover {
-  opacity: 1;
-}
-
-#profilePicture:hover .foto-principal {
-  opacity: 0;
-}
-
 #userName {
     color: #FFF;
     font-size: 2em;
     font-weight: bold;
     line-height: 1.25;
     display: block;
-    margin-top: 160px;
+    margin-top: 80px;
     font-family: var(--font);
     width: 100%;
     text-align: center;
@@ -239,14 +205,14 @@ body {
 }
 
 .link.link-proyectos {
-  display: inline-block;
-  width: 300px;
-  text-align: center;
+    display: inline-block;
+    width: 300px;
+    text-align: center;
 }
 
 .proyectos-container {
-  text-align: center;
-  margin-bottom: 1em;
+    text-align: center;
+    margin-bottom: 1em;
 }
 
 

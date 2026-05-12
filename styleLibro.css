@@ -45,29 +45,6 @@ body {
     position: relative;
 }
 
-#profilePicture,
-#profilePicture img {
-    position: relative;
-    width: 112px;
-    height: 112px;
-    display: block;
-    margin: 15px auto 15px;
-    border-radius: 50%;
-    -webkit-tap-highlight-color: transparent;
-}
-
-#userName {
-    color: #FFF;
-    font-size: 2em;
-    font-weight: bold;
-    line-height: 1.25;
-    display: block;
-    font-family: var(--font);
-    width: 100%;
-    text-align: center;
-    text-decoration: none;
-}
-
 #links {
     max-width: 900px;
     width: auto;
@@ -376,4 +353,3 @@ body {
     background-color: var(--accentColor);
     color: var(--bgColor);
 }
-

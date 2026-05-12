@@ -42,52 +42,13 @@ body {
     /*position: relative;*/
 }
 
-#profilePicture {
-    position: relative; /* importante para que el centrado sea relativo a este contenedor */
-    margin-top: 80px;
-}
-
-img {
-    z-index: 9999 !important;
-}
-
-#profilePicture img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 123px;
-    height: 123px;
-    z-index: 9999 !important;
-    border-radius: 50%;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.5s ease;
-    -webkit-tap-highlight-color: transparent;
-
-    /* sombra suave */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-}
-
-
-#profilePicture .foto-hover {
-  opacity: 0;
-}
-
-#profilePicture:hover .foto-hover {
-  opacity: 1;
-}
-
-#profilePicture:hover .foto-principal {
-  opacity: 0;
-}
-
 #userName {
     color: #FFF;
     font-size: 2em;
     font-weight: bold;
     line-height: 1.25;
     display: block;
-    margin-top: 160px;
+    margin-top: 80px;
     font-family: var(--font);
     width: 100%;
     text-align: center;
@@ -203,35 +164,10 @@ img {
     font-size: 1.4em;
 }
 
-.item-title > a[href]{
-  animation:glowless 1.5s ease-in-out infinite alternate-reverse;
-}
-
-.item-title + div{
-  color: #ffffff;         /* gris medio */
-  opacity: .65;
-}
-
-
-@keyframes glowless {
-  0% {
-    text-shadow:
-      0 0 8px rgba(255,255,255,0.75),
-      0 0 4px rgba(135,206,250,0.65);
-  }
-}
-
-.brillito{
-  animation:glowless 1.5s ease-in-out infinite alternate-reverse;
-}
-
-
-@keyframes glowless {
-  0% {
-    text-shadow:
-      0 0 8px rgba(255,255,255,0.75),
-      0 0 4px rgba(135,206,250,0.65);
-  }
+.item-title+div {
+    color: #ffffff;
+    /* gris medio */
+    opacity: .65;
 }
 
 .spacer-large {
@@ -280,14 +216,14 @@ img {
 }
 
 .link.link-proyectos {
-  display: inline-block;
-  width: 300px;
-  text-align: center;
+    display: inline-block;
+    width: 300px;
+    text-align: center;
 }
 
 .proyectos-container {
-  text-align: center;
-  margin-bottom: 0.5em;
+    text-align: center;
+    margin-bottom: 0.5em;
 }
 
 
@@ -449,51 +385,121 @@ img {
     color: var(--bgColor);
 }
 
-#page.glamour { filter: url(#glamour-filter); }
-#page.chroma  { filter: url(#chroma-filter); }
+#page.glamour {
+    filter: url(#glamour-filter);
+}
+
+#page.chroma {
+    filter: url(#chroma-filter);
+}
 
 
 /* ===== Modal de contacto (encapsulado) ===== */
-#contactModal{
-position:fixed;inset:0;display:none;align-items:center;justify-content:center;
-  padding:16px;background:rgba(0,0,0,.45);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);
-  z-index:9999
-}
-#contactModal[aria-hidden="false"]{display:flex}
-#contactModal, #contactModal * , #contactModal *::before, #contactModal *::after{box-sizing:border-box}
-
-#contactModal .modal-card{
-    
-  width:min(92vw,520px);max-height:min(86vh,640px);overflow:auto;overscroll-behavior:contain;
-  background:rgba(20,26,40,.9);border:1px solid rgba(255,255,255,.12);border-radius:20px;
-  padding:20px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.35);position:relative
-}
-#contactModal h2{margin:0 0 8px}
-#contactModal .close{
-  position:absolute;top:10px;right:12px;background:transparent;border:0;color:#fff;
-  font-size:24px;cursor:pointer;line-height:1
+#contactModal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(0, 0, 0, .45);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    z-index: 9999
 }
 
-#contactModal label{display:block;font-size:.95rem;margin:10px 0 6px}
-#contactModal input,#contactModal textarea{
-  display:block;width:100%;margin:0 0 12px;padding:12px 14px;border-radius:12px;
-  border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.28);color:#fff
-}
-#contactModal input:focus,#contactModal textarea:focus{
-  outline:2px solid rgba(255,255,255,.35);outline-offset:0
+#contactModal[aria-hidden="false"] {
+    display: flex
 }
 
-#contactModal .btn{
-    
-  display:inline-block;padding:.7em 1.1em;border-radius:14px;background:#f6c6bb;color:#111;
-  border:0;box-shadow:0 6px 0 #000;cursor:pointer
+#contactModal,
+#contactModal *,
+#contactModal *::before,
+#contactModal *::after {
+    box-sizing: border-box
 }
-#contactModal .btn:hover{transform:translateY(-2px)}
 
-#contactModal .status{min-height:1.4em;opacity:.9;margin-top:8px}
+#contactModal .modal-card {
+
+    width: min(92vw, 520px);
+    max-height: min(86vh, 640px);
+    overflow: auto;
+    overscroll-behavior: contain;
+    background: rgba(20, 26, 40, .9);
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 20px;
+    padding: 20px;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+    position: relative
+}
+
+#contactModal h2 {
+    margin: 0 0 8px
+}
+
+#contactModal .close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1
+}
+
+#contactModal label {
+    display: block;
+    font-size: .95rem;
+    margin: 10px 0 6px
+}
+
+#contactModal input,
+#contactModal textarea {
+    display: block;
+    width: 100%;
+    margin: 0 0 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, .25);
+    background: rgba(0, 0, 0, .28);
+    color: #fff
+}
+
+#contactModal input:focus,
+#contactModal textarea:focus {
+    outline: 2px solid rgba(255, 255, 255, .35);
+    outline-offset: 0
+}
+
+#contactModal .btn {
+
+    display: inline-block;
+    padding: .7em 1.1em;
+    border-radius: 14px;
+    background: #f6c6bb;
+    color: #111;
+    border: 0;
+    box-shadow: 0 6px 0 #000;
+    cursor: pointer
+}
+
+#contactModal .btn:hover {
+    transform: translateY(-2px)
+}
+
+#contactModal .status {
+    min-height: 1.4em;
+    opacity: .9;
+    margin-top: 8px
+}
 
 /* Evita scroll del body cuando el modal está abierto (lo maneja tu JS) */
-body.modal-open{overflow:hidden}
+body.modal-open {
+    overflow: hidden
+}
 
 
 
@@ -505,7 +511,7 @@ body.modal-open{overflow:hidden}
     width: 1px;
     height: 1px;
     opacity: 0.7;
-    z-index: -1; 
+    z-index: -1;
     background: transparent;
     animation: animStar 100s linear infinite;
 
@@ -693,7 +699,7 @@ body.modal-open{overflow:hidden}
     position: absolute;
     top: auto;
     opacity: 0.7;
-    z-index: -1; 
+    z-index: -1;
     width: 1px;
     height: 1px;
     background: transparent;
@@ -881,7 +887,7 @@ body.modal-open{overflow:hidden}
     width: 2px;
     height: 2px;
     opacity: 0.6;
-    z-index: -1; 
+    z-index: -1;
     background: transparent;
     animation: animStar 200s linear infinite;
 
@@ -945,7 +951,7 @@ body.modal-open{overflow:hidden}
     top: auto;
     width: 2px;
     height: 2px;
-    z-index: -1; 
+    z-index: -1;
     background: transparent;
 
     box-shadow: 1448px 320px #fff, 1775px 1663px #fff, 332px 1364px #fff,
@@ -1006,7 +1012,7 @@ body.modal-open{overflow:hidden}
     height: 3px;
     opacity: 0.6;
     background: transparent;
-    z-index: -1; 
+    z-index: -1;
     animation: animStar 350s linear infinite;
 
     box-shadow: 387px 1878px #fff, 760px 1564px #fff, 1487px 999px #fff,
@@ -1043,7 +1049,7 @@ body.modal-open{overflow:hidden}
     opacity: 0.5;
     top: auto;
     width: 3px;
-    z-index: -1; 
+    z-index: -1;
     height: 3px;
     background: transparent;
 
