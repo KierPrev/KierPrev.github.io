@@ -273,16 +273,6 @@ body {
     }
 }
 
-@keyframes animStar {
-    from {
-        transform: translateY(0px);
-    }
-
-    to {
-        transform: translateY(-2000px);
-    }
-}
-
 
 /*-------------------------popup------------------------*/
 /* credits: https://www.youtube.com/watch?v=lAS2glU0xlc */
