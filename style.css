@@ -419,7 +419,7 @@ body {
     border: 1px solid rgba(255, 255, 255, .12);
     border-radius: 20px;
     padding: 20px;
-    color: #1A0703;
+    color: #fff;
     box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
     position: relative
 }
@@ -434,7 +434,7 @@ body {
     right: 12px;
     background: transparent;
     border: 0;
-    color: #1A0703;
+    color: #fff;
     font-size: 24px;
     cursor: pointer;
     line-height: 1
@@ -455,7 +455,7 @@ body {
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, .25);
     background: rgba(0, 0, 0, .28);
-    color: #1A0703
+    color: #fff
 }
 
 #contactModal input:focus,
