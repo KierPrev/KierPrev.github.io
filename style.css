@@ -31,7 +31,7 @@ body {
     padding: 0;
     min-height: 100vh;
     font-family: var(--font);
-    background: linear-gradient(var(--bgColor) 10%, var(--bgColor2) 100%);
+    background: #EBE7E6;
     /* background-image: url('https://bit.ly/3nFVqJh'); */
     opacity: 0;
     animation: 1s ease-out var(--delay) 1 transitionAnimation;
@@ -43,7 +43,7 @@ body {
 }
 
 #userName {
-    color: #FFF;
+    color: #1A0703;
     font-size: 2em;
     font-weight: bold;
     line-height: 1.25;
@@ -69,7 +69,7 @@ body {
 }
 
 #timeline {
-    color: #FFF;
+    color: #1A0703;
     font-size: 1.1em;
     font-weight: bold;
     padding-left: 20px;
@@ -135,7 +135,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 4em;
-    color: white;
+    color: #1A0703;
     flex-wrap: wrap;
     /* permite que bajen si faltara espacio */
 }
@@ -154,7 +154,7 @@ body {
 
 .section-divider {
     width: 25em;
-    border: 0.1px solid white;
+    border: 0.1px solid #1A0703;
     margin: 0 auto 1em;
     opacity: 0.7;
 }
@@ -165,7 +165,7 @@ body {
 }
 
 .item-title+div {
-    color: #ffffff;
+    color: #1A0703;
     /* gris medio */
     opacity: .65;
 }
@@ -187,7 +187,7 @@ body {
     /* Espacio lateral en pantallas pequeñas */
     text-align: left;
     /* Para centrar todo el texto */
-    color: white;
+    color: #1A0703;
     font-weight: 500;
     font-size: 1.5em;
     line-height: 1.4em;
@@ -231,7 +231,7 @@ body {
 #hashtag {
     position: relative;
     padding-bottom: 0px;
-    color: #FFF;
+    color: #1A0703;
     font-size: 1rem;
     display: block;
     font-family: var(--font);
@@ -315,7 +315,7 @@ body {
     font: 'Karla';
     font-style: bold;
     position: flex;
-    color: #FFF;
+    color: #1A0703;
     padding: 10px;
     text-align: justify;
     font-size: 1.3rem;
@@ -419,7 +419,7 @@ body {
     border: 1px solid rgba(255, 255, 255, .12);
     border-radius: 20px;
     padding: 20px;
-    color: #fff;
+    color: #1A0703;
     box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
     position: relative
 }
@@ -434,7 +434,7 @@ body {
     right: 12px;
     background: transparent;
     border: 0;
-    color: #fff;
+    color: #1A0703;
     font-size: 24px;
     cursor: pointer;
     line-height: 1
@@ -455,7 +455,7 @@ body {
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, .25);
     background: rgba(0, 0, 0, .28);
-    color: #fff
+    color: #1A0703
 }
 
 #contactModal input:focus,
