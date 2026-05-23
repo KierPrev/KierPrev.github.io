@@ -28,10 +28,8 @@
 
   <center class="intro-copy">
     <a href="unpocodemi.html" class="glow-link">
-      <span class="intro-main" data-i18n="tagline">Estudiante de física investigando en magnetobiología — diseño,
-        construyo y estudio.</span>
-      <span class="intro-also" data-i18n="tagline_also">También: autora, compositora y firme creyente de que la
-        curiosidad nos va a salvar.</span>
+      <span class="intro-main" data-i18n="tagline">Estudiante de física investigando en magnetobiología.</span>
+      <span class="intro-also" data-i18n="tagline_also">La curiosidad nos va a salvar.</span>
     </a>
   </center>
 
@@ -120,37 +118,7 @@
     </a>
   </div>
 
-  <!-- Botón/contacto existente: solo asegúrate de que tenga este id -->
-  <div class="proyectos-container">
-    <a class="link link-proyectos" id="openContact" href="javascript:void(0);">
-      <i class="fas fa-comments">&nbsp;</i><span data-i18n="contact">Contacto</span></a>
-  </div>
 
-  <!-- Modal de contacto -->
-  <div id="contactModal" class="modal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
-      <button class="close" id="closeContact" aria-label="Cerrar">×</button>
-      <h2 id="contactTitle">Escribime</h2>
-
-      <!-- Funciona con o sin JS -->
-      <form id="contactForm" action="https://formspree.io/f/mjkodebv" method="POST" novalidate>
-        <label for="name">Nombre</label>
-        <input id="name" name="name" type="text" autocomplete="name" />
-
-        <label for="email">Email (para responderte)</label>
-        <input id="email" name="email" type="email" autocomplete="email" />
-
-        <label for="message">Mensaje</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <!-- Honeypot anti-spam -->
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-10000px" />
-
-        <button class="btn" type="submit" id="sendBtn">Enviar</button>
-        <p id="formStatus" class="status" role="status" aria-live="polite"></p>
-      </form>
-    </div>
-  </div>
 
 
   <!--
@@ -367,8 +335,8 @@
       // Diccionario de traducción
       const I18N = {
         es: {
-          tagline: "Estudiante de física investigando en magnetobiología — diseño, construyo y estudio.",
-          tagline_also: "También: autora, compositora y firme creyente de que la curiosidad nos va a salvar.",
+          tagline: "Estudiante de física investigando en magnetobiología.",
+          tagline_also: "La curiosidad nos va a salvar.",
           contact: "Contacto",
           about: "Un poco de mí",
           projects: "Proyectos",
@@ -390,8 +358,8 @@
           contact: "Contacto"
         },
         en: {
-          tagline: "Physics student working on magnetobiology — I design, build, and study.",
-          tagline_also: "Also: author, composer, and firm believer that curiosity will save us.",
+          tagline: "Physics student working on magnetobiology.",
+          tagline_also: "Curiosity will save us.",
           contact: "Contact",
           about: "About",
           projects: "Projects",
@@ -451,33 +419,7 @@
     })();
   </script>
 
-  <script>
-    // Botones y modal
-    const openBtn = document.querySelector('#openContact');
-    const modal = document.querySelector('#contactModal');
-    const closeBtn = document.querySelector('#closeContact');
 
-    // abrir
-    openBtn?.addEventListener('click', e => {
-      e.preventDefault();
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('modal-open');
-    });
-
-    // cerrar (botón X)
-    closeBtn?.addEventListener('click', () => {
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.classList.remove('modal-open');
-    });
-
-    // cerrar clickeando el fondo
-    modal?.addEventListener('click', e => {
-      if (e.target === modal) {
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('modal-open');
-      }
-    });
-  </script>
 
 
 </body>
