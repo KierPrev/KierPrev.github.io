@@ -123,6 +123,16 @@ body {
         /* ocupan todo el ancho disponible */
         max-width: none;
     }
+
+    #miSeccion {
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .section-divider {
+        width: 15em;
+        max-width: 80%;
+    }
 }
 
 .link:active {
