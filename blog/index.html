@@ -94,6 +94,65 @@
         border-radius: 8px;
       }
 
+      .yt-post .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 1.25rem;
+      }
+
+      .yt-post .photo-grid figure {
+        margin: 0;
+      }
+
+      .yt-post .photo-grid a {
+        display: block;
+      }
+
+      .yt-post .photo-grid img {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        display: block;
+        border-radius: 8px;
+      }
+
+      .yt-post .photo-grid figcaption {
+        font-size: .95rem;
+        opacity: .78;
+        margin-top: .55rem;
+        line-height: 1.35;
+      }
+
+      .yt-post .photo-single {
+        max-width: 760px;
+        margin: 1.25rem auto 0;
+      }
+
+      .yt-post .photo-single figure {
+        margin: 0;
+      }
+
+      .yt-post .photo-single a {
+        display: block;
+      }
+
+      .yt-post .photo-single img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        display: block;
+        border-radius: 8px;
+      }
+
+      .yt-post .photo-single figcaption {
+        font-size: .95rem;
+        opacity: .78;
+        margin-top: .55rem;
+        line-height: 1.35;
+        text-align: center;
+      }
+
       /* Responsive: en pantallas chicas se apila */
       @media (max-width: 720px) {
         .yt-post .post-row {
@@ -104,8 +163,62 @@
           flex: 0 1 auto;
           max-width: 100%;
         }
+
+        .yt-post .photo-grid {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
+
+    <article class="yt-post">
+      <h2 class="yt-title">31 Marzo, 2026 <br>Primer mes de tesis en magnetobiología</h2>
+
+      <p class="yt-desc">
+        Cumplí mi primer mes trabajando en la tesis de la Licenciatura en Física en el laboratorio de Magnetobiología
+        (MBLab), bajo la dirección de Leonardo Makinistian. El proyecto se centra en investigar tratamientos
+        magnéticos aplicados a semillas de maíz de uso agropecuario, buscando entender cómo distintas condiciones de
+        exposición podrían influir en procesos biológicos relevantes para la germinación y el desarrollo temprano.
+      </p>
+
+      <p class="yt-desc">
+        Este trabajo nace también de un proyecto en conjunto con mi director, Leonardo Makinistian, Daniel Guerreiro y
+        Lucía Guerreiro.
+      </p>
+
+      <div class="photo-grid">
+        <figure>
+          <a href="../Fotos/TorreSemillera.jpg" target="_blank" rel="noopener">
+            <img src="../Fotos/TorreSemillera.jpg" alt="Torre de exposición magnética impresa en 3D">
+          </a>
+          <figcaption>Torre de exposición magnética, impresa en 3D.</figcaption>
+        </figure>
+
+        <figure>
+          <a href="../Fotos/MirandoHerramientas.jpg" target="_blank" rel="noopener">
+            <img src="../Fotos/MirandoHerramientas.jpg" alt="Kier mirando herramientas de laboratorio">
+          </a>
+          <figcaption>Me gusta tener herramientas cerca, al parecer.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article class="yt-post">
+      <h2 class="yt-title">26 Marzo, 2026 <br>Recibida Tobi</h2>
+
+      <p class="yt-desc">
+        Se recibió de Licenciado en Física mi gran y querido amigo, Tobías Lo Gatto.
+
+      </p>
+
+      <div class="photo-single">
+        <figure>
+          <a href="../Fotos/RecibidaTobi.jpg" target="_blank" rel="noopener">
+            <img src="../Fotos/RecibidaTobi.jpg" alt="Grupo acompañando la recibida de Tobías Lo Gatto">
+          </a>
+          <figcaption>De izq. a der. Giuliano, Lucía, Jesús, Fer F., Tobías, Juanma, yo, Juli, Ana, Fer S.</figcaption>
+        </figure>
+      </div>
+    </article>
 
     <article class="yt-post">
       <h2 class="yt-title">14 Noviembre, 2025 <br>Poster MagnetCOIL</h2>
