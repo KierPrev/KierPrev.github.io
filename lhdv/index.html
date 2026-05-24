@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Crónicas de Fau — Lugar Seguro</title>
+    <!-- Google Fonts: VT323 y Space Mono para estilo retro/monoespaciado legible y cozy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. SISTEMA DE DISEÑO & VARIABLES
+           ========================================================================== */
+        :root {
+            /* Paleta de Colores Cozy */
+            --bg-page: #fdfbf7;         /* Papiro / Crema suave de fondo */
+            --bg-canvas: #120805;       /* Fondo de pantalla de juego (Noche oscura cálida) */
+            --border-game: #3e2723;     /* Café Espresso para el marco principal */
+            --border-shadow: #21100b;   /* Café muy oscuro para sombra de bordes */
+            --border-light: #5c3e35;    /* Café claro para brillo de bordes */
+            --border-accent: #c24e31;    /* Terracota para destaques */
+            --color-accent: #e05a2b;    /* Naranja cálido */
+            --text-light: #fbebe3;      /* Crema claro para texto sobre fondo oscuro */
+            --text-dark: #2c160b;       /* Café oscuro para texto sobre fondo claro */
+            --text-muted: #8d776f;      /* Tono neutro apagado */
+            
+            /* Tipografías */
+            --font-pixel: 'VT323', monospace;
+            --font-serif: 'Space Mono', monospace;
+        }
+
+        /* Reset Básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            /* Patrón de cuadrícula muy sutil estilo papiro pixelado */
+            background-image: 
+                linear-gradient(to right, rgba(194, 78, 49, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(194, 78, 49, 0.02) 1px, transparent 1px);
+            background-size: 16px 16px;
+            color: var(--text-dark);
+            font-family: var(--font-serif);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Título Decorativo Fuera del Juego */
+        .header-title {
+            font-family: var(--font-pixel);
+            font-size: 2.5rem;
+            color: var(--border-game);
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            text-align: center;
+            text-shadow: 2px 2px 0px rgba(194, 78, 49, 0.15);
+            transition: opacity 0.4s ease, color 0.4s ease, letter-spacing 0.5s ease, text-shadow 0.4s ease;
+        }
+
+        .header-title.decrypting {
+            color: var(--color-accent) !important;
+            letter-spacing: 5px;
+            animation: title-glitch 0.12s infinite alternate;
+        }
+
+        /* Glitch y Aberración Cromática Retro-Epic */
+        @keyframes title-glitch {
+            0% {
+                text-shadow: 
+                    2.5px -1.5px 0 rgba(255, 64, 129, 0.75), 
+                    -2.5px 1.5px 0 rgba(0, 229, 255, 0.75), 
+                    0 0 12px var(--color-accent);
+                transform: translate(0.5px, -0.5px) skewX(-1deg);
+            }
+            50% {
+                text-shadow: 
+                    -1.5px 2px 0 rgba(118, 255, 3, 0.75), 
+                    2px -2px 0 rgba(224, 64, 251, 0.75), 
+                    0 0 18px #ffeb3b;
+                transform: translate(-0.8px, 0.6px) skewX(1deg) scale(1.01);
+            }
+            100% {
+                text-shadow: 
+                    1.5px -2.5px 0 rgba(0, 229, 255, 0.75), 
+                    -1.5px 1.5px 0 rgba(255, 235, 59, 0.75), 
+                    0 0 10px var(--color-accent);
+                transform: translate(0.6px, 0.4px) skewX(0deg);
+            }
+        }
+
+        .header-subtitle {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .header-subtitle.visible {
+            opacity: 1;
+        }
+
+        /* ==========================================================================
+           2. CONTENEDOR DEL JUEGO (ESTILO CONSOLA RPG)
+           ========================================================================== */
+        .game-container {
+            width: 680px;
+            height: 580px;
+            background-color: var(--border-game);
+            border: 4px solid var(--border-game);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            /* Efecto retro de profundidad en el marco del juego */
+            box-shadow: 
+                inset 0 4px 0 var(--border-light), 
+                inset 4px 0 0 var(--border-light),
+                inset 0 -4px 0 var(--border-shadow),
+                inset -4px 0 0 var(--border-shadow),
+                0 0 0 6px var(--bg-page),
+                0 0 0 10px var(--border-game),
+                0 16px 36px rgba(62, 39, 35, 0.25);
+        }
+
+        /* Resplandor cálido en los bordes para simular fogata cercana */
+        .game-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 8px;
+            box-shadow: inset 0 0 40px rgba(224, 90, 43, 0.15);
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* ==========================================================================
+           3. PANTALLA VISUAL (COZY CANVAS DE ARTE ASCII)
+           ========================================================================== */
+        .visual-canvas {
+            flex: 1;
+            background-color: var(--bg-canvas);
+            position: relative;
+            border-bottom: 4px solid var(--border-game);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 15px;
+        }
+
+        /* Estrellas parpadeantes en el fondo */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 160px;
+            background-image: 
+                radial-gradient(1.5px 1.5px at 35px 30px, #ffffff, transparent),
+                radial-gradient(1px 1px at 80px 75px, #cfd8dc, transparent),
+                radial-gradient(2px 2px at 140px 45px, #b3e5fc, transparent),
+                radial-gradient(1.5px 1.5px at 220px 85px, #fce4ec, transparent),
+                radial-gradient(2.5px 2.5px at 290px 25px, #ffffff, transparent),
+                radial-gradient(1.5px 1.5px at 350px 95px, #e1f5fe, transparent),
+                radial-gradient(2px 2px at 410px 50px, #b0bec5, transparent),
+                radial-gradient(2px 2px at 480px 115px, #f8bbd0, transparent),
+                radial-gradient(1px 1px at 540px 35px, #ffffff, transparent),
+                radial-gradient(2.5px 2.5px at 600px 70px, #81d4fa, transparent),
+                radial-gradient(1.5px 1.5px at 650px 105px, #ffcdd2, transparent),
+                radial-gradient(1.5px 1.5px at 190px 20px, #cfd8dc, transparent);
+            opacity: 0.85;
+            animation: pulse-stars 4s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulse-stars {
+            0% { opacity: 0.6; }
+            100% { opacity: 1.0; }
+        }
+
+        /* Contenedores de Arte ASCII */
+        .char-container {
+            position: absolute;
+            bottom: 12px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            line-height: 1.15;
+            white-space: pre;
+            user-select: none;
+        }
+
+        /* --- FOGATA (CAMPFIRE) --- */
+        .campfire-container {
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+        }
+
+        .campfire-flames {
+            display: block;
+            transform-origin: bottom center;
+            /* Parpadeo normal del fuego */
+            animation: flicker-normal 0.35s infinite alternate ease-in-out;
+        }
+
+        /* Intensificación del fuego por clase CSS */
+        .campfire-container.intense .campfire-flames {
+            animation: flicker-intense 0.2s infinite alternate ease-in-out;
+        }
+
+        /* Detalle de color en los caracteres del fuego */
+        .flame-y { color: #ffb300; text-shadow: 0 0 6px rgba(255, 179, 0, 0.4); } /* Amarillo */
+        .flame-o { color: #ff6f00; text-shadow: 0 0 6px rgba(255, 111, 0, 0.4); } /* Naranja */
+        .flame-r { color: #d84315; } /* Terracota / Rojo */
+        .wood { color: #5d4037; }    /* Troncos */
+        .stones { color: #3e2723; }  /* Piedras base */
+
+        /* Animación de Parpadeo de Fogata */
+        @keyframes flicker-normal {
+            0%, 100% {
+                transform: scale(1) skewX(0deg);
+                filter: drop-shadow(0 0 5px rgba(255, 111, 0, 0.3));
+            }
+            30% {
+                transform: scale(0.98) skewX(-1deg);
+                filter: drop-shadow(0 0 4px rgba(255, 111, 0, 0.25));
+            }
+            70% {
+                transform: scale(1.03) skewX(1deg);
+                filter: drop-shadow(0 0 7px rgba(255, 179, 0, 0.4));
+            }
+        }
+
+        @keyframes flicker-intense {
+            0%, 100% {
+                transform: scale(1.05) skewX(1.5deg);
+                filter: drop-shadow(0 0 10px rgba(255, 111, 0, 0.6));
+            }
+            50% {
+                transform: scale(0.96) skewX(-1.5deg);
+                filter: drop-shadow(0 0 14px rgba(255, 179, 0, 0.7));
+            }
+        }
+
+        /* --- FIGURA CON CAPA (CLOAKED FIGURE) --- */
+        .figure-container {
+            left: 110px;
+            color: #b388ff; /* Púrpura/violeta mágico suave */
+            text-shadow: 0 0 6px rgba(179, 136, 255, 0.4);
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 1.8s ease, transform 1.8s ease;
+            z-index: 2;
+        }
+
+        .figure-container.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .figure-eyes {
+            color: #80deea; /* Brillo suave de ojos ocultos color cian mágico */
+            text-shadow: 0 0 6px rgba(128, 222, 234, 0.8);
+        }
+
+
+        /* --- CHISPAS FLOTANTES (SPARKS) --- */
+        .sparks-container {
+            position: absolute;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 130px;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 4;
+        }
+
+        .spark {
+            position: absolute;
+            color: #ffca28;
+            font-family: monospace;
+            font-size: 14px;
+            opacity: 0;
+        }
+
+        @keyframes spark-rise-left {
+            0% { transform: translate(0, 0); opacity: 0; }
+            20% { opacity: 0.8; }
+            80% { opacity: 0.6; }
+            100% { transform: translate(-25px, -110px); opacity: 0; }
+        }
+
+        @keyframes spark-rise-right {
+            0% { transform: translate(5px, 0); opacity: 0; }
+            10% { opacity: 0.9; }
+            70% { opacity: 0.5; }
+            100% { transform: translate(30px, -90px); opacity: 0; }
+        }
+
+        .spark-1 { animation: spark-rise-left 3.2s infinite 0.1s; left: 15px; }
+        .spark-2 { animation: spark-rise-right 2.4s infinite 0.7s; left: 35px; color: #ff7043; }
+        .spark-3 { animation: spark-rise-left 3.8s infinite 1.5s; left: 25px; }
+        .spark-4 { animation: spark-rise-right 2.8s infinite 0.9s; left: 45px; color: #ffb300; }
+
+        /* Aceleración de chispas en fuego intenso */
+        .sparks-container.intense .spark-1 { animation-duration: 1.6s; }
+        .sparks-container.intense .spark-2 { animation-duration: 1.2s; }
+        .sparks-container.intense .spark-3 { animation-duration: 1.9s; }
+        .sparks-container.intense .spark-4 { animation-duration: 1.4s; }
+
+        /* ==========================================================================
+           4. CAJA DE DIÁLOGO (DIALOGUE BOX)
+           ========================================================================== */
+        .dialogue-box {
+            height: 210px;
+            background-color: var(--bg-page);
+            border-top: 4px solid var(--border-game);
+            padding: 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            cursor: pointer;
+            user-select: none;
+            /* Sombra interna sutil para simular papiro dentro del slot */
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.2s ease;
+        }
+
+        /* Hover sutil en toda la caja clickable */
+        .dialogue-box:hover {
+            background-color: #fbf9f4;
+        }
+
+        /* Badge flotante para indicar el Hablante */
+        .speaker-badge {
+            position: absolute;
+            top: -16px;
+            left: 28px;
+            color: var(--text-light);
+            font-family: var(--font-pixel);
+            font-size: 20px;
+            padding: 2px 14px 4px 14px;
+            border-radius: 4px;
+            border: 2px solid var(--border-game);
+            box-shadow: 2px 2px 0 var(--border-game);
+            letter-spacing: 1.5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .speaker-badge.narrator {
+            background-color: #8d6e63; /* Color suave para el narrador */
+        }
+
+        .speaker-badge.figure {
+            background-color: var(--border-accent); /* Terracota para la figura con capa */
+        }
+        /* Texto de la Historia */
+        .dialogue-text {
+            font-family: var(--font-serif);
+            font-size: 18.5px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            margin-top: 8px;
+            height: 110px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(62, 39, 35, 0.2) transparent;
+        }
+        /* Cursor bloque titilante estilo Final Fantasy */
+        .text-cursor {
+            display: inline-block;
+            margin-left: 4px;
+            color: var(--border-accent);
+            font-size: 15px;
+            line-height: 1;
+            animation: retro-blink 0.8s infinite steps(2, start);
+            vertical-align: middle;
+        }
+
+        @keyframes retro-blink {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        /* Estilo Scrollbar para navegadores Webkit */
+        .dialogue-text::-webkit-scrollbar {
+            width: 4px;
+        }
+        .dialogue-text::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .dialogue-text::-webkit-scrollbar-thumb {
+            background-color: rgba(62, 39, 35, 0.2);
+            border-radius: 2px;
+        }
+
+        /* Contenedor del Botón de Avance */
+        .indicator-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .continue-btn {
+            font-family: var(--font-pixel);
+            font-size: 18px;
+            color: var(--border-accent);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 1px;
+            padding: 2px 5px;
+            border-radius: 4px;
+            transition: color 0.15s ease;
+        }
+
+        .dialogue-box:hover .continue-btn {
+            color: var(--color-accent);
+        }
+
+        /* Indicador de flecha animada */
+        .continue-arrow {
+            display: inline-block;
+            animation: arrow-bounce 0.6s infinite alternate ease-in-out;
+        }
+
+        @keyframes arrow-bounce {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(4px); }
+        }
+
+        /* Pantalla de Inicio / Comenzar */
+        .start-screen-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .start-btn {
+            font-family: var(--font-pixel);
+            font-size: 22px;
+            background-color: var(--border-accent);
+            color: var(--text-light);
+            border: 2px solid var(--border-game);
+            padding: 8px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 2px 2px 0 var(--border-game);
+            transition: transform 0.1s, box-shadow 0.1s, background-color 0.15s;
+        }
+
+        .start-btn:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 3px 3px 0 var(--border-game);
+            background-color: var(--color-accent);
+        }
+
+        .start-btn:active {
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0 var(--border-game);
+        }
+
+
+        /* ==========================================================================
+           5. PERGAMINO DE CIERRE (OVERLAY "CONTINUARÁ...")
+           ========================================================================== */
+        .parchment-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(26, 15, 10, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+            z-index: 10;
+        }
+
+        .parchment-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .parchment-scroll {
+            background-color: #f7ebd3;
+            border: 4px double #8d6e63;
+            padding: 40px 30px;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 
+                0 12px 28px rgba(0, 0, 0, 0.4),
+                inset 0 0 40px rgba(141, 110, 99, 0.15);
+            max-width: 420px;
+            width: 85%;
+            transform: scale(0.85);
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: #4e342e;
+            position: relative;
+        }
+
+        .parchment-overlay.active .parchment-scroll {
+            transform: scale(1);
+        }
+
+        /* Bordes estilo pergamino enrollado */
+        .parchment-scroll::before, .parchment-scroll::after {
+            content: '';
+            position: absolute;
+            left: 10px; right: 10px;
+            height: 8px;
+            background-color: #8d6e63;
+            border-radius: 4px;
+            opacity: 0.7;
+        }
+        .parchment-scroll::before { top: -4px; }
+        .parchment-scroll::after { bottom: -4px; }
+
+        .end-title {
+            font-family: var(--font-pixel);
+            font-size: 42px;
+            color: var(--border-accent);
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+        }
+
+        .end-text {
+            font-family: var(--font-serif);
+            font-size: 15.5px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .restart-btn {
+            font-family: var(--font-pixel);
+            font-size: 18px;
+            background-color: var(--border-accent);
+            color: var(--text-light);
+            border: 2px solid var(--border-game);
+            padding: 6px 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 2px 2px 0 var(--border-game);
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        .restart-btn:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 3px 3px 0 var(--border-game);
+            background-color: var(--color-accent);
+        }
+
+        .restart-btn:active {
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0 var(--border-game);
+        }
+
+        /* Footer del Sitio */
+        .cozy-footer {
+            margin-top: 25px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        .cozy-footer a {
+            color: var(--border-accent);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .cozy-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ==========================================================================
+           7. SOBRE Y CARTA DE LA VIAJERA K
+           ========================================================================== */
+        /* Contenedor del sobre flotante */
+        .envelope-container {
+            position: fixed;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%) rotate(2deg);
+            z-index: 80;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            animation: letter-float 3.5s infinite ease-in-out;
+            user-select: none;
+            transition: transform 0.2s ease;
+        }
+
+        .envelope-container:hover {
+            transform: translateY(-50%) scale(1.05) rotate(0deg);
+        }
+
+        .envelope-container:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        /* Animación de flote del sobre */
+        @keyframes letter-float {
+            0%, 100% { transform: translateY(-50%) translateY(0) rotate(2deg); }
+            50% { transform: translateY(-50%) translateY(-12px) rotate(-1deg); }
+        }
+
+        /* El sobre CSS */
+        .envelope-wrapper {
+            width: 76px;
+            height: 52px;
+            background-color: #e6dbbe; /* Papiro apagado */
+            border: 3.5px solid var(--border-game);
+            border-radius: 6px;
+            position: relative;
+            box-shadow: 
+                0 8px 16px rgba(62, 39, 35, 0.2), 
+                3px 3px 0 var(--border-shadow);
+        }
+
+        /* Solapa del sobre */
+        .envelope-flap {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 0;
+            border-top: 26px solid var(--border-game);
+            border-left: 35px solid transparent;
+            border-right: 35px solid transparent;
+            z-index: 5;
+            transform-origin: top;
+            transition: transform 0.35s ease, z-index 0.35s;
+        }
+
+        .envelope-flap::after {
+            content: '';
+            position: absolute;
+            top: -26px; left: -31.5px;
+            height: 0;
+            border-top: 22.5px solid #d4c7a6;
+            border-left: 31.5px solid transparent;
+            border-right: 31.5px solid transparent;
+        }
+
+        /* Bolsillo frontal del sobre */
+        .envelope-pocket {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 29px;
+            background-color: #ebdcb5;
+            border-top: 3.5px solid var(--border-game);
+            z-index: 4;
+            border-radius: 0 0 3px 3px;
+        }
+
+        /* Papel que se asoma */
+        .envelope-letter-peek {
+            position: absolute;
+            bottom: 4px;
+            left: 10px;
+            right: 10px;
+            height: 30px;
+            background-color: #ffffff;
+            border: 2.5px solid var(--border-game);
+            border-bottom: none;
+            z-index: 2;
+            transition: transform 0.35s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .envelope-letter-peek::before {
+            content: '♥';
+            color: var(--border-accent);
+            font-size: 10px;
+            animation: pulse-heart 1s infinite alternate;
+        }
+
+        @keyframes pulse-heart {
+            0% { transform: scale(0.9); }
+            100% { transform: scale(1.15); }
+        }
+
+        /* Sello de cera */
+        .envelope-seal {
+            position: absolute;
+            top: 21px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: var(--border-accent);
+            border: 2px solid var(--border-game);
+            border-radius: 50%;
+            z-index: 6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, opacity 0.3s;
+        }
+
+        /* Abrir el sobre en hover */
+        .envelope-container:hover .envelope-flap {
+            transform: rotateX(180deg) translateY(-1px);
+            z-index: 1;
+        }
+
+        .envelope-container:hover .envelope-letter-peek {
+            transform: translateY(-16px);
+        }
+
+        .envelope-container:hover .envelope-seal {
+            transform: translateX(-50%) scale(0.8);
+            opacity: 0.8;
+        }
+
+        /* Etiqueta debajo del sobre */
+        .envelope-label {
+            font-family: var(--font-pixel);
+            font-size: 16px;
+            color: var(--text-dark);
+            background-color: #f7ebd3;
+            border: 2px solid var(--border-game);
+            padding: 2px 8px;
+            border-radius: 4px;
+            box-shadow: 1.5px 1.5px 0 var(--border-shadow);
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .envelope-container:hover .envelope-label {
+            background-color: var(--border-accent);
+            color: var(--text-light);
+        }
+
+        /* Overlay del Modal de la Carta */
+        .letter-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(26, 15, 10, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+            z-index: 200;
+        }
+
+        .letter-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Papel de la Carta */
+        .letter-modal-paper {
+            background-color: #fcf6e8; /* Papel envejecido cálido */
+            border: 4px double #8d6e63;
+            padding: 40px 35px;
+            border-radius: 8px;
+            box-shadow: 
+                0 20px 45px rgba(0, 0, 0, 0.5),
+                inset 0 0 50px rgba(141, 110, 99, 0.15);
+            max-width: 480px;
+            width: 90%;
+            transform: scale(0.8);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.2);
+            color: #3e2723;
+            position: relative;
+            font-family: var(--font-serif);
+        }
+
+        .letter-modal-overlay.active .letter-modal-paper {
+            transform: scale(1);
+        }
+
+        /* Líneas rojas estilo cuaderno/carta retro en el fondo */
+        .letter-modal-paper::before {
+            content: '';
+            position: absolute;
+            top: 25px; bottom: 25px; left: 24px;
+            width: 1px;
+            background-color: rgba(194, 78, 49, 0.25);
+            border-right: 2px double rgba(194, 78, 49, 0.15);
+        }
+
+        /* Sello en la esquina superior */
+        .letter-post-stamp {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            width: 45px;
+            height: 45px;
+            border: 2px dashed #8d776f;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgba(141, 119, 111, 0.5);
+            font-size: 18px;
+            transform: rotate(6deg);
+            pointer-events: none;
+        }
+
+        .letter-title {
+            font-family: var(--font-pixel);
+            font-size: 26px;
+            color: var(--border-accent);
+            margin-bottom: 22px;
+            text-align: center;
+            letter-spacing: 1px;
+            border-bottom: 1px dashed rgba(141, 110, 99, 0.3);
+            padding-bottom: 8px;
+        }
+
+        .letter-text {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 28px;
+            text-align: justify;
+            padding-left: 15px; /* Dejar espacio para la línea roja de cuaderno */
+            white-space: pre-line;
+            font-style: italic;
+        }
+
+        .letter-close-btn {
+            display: block;
+            margin: 0 auto;
+            font-family: var(--font-pixel);
+            font-size: 19px;
+            background-color: #8d6e63;
+            color: var(--text-light);
+            border: 2px solid var(--border-game);
+            padding: 7px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 2px 2px 0 var(--border-game);
+            transition: transform 0.1s, box-shadow 0.1s, background-color 0.15s;
+        }
+
+        .letter-close-btn:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 3px 3px 0 var(--border-game);
+            background-color: var(--border-accent);
+        }
+
+        .letter-close-btn:active {
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0 var(--border-game);
+        }
+
+        /* Firma K de la carta */
+        .letter-signature {
+            display: block;
+            text-align: right;
+            margin-top: 15px;
+            font-weight: bold;
+            padding-right: 15px;
+        }
+
+        /* Destello dorado al descifrar el título */
+        .canvas-flash {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle, rgba(255,251,230,0.95) 20%, rgba(255,183,77,0.7) 70%, rgba(224,90,43,0.35) 100%);
+            opacity: 0.95;
+            z-index: 99;
+            pointer-events: none;
+            animation: flash-fade 1.5s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+        }
+
+        @keyframes flash-fade {
+            0% { opacity: 0.95; filter: brightness(1.6); }
+            100% { opacity: 0; }
+        }
+
+        /* ==========================================================================
+           6. RESPONSIVIDAD (RESPONSIVE DESIGN)
+           ========================================================================== */
+        @media (max-width: 720px) {
+            .envelope-container {
+                position: fixed;
+                right: 20px;
+                bottom: 20px;
+                top: auto;
+                transform: rotate(2deg);
+                animation: letter-float-mobile 3.5s infinite ease-in-out;
+            }
+            .envelope-container:hover {
+                transform: scale(1.05) rotate(0deg);
+            }
+            .envelope-container:active {
+                transform: scale(0.95);
+            }
+            @keyframes letter-float-mobile {
+                0%, 100% { transform: translateY(0) rotate(2deg); }
+                50% { transform: translateY(-8px) rotate(-1deg); }
+            }
+
+            .game-container {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 4 / 3.4;
+                min-height: 500px;
+            }
+
+            .visual-canvas {
+                padding-bottom: 8px;
+            }
+
+            /* Reducción proporcional del tamaño del Arte ASCII */
+            .char-container {
+                font-size: 11px;
+                bottom: 8px;
+            }
+
+            .figure-container {
+                left: 40px;
+            }
+
+
+            .sparks-container {
+                height: 90px;
+                bottom: 50px;
+            }
+
+            .dialogue-box {
+                height: 185px;
+                padding: 20px;
+            }
+
+            .dialogue-text {
+                font-size: 16.5px;
+                height: 90px;
+            }
+
+            .speaker-badge {
+                font-size: 17px;
+                top: -14px;
+                left: 20px;
+                padding: 1px 10px 2px 10px;
+            }
+
+            .header-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .game-container {
+                aspect-ratio: auto;
+                height: 530px;
+            }
+
+            .char-container {
+                font-size: 9px;
+            }
+
+            .figure-container {
+                left: 15px;
+            }
+
+
+            .dialogue-box {
+                height: 195px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabecera Cozy -->
+    <h1 class="header-title" id="story-title">?????????</h1>
+    <p class="header-subtitle" id="story-subtitle">&nbsp;</p>
+
+    <!-- Contenedor RPG Principal -->
+    <div class="game-container">
+        
+        <!-- 1. Pantalla Visual de Arte ASCII -->
+        <div class="visual-canvas" id="game-canvas">
+            
+            <!-- Elemento de Audio de Fondo -->
+            <audio id="bg-music" src="maintheme.mp3" loop></audio>
+            
+            
+            <!-- Estrellas de fondo -->
+            <div class="stars"></div>
+            
+            <!-- Chispas del fuego animadas -->
+            <div class="sparks-container" id="sparks-box">
+                <span class="spark spark-1">.</span>
+                <span class="spark spark-2">*</span>
+                <span class="spark spark-3">.</span>
+                <span class="spark spark-4">+</span>
+            </div>
+            
+            <!-- Izquierda: Figura con Capa (Aparece con fade-in en diálogo 3) -->
+            <div class="char-container figure-container" id="figure-char">
+<!-- Arte ASCII: Michiko -->
+         /\_/\
+        ( <span class="figure-eyes">^.^</span> )
+        /  *  \
+       /|     |\
+      (_|_____|_)~~
+            </div>
+            
+            <!-- Centro: Fogata Animada en CSS -->
+            <div class="char-container campfire-container" id="campfire-char">
+<!-- Arte ASCII: Fogata -->
+<div class="campfire-flames">
+<span class="flame-y">         (</span>
+<span class="flame-o">        . )</span>
+<span class="flame-y">       ( <span class="flame-r">.</span> )</span>
+<span class="flame-o">      ( )) ((</span>
+<span class="flame-r">     ( ((.)) )</span>
+</div>
+<span class="wood">      \ \V/ /</span>
+<span class="stones">     #########</span>
+            </div>
+            
+
+        </div>
+
+        <!-- 2. Caja de Diálogo con Typewriter -->
+        <div class="dialogue-box" id="dialogue-click-area">
+            
+            <!-- Pestaña flotante del personaje que habla -->
+            <div class="speaker-badge narrator" id="speaker-label">Narrador</div>
+            
+            <!-- Contenedor de Texto -->
+            <div class="dialogue-text" id="dialogue-text-content">
+                <!-- Se inyecta por JS con efecto máquina de escribir -->
+            </div>
+
+            <!-- Botón sutil de continuar -->
+            <div class="indicator-container">
+                <button class="continue-btn" id="btn-next">
+                    Continuar <span class="continue-arrow">▸</span>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- 3. Pantalla Final (Pergamino "Continuará...") -->
+        <div class="parchment-overlay" id="finish-screen">
+            <div class="parchment-scroll">
+                <h2 class="end-title">Continuará...</h2>
+                <p class="end-text">La fogata seguirá encendida, y se alimenta con el aire que trae el viento, casi como una caricia.</p>
+                <button class="restart-btn" id="btn-restart">Volver a empezar ↺</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="cozy-footer">
+        Hecho con ♡ para Fau Hokama<br>
+        v0.1 - 23/05/26
+    </footer>
+
+    <!-- 4. Sobre / Carta Flotante de K -->
+    <div class="envelope-container" id="envelope-widget">
+        <div class="envelope-wrapper">
+            <div class="envelope-flap"></div>
+            <div class="envelope-letter-peek"></div>
+            <div class="envelope-pocket"></div>
+            <div class="envelope-seal">♥</div>
+        </div>
+        <span class="envelope-label">Carta misteriosa ♡</span>
+    </div>
+
+    <!-- 5. Modal de la Carta Secreta -->
+    <div class="letter-modal-overlay" id="letter-modal">
+        <div class="letter-modal-paper">
+            <div class="letter-post-stamp">♥</div>
+            <h3 class="letter-title">Carta de una Viajera agradecida</h3>
+            <div class="letter-text">Gracias por haberme hecho ver todo con más colores, y cada día multiplicar mis ganas de crecer y vivir.
+
+Te amo.
+<span class="letter-signature">K.</span></div>
+            <button class="letter-close-btn" id="btn-close-letter">Guardar carta</button>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+       LOGICA DEL MOTOR DEL JUEGO (JAVASCRIPT)
+       ========================================================================== -->
+    <script>
+        // 1. ARRAY DE ESCENAS / DIÁLOGOS DE LA HISTORIA (Fácilmente extensible)
+        // Puedes agregar más escenas a esta lista siguiendo la misma estructura.
+        const storyScenes = [
+            {
+                speaker: "Narrador",
+                text: "En una tierra llena de distracciones y pseudo-héroes que solo buscan la gloria a costa de los demás…",
+                visuals: {
+                    showFigure: false,
+                    fireIntensity: "normal"
+                }
+            },
+            {
+                speaker: "Narrador",
+                text: "Existe una fuerza que para muchos es invisible. Es alguien que nunca descansa en pensar cómo cuidar, que va mucho más allá de simplemente cumplir con una tarea, sino que desea construir con sólidas bases y buenas prácticas…",
+                visuals: {
+                    showFigure: false,
+                    fireIntensity: "normal"
+                }
+            },
+            {
+                // Michiko aparece al lado del fuego aquí.
+                speaker: "Michiko",
+                text: "– Te estabas perdiendo allá afuera, ¿verdad? Es fácil que eso suceda cuando vientos de muchas direcciones nos sacuden, y todos hablan, pero pocos escuchan.",
+                delay: 2000,
+                visuals: {
+                    showFigure: true,
+                    fireIntensity: "normal"
+                }
+            },
+            {
+                speaker: "Michiko",
+                text: "Sentate. El fuego será nuestro compañero. Este será nuestro lugar seguro.",
+                visuals: {
+                    showFigure: true,
+                    fireIntensity: "normal"
+                }
+            },
+            {
+                // Las chispas flotantes y la velocidad de parpadeo se intensifican sutilmente.
+                speaker: "Michiko",
+                text: "– Muchos han pasado por aquí, sin saber qué buscaban. Pero con vos es diferente… El movimiento del fuego me dice que ha llegado la persona correcta para escuchar la historia.",
+                visuals: {
+                    showFigure: true,
+                    fireIntensity: "intense"
+                }
+            },
+            {
+                speaker: "Michiko",
+                text: "Sé a quién estás buscando. Ha tenido muchos nombres, pero casi nadie conoce el verdadero… Si estás dispuesta a prestar atención… te voy a contar cómo sus actos y logros sostienen todo este lugar.",
+                visuals: {
+                    showFigure: true,
+                    fireIntensity: "intense"
+                }
+            },
+            {
+                speaker: "Michiko",
+                text: "En las antiguas crónicas la llamamos… Fau, la heroína del viento.",
+                visuals: {
+                    showFigure: true,
+                    fireIntensity: "intense",
+                    revealTitle: true
+                }
+            }
+        ];
+
+        // 2. REFERENCIAS AL DOM
+        const speakerLabel = document.getElementById("speaker-label");
+        const dialogueTextContent = document.getElementById("dialogue-text-content");
+        const dialogueClickArea = document.getElementById("dialogue-click-area");
+        const btnNext = document.getElementById("btn-next");
+        
+        // Elementos de audio
+        const bgMusic = document.getElementById("bg-music");
+        
+        // Elementos de la cabecera para revelar
+        const storyTitle = document.getElementById("story-title");
+        const storySubtitle = document.getElementById("story-subtitle");
+        
+        // Elementos visuales a manipular por escena
+        const figureChar = document.getElementById("figure-char");
+        const campfireChar = document.getElementById("campfire-char");
+        const sparksBox = document.getElementById("sparks-box");
+        
+        // Overlay final y botón de reinicio
+        const finishScreen = document.getElementById("finish-screen");
+        const btnRestart = document.getElementById("btn-restart");
+
+        // 3. ESTADO DEL JUEGO
+        let currentSceneIndex = 0;
+        let isTyping = false;
+        let typewriterInterval = null;
+        let typewriterDelayTimeout = null;
+        let fullDialogueText = "";
+        let charIndex = 0;
+        const typingSpeed = 22; // Intervalo de actualización en ms (un poco más lento)
+        const charsPerTick = 2;  // Cantidad de caracteres por paso (ritmo nostálgico)
+        let isTitleRevealed = false;
+        let gameStarted = false;
+
+        function showStartScreen() {
+            gameStarted = false;
+            speakerLabel.style.display = "none";
+            btnNext.style.display = "none";
+            
+            // Colocar botón para comenzar
+            dialogueTextContent.innerHTML = `
+                <div class="start-screen-container">
+                    <button class="start-btn" id="btn-start-game">Comenzar Historia ▸</button>
+                </div>
+            `;
+            
+            document.getElementById("btn-start-game").addEventListener("click", (e) => {
+                e.stopPropagation();
+                startGame();
+            });
+        }
+
+        function startGame() {
+            gameStarted = true;
+            speakerLabel.style.display = "block";
+            btnNext.style.display = "flex";
+            
+            // Iniciar música de fondo al primer click/interacción
+            bgMusic.volume = 0.45; // Volumen suave
+            bgMusic.play().catch(err => {
+                console.log("Autoplay bloqueado por el navegador, requiere interacción:", err);
+            });
+            
+            currentSceneIndex = 0;
+            renderScene(currentSceneIndex);
+        }
+
+        function decryptText(element, targetText, callback) {
+            const glyphs = "!?@#$%&*(<>)[{}/\\+-=^~_X█■▒░";
+            const length = targetText.length;
+            let frame = 0;
+            const maxFrames = 30; // Duración total en iteraciones (~1 segundo a 30ms/frame)
+            
+            element.classList.add("decrypting");
+            
+            const interval = setInterval(() => {
+                let currentOutput = "";
+                let settledCount = 0;
+                
+                for (let i = 0; i < length; i++) {
+                    // Momento de fijación de cada carácter de izquierda a derecha
+                    const lockFrame = Math.floor((i / length) * (maxFrames * 0.7));
+                    
+                    if (frame >= lockFrame + 8) {
+                        currentOutput += targetText[i];
+                        settledCount++;
+                    } else if (frame >= lockFrame) {
+                        // Parpadea entre el carácter final y un glifo aleatorio
+                        currentOutput += Math.random() > 0.4 ? targetText[i] : glyphs[Math.floor(Math.random() * glyphs.length)];
+                    } else {
+                        // Glifo aleatorio
+                        currentOutput += glyphs[Math.floor(Math.random() * glyphs.length)];
+                    }
+                }
+                
+                element.innerText = currentOutput;
+                frame++;
+                
+                if (settledCount === length || frame > maxFrames + 10) {
+                    clearInterval(interval);
+                    element.innerText = targetText;
+                    element.classList.remove("decrypting");
+                    if (callback) callback();
+                }
+            }, 30);
+        }
+
+        function updateTitle(reveal) {
+            if (reveal && !isTitleRevealed) {
+                isTitleRevealed = true;
+                
+                // Animación épica de desencriptación / descifrado de runas
+                decryptText(storyTitle, "Fau: La Heroína del Viento", () => {
+                    // Generar destello dorado en el canvas visual del juego
+                    const canvas = document.getElementById("game-canvas");
+                    if (canvas) {
+                        const flash = document.createElement("div");
+                        flash.className = "canvas-flash";
+                        canvas.appendChild(flash);
+                        setTimeout(() => { flash.remove(); }, 1600);
+                    }
+
+                    storySubtitle.innerText = "O: cómo intentar crear un refugio para alguien que amás.";
+                    storySubtitle.classList.add("visible");
+                });
+                
+            } else if (!reveal && isTitleRevealed) {
+                isTitleRevealed = false;
+                storyTitle.style.opacity = "0";
+                storySubtitle.classList.remove("visible");
+                setTimeout(() => {
+                    storyTitle.innerText = "?????????";
+                    storyTitle.style.opacity = "1";
+                    storySubtitle.innerHTML = "&nbsp;";
+                }, 400);
+            }
+        }
+
+        // 4. MOTOR MÁQUINA DE ESCRIBIR (TYPEWRITER)
+        function startTypewriter(text) {
+            // Limpiar cualquier intervalo activo anterior y timeout
+            clearTimeout(typewriterDelayTimeout);
+            clearInterval(typewriterInterval);
+            dialogueTextContent.innerHTML = "";
+            fullDialogueText = text;
+            charIndex = 0;
+            isTyping = true;
+            
+            // Ocultar sutilmente la flecha mientras se escribe
+            btnNext.style.opacity = "0.3";
+
+            typewriterInterval = setInterval(() => {
+                if (charIndex < fullDialogueText.length) {
+                    // Avanzar charIndex
+                    for (let i = 0; i < charsPerTick; i++) {
+                        if (charIndex < fullDialogueText.length) {
+                            charIndex++;
+                        }
+                    }
+                    // Obtener texto hasta el índice actual y anexar cursor bloque
+                    const slicedText = fullDialogueText.slice(0, charIndex);
+                    dialogueTextContent.innerHTML = slicedText.replace(/\n/g, '<br>') + '<span class="text-cursor">█</span>';
+                    
+                    // Auto-scroll hacia abajo si el texto sobrepasa la caja
+                    dialogueTextContent.scrollTop = dialogueTextContent.scrollHeight;
+                } else {
+                    completeTyping();
+                }
+            }, typingSpeed);
+        }
+
+        function completeTyping() {
+            clearTimeout(typewriterDelayTimeout);
+            clearInterval(typewriterInterval);
+            // Reemplazar saltos de línea y volcar todo el texto con el cursor bloque
+            dialogueTextContent.innerHTML = fullDialogueText.replace(/\n/g, '<br>') + '<span class="text-cursor">█</span>';
+            isTyping = false;
+            // Mostrar flecha de continuar con brillo normal
+            btnNext.style.opacity = "1";
+        }
+
+        // 5. CONTROLADOR DE ESCENAS
+        function renderScene(index) {
+            const scene = storyScenes[index];
+            if (!scene) return;
+
+            // Actualizar etiqueta del hablante y clase estética
+            speakerLabel.innerText = scene.speaker;
+            if (scene.speaker === "Narrador") {
+                speakerLabel.className = "speaker-badge narrator";
+            } else {
+                speakerLabel.className = "speaker-badge figure";
+            }
+
+            // Aplicar configuración visual opcional de la escena
+            if (scene.visuals) {
+                // 1. Mostrar/Ocultar Figura Encapuchada
+                if (scene.visuals.showFigure) {
+                    figureChar.classList.add("active");
+                } else {
+                    figureChar.classList.remove("active");
+                }
+
+                // 2. Intensidad del Fuego y Chispas
+                if (scene.visuals.fireIntensity === "intense") {
+                    campfireChar.classList.add("intense");
+                    sparksBox.classList.add("intense");
+                } else {
+                    campfireChar.classList.remove("intense");
+                    sparksBox.classList.remove("intense");
+                }
+
+                // 3. Revelar/Ocultar Título de la historia
+                if (scene.visuals.revealTitle) {
+                    updateTitle(true);
+                } else {
+                    updateTitle(false);
+                }
+            } else {
+                updateTitle(false);
+            }
+
+            // Limpiar cualquier timeout y programar retardo si existe
+            clearTimeout(typewriterDelayTimeout);
+            clearInterval(typewriterInterval);
+            dialogueTextContent.innerHTML = "";
+
+            if (scene.delay) {
+                isTyping = true;
+                btnNext.style.opacity = "0.3";
+                fullDialogueText = scene.text; // Permitir bypass con click rápido
+                dialogueTextContent.innerHTML = '<span class="text-cursor">█</span>';
+                
+                typewriterDelayTimeout = setTimeout(() => {
+                    startTypewriter(scene.text);
+                }, scene.delay);
+            } else {
+                startTypewriter(scene.text);
+            }
+        }
+
+        function handleAdvance() {
+            if (isTyping) {
+                // Si está escribiendo, completar inmediatamente
+                completeTyping();
+            } else {
+                // Si ya terminó de escribir, avanzar
+                currentSceneIndex++;
+                if (currentSceneIndex < storyScenes.length) {
+                    renderScene(currentSceneIndex);
+                } else {
+                    showEnding();
+                }
+            }
+        }
+
+        function showEnding() {
+            finishScreen.classList.add("active");
+        }
+
+        function restartGame() {
+            finishScreen.classList.remove("active");
+            showStartScreen();
+        }
+
+        // 6. EVENTOS DE INTERACCIÓN
+
+        // Avanzar al hacer click en la caja de diálogo o presionar espacio/enter
+        dialogueClickArea.addEventListener("click", (e) => {
+            if (!gameStarted) return;
+            // Evitar doble gatillo si se hace click directamente en el botón
+            if (e.target.id === "btn-next" || e.target.closest("#btn-next")) {
+                e.stopPropagation();
+            }
+            handleAdvance();
+        });
+
+        btnNext.addEventListener("click", (e) => {
+            e.stopPropagation(); // Prevenir burbujeo al contenedor
+            handleAdvance();
+        });
+
+        // Avanzar presionando la barra espaciadora o Enter
+        document.addEventListener("keydown", (e) => {
+            if (e.code === "Space" || e.code === "Enter") {
+                // Evitar que el espacio haga scroll en la página
+                e.preventDefault();
+                // Si la pantalla final está activa o el juego no ha empezado, no interferir
+                if (!finishScreen.classList.contains("active") && gameStarted) {
+                    handleAdvance();
+                }
+            }
+        });
+
+        // Botón reiniciar
+        btnRestart.addEventListener("click", restartGame);
+
+        // 8. LOGICA DE LA CARTA SECRETA
+        const envelopeWidget = document.getElementById("envelope-widget");
+        const letterModal = document.getElementById("letter-modal");
+        const btnCloseLetter = document.getElementById("btn-close-letter");
+
+        // Abrir modal
+        envelopeWidget.addEventListener("click", (e) => {
+            e.stopPropagation();
+            letterModal.classList.add("active");
+        });
+
+        // Cerrar modal
+        btnCloseLetter.addEventListener("click", (e) => {
+            e.stopPropagation();
+            letterModal.classList.remove("active");
+        });
+
+        // Cerrar al hacer click fuera del papel
+        letterModal.addEventListener("click", (e) => {
+            if (e.target === letterModal) {
+                letterModal.classList.remove("active");
+            }
+        });
+
+        // 7. INICIALIZACIÓN
+        window.addEventListener("DOMContentLoaded", () => {
+            showStartScreen();
+        });
+    </script>
+</body>
+</html>
