@@ -119,7 +119,7 @@
            ========================================================================== */
         .game-container {
             width: 680px;
-            height: 580px;
+            height: 610px;
             background-color: var(--border-game);
             border: 4px solid var(--border-game);
             border-radius: 12px;
@@ -271,6 +271,42 @@
         .figure-container.active {
             opacity: 1;
             transform: translateY(0);
+            transform-origin: bottom center;
+            animation: cat-breathe 4s infinite ease-in-out;
+        }
+
+        /* Respiración de Michiko */
+        @keyframes cat-breathe {
+            0%, 100% { transform: translateY(0) scaleY(1); }
+            50% { transform: translateY(0) scaleY(1.06); }
+        }
+
+        /* Cola de Michiko animada periódicamente */
+        .cat-tail {
+            display: inline-block;
+            transform-origin: left bottom;
+            animation: tail-wag-periodic 5s infinite ease-in-out;
+        }
+
+        @keyframes tail-wag-periodic {
+            0%, 56%, 100% {
+                transform: rotate(0deg) translateY(0);
+            }
+            63% {
+                transform: rotate(8deg) translateY(-1px);
+            }
+            70% {
+                transform: rotate(-4deg) translateY(0);
+            }
+            77% {
+                transform: rotate(8deg) translateY(-1px);
+            }
+            84% {
+                transform: rotate(-4deg) translateY(0);
+            }
+            91% {
+                transform: rotate(5deg) translateY(-0.5px);
+            }
         }
 
         .figure-eyes {
@@ -329,7 +365,7 @@
            4. CAJA DE DIÁLOGO (DIALOGUE BOX)
            ========================================================================== */
         .dialogue-box {
-            height: 210px;
+            height: 240px;
             background-color: var(--bg-page);
             border-top: 4px solid var(--border-game);
             padding: 26px;
@@ -347,6 +383,28 @@
         /* Hover sutil en toda la caja clickable */
         .dialogue-box:hover {
             background-color: #fbf9f4;
+        }
+
+        /* Estilos específicos para cuando habla el Narrador (Fondo marrón y letras blancas) */
+        .dialogue-box.narrator-style {
+            background-color: var(--border-game);
+            color: var(--text-light);
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+        .dialogue-box.narrator-style:hover {
+            background-color: #331f1c; /* Ligeramente más oscuro al hacer hover */
+        }
+        .dialogue-box.narrator-style .dialogue-text {
+            color: var(--text-light);
+        }
+        .dialogue-box.narrator-style .text-cursor {
+            color: #ffca28; /* Cursor amarillo retro para destacar */
+        }
+        .dialogue-box.narrator-style .continue-btn {
+            color: var(--text-light);
+        }
+        .dialogue-box.narrator-style:hover .continue-btn {
+            color: #ffca28;
         }
 
         /* Badge flotante para indicar el Hablante */
@@ -370,7 +428,8 @@
         }
 
         .speaker-badge.figure {
-            background-color: var(--border-accent); /* Terracota para la figura con capa */
+            background-color: #b388ff; /* Violeta suave a juego con Michiko */
+            color: #120805; /* Texto oscuro para legibilidad y contraste */
         }
         /* Texto de la Historia */
         .dialogue-text {
@@ -379,7 +438,7 @@
             line-height: 1.6;
             color: var(--text-dark);
             margin-top: 8px;
-            height: 110px;
+            height: 135px;
             overflow-y: auto;
             scrollbar-width: thin;
             scrollbar-color: rgba(62, 39, 35, 0.2) transparent;
@@ -615,7 +674,14 @@
             gap: 12px;
             animation: letter-float 3.5s infinite ease-in-out;
             user-select: none;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, opacity 0.8s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .envelope-container.visible {
+            opacity: 1;
+            pointer-events: auto;
         }
 
         .envelope-container:hover {
@@ -933,7 +999,7 @@
                 width: 100%;
                 height: auto;
                 aspect-ratio: 4 / 3.4;
-                min-height: 500px;
+                min-height: 520px;
             }
 
             .visual-canvas {
@@ -957,13 +1023,13 @@
             }
 
             .dialogue-box {
-                height: 185px;
+                height: 205px;
                 padding: 20px;
             }
 
             .dialogue-text {
                 font-size: 16.5px;
-                height: 90px;
+                height: 105px;
             }
 
             .speaker-badge {
@@ -981,7 +1047,7 @@
         @media (max-width: 480px) {
             .game-container {
                 aspect-ratio: auto;
-                height: 530px;
+                height: 560px;
             }
 
             .char-container {
@@ -994,7 +1060,7 @@
 
 
             .dialogue-box {
-                height: 195px;
+                height: 215px;
             }
         }
     </style>
@@ -1013,6 +1079,13 @@
             
             <!-- Elemento de Audio de Fondo -->
             <audio id="bg-music" src="maintheme.mp3" loop></audio>
+            <!-- Sonido de escritura de máquina de escribir -->
+            <audio id="typewriter-sound" src="typing.mp3" loop></audio>
+            <!-- Sonidos de la carta -->
+            <audio id="open-letter-sound" src="openLetter.mp3"></audio>
+            <audio id="close-letter-sound" src="closeLetter.mp3"></audio>
+            <!-- Sonido de trueno -->
+            <audio id="thunder-sound" src="thunder.mp3"></audio>
             
             
             <!-- Estrellas de fondo -->
@@ -1033,7 +1106,7 @@
         ( <span class="figure-eyes">^.^</span> )
         /  *  \
        /|     |\
-      (_|_____|_)~~
+      (_|_____|_)<span class="cat-tail">~~</span>
             </div>
             
             <!-- Centro: Fogata Animada en CSS -->
@@ -1141,7 +1214,7 @@ Te amo.
                 // Michiko aparece al lado del fuego aquí.
                 speaker: "Michiko",
                 text: "– Te estabas perdiendo allá afuera, ¿verdad? Es fácil que eso suceda cuando vientos de muchas direcciones nos sacuden, y todos hablan, pero pocos escuchan.",
-                delay: 2000,
+                delay: 3000,
                 visuals: {
                     showFigure: true,
                     fireIntensity: "normal"
@@ -1180,6 +1253,16 @@ Te amo.
                     fireIntensity: "intense",
                     revealTitle: true
                 }
+            },
+            {
+                speaker: "Michiko",
+                text: "– Por ahora descansa, y recupera tus energías. Y tal vez quieras abrir la carta si todavía no lo has hecho…",
+                visuals: {
+                    showFigure: true,
+                    fireIntensity: "intense",
+                    revealTitle: true,
+                    showEnvelope: true
+                }
             }
         ];
 
@@ -1191,6 +1274,10 @@ Te amo.
         
         // Elementos de audio
         const bgMusic = document.getElementById("bg-music");
+        const typewriterSound = document.getElementById("typewriter-sound");
+        const openLetterSound = document.getElementById("open-letter-sound");
+        const closeLetterSound = document.getElementById("close-letter-sound");
+        const thunderSound = document.getElementById("thunder-sound");
         
         // Elementos de la cabecera para revelar
         const storyTitle = document.getElementById("story-title");
@@ -1204,6 +1291,11 @@ Te amo.
         // Overlay final y botón de reinicio
         const finishScreen = document.getElementById("finish-screen");
         const btnRestart = document.getElementById("btn-restart");
+
+        // Elementos de la carta secreta
+        const envelopeWidget = document.getElementById("envelope-widget");
+        const letterModal = document.getElementById("letter-modal");
+        const btnCloseLetter = document.getElementById("btn-close-letter");
 
         // 3. ESTADO DEL JUEGO
         let currentSceneIndex = 0;
@@ -1221,6 +1313,9 @@ Te amo.
             gameStarted = false;
             speakerLabel.style.display = "none";
             btnNext.style.display = "none";
+            if (envelopeWidget) {
+                envelopeWidget.classList.remove("visible");
+            }
             
             // Colocar botón para comenzar
             dialogueTextContent.innerHTML = `
@@ -1294,6 +1389,12 @@ Te amo.
             if (reveal && !isTitleRevealed) {
                 isTitleRevealed = true;
                 
+                // Reproducir sonido de trueno
+                if (thunderSound) {
+                    thunderSound.currentTime = 0;
+                    thunderSound.play().catch(err => console.log("Error al reproducir trueno:", err));
+                }
+
                 // Animación épica de desencriptación / descifrado de runas
                 decryptText(storyTitle, "Fau: La Heroína del Viento", () => {
                     // Generar destello dorado en el canvas visual del juego
@@ -1334,6 +1435,15 @@ Te amo.
             // Ocultar sutilmente la flecha mientras se escribe
             btnNext.style.opacity = "0.3";
 
+            // Reproducir sonido de máquina de escribir
+            if (typewriterSound) {
+                typewriterSound.volume = 0.25; // volumen cozy suave
+                typewriterSound.currentTime = 0;
+                typewriterSound.play().catch(err => {
+                    console.log("No se pudo reproducir el sonido de escritura:", err);
+                });
+            }
+
             typewriterInterval = setInterval(() => {
                 if (charIndex < fullDialogueText.length) {
                     // Avanzar charIndex
@@ -1357,6 +1467,13 @@ Te amo.
         function completeTyping() {
             clearTimeout(typewriterDelayTimeout);
             clearInterval(typewriterInterval);
+
+            // Detener sonido de máquina de escribir
+            if (typewriterSound) {
+                typewriterSound.pause();
+                typewriterSound.currentTime = 0;
+            }
+
             // Reemplazar saltos de línea y volcar todo el texto con el cursor bloque
             dialogueTextContent.innerHTML = fullDialogueText.replace(/\n/g, '<br>') + '<span class="text-cursor">█</span>';
             isTyping = false;
@@ -1373,8 +1490,10 @@ Te amo.
             speakerLabel.innerText = scene.speaker;
             if (scene.speaker === "Narrador") {
                 speakerLabel.className = "speaker-badge narrator";
+                dialogueClickArea.classList.add("narrator-style");
             } else {
                 speakerLabel.className = "speaker-badge figure";
+                dialogueClickArea.classList.remove("narrator-style");
             }
 
             // Aplicar configuración visual opcional de la escena
@@ -1401,8 +1520,18 @@ Te amo.
                 } else {
                     updateTitle(false);
                 }
+
+                // 4. Mostrar/Ocultar sobre flotante de la carta
+                if (scene.visuals.showEnvelope) {
+                    envelopeWidget.classList.add("visible");
+                } else {
+                    envelopeWidget.classList.remove("visible");
+                }
             } else {
                 updateTitle(false);
+                if (envelopeWidget) {
+                    envelopeWidget.classList.remove("visible");
+                }
             }
 
             // Limpiar cualquier timeout y programar retardo si existe
@@ -1441,9 +1570,16 @@ Te amo.
 
         function showEnding() {
             finishScreen.classList.add("active");
+            if (envelopeWidget) {
+                envelopeWidget.classList.remove("visible");
+            }
         }
 
         function restartGame() {
+            if (typewriterSound) {
+                typewriterSound.pause();
+                typewriterSound.currentTime = 0;
+            }
             finishScreen.classList.remove("active");
             showStartScreen();
         }
@@ -1481,32 +1617,68 @@ Te amo.
         btnRestart.addEventListener("click", restartGame);
 
         // 8. LOGICA DE LA CARTA SECRETA
-        const envelopeWidget = document.getElementById("envelope-widget");
-        const letterModal = document.getElementById("letter-modal");
-        const btnCloseLetter = document.getElementById("btn-close-letter");
+
+        // Función auxiliar para reproducir audio de forma segura y repetida
+        function playAudioSafe(audioElement) {
+            if (audioElement) {
+                try {
+                    audioElement.pause();
+                    audioElement.currentTime = 0;
+                    audioElement.play().catch(err => {
+                        console.log("Error al reproducir audio:", err);
+                        audioElement.load();
+                        audioElement.play().catch(e => console.log("Reintento de reproducción fallido:", e));
+                    });
+                } catch (e) {
+                    console.log("Error en playAudioSafe:", e);
+                }
+            }
+        }
 
         // Abrir modal
         envelopeWidget.addEventListener("click", (e) => {
             e.stopPropagation();
             letterModal.classList.add("active");
+            playAudioSafe(openLetterSound);
         });
 
         // Cerrar modal
         btnCloseLetter.addEventListener("click", (e) => {
             e.stopPropagation();
             letterModal.classList.remove("active");
+            playAudioSafe(closeLetterSound);
         });
 
         // Cerrar al hacer click fuera del papel
         letterModal.addEventListener("click", (e) => {
             if (e.target === letterModal) {
                 letterModal.classList.remove("active");
+                playAudioSafe(closeLetterSound);
+            }
+        });
+
+        // Cerrar modal de la carta con la tecla Escape
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && letterModal.classList.contains("active")) {
+                letterModal.classList.remove("active");
+                playAudioSafe(closeLetterSound);
             }
         });
 
         // 7. INICIALIZACIÓN
         window.addEventListener("DOMContentLoaded", () => {
             showStartScreen();
+
+            // Pestañeo periódico de Michiko
+            const eyesElement = document.querySelector(".figure-eyes");
+            if (eyesElement) {
+                setInterval(() => {
+                    eyesElement.innerText = "-.-"; // Cerrar ojos
+                    setTimeout(() => {
+                        eyesElement.innerText = "^.^"; // Abrir ojos
+                    }, 200); // Duración de pestañeo (0.2s)
+                }, 2500); // Frecuencia (2.5s total: 2.3s abiertos, 0.2s cerrados)
+            }
         });
     </script>
 </body>
