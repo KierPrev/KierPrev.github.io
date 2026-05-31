@@ -1,31 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>v0.1 F: LHDV</title>
+    <title>v0.2 F: LHDV</title>
     <!-- Google Fonts: VT323 y Space Mono para estilo retro/monoespaciado legible y cozy -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap"
+        rel="stylesheet">
+
     <style>
         /* ==========================================================================
            1. SISTEMA DE DISEÑO & VARIABLES
            ========================================================================== */
         :root {
             /* Paleta de Colores Cozy */
-            --bg-page: #fdfbf7;         /* Papiro / Crema suave de fondo */
-            --bg-canvas: #120805;       /* Fondo de pantalla de juego (Noche oscura cálida) */
-            --border-game: #3e2723;     /* Café Espresso para el marco principal */
-            --border-shadow: #21100b;   /* Café muy oscuro para sombra de bordes */
-            --border-light: #5c3e35;    /* Café claro para brillo de bordes */
-            --border-accent: #c24e31;    /* Terracota para destaques */
-            --color-accent: #e05a2b;    /* Naranja cálido */
-            --text-light: #fbebe3;      /* Crema claro para texto sobre fondo oscuro */
-            --text-dark: #2c160b;       /* Café oscuro para texto sobre fondo claro */
-            --text-muted: #8d776f;      /* Tono neutro apagado */
-            
+            --bg-page: #fdfbf7;
+            /* Papiro / Crema suave de fondo */
+            --bg-canvas: #120805;
+            /* Fondo de pantalla de juego (Noche oscura cálida) */
+            --border-game: #3e2723;
+            /* Café Espresso para el marco principal */
+            --border-shadow: #21100b;
+            /* Café muy oscuro para sombra de bordes */
+            --border-light: #5c3e35;
+            /* Café claro para brillo de bordes */
+            --border-accent: #c24e31;
+            /* Terracota para destaques */
+            --color-accent: #e05a2b;
+            /* Naranja cálido */
+            --text-light: #fbebe3;
+            /* Crema claro para texto sobre fondo oscuro */
+            --text-dark: #2c160b;
+            /* Café oscuro para texto sobre fondo claro */
+            --text-muted: #8d776f;
+            /* Tono neutro apagado */
+
             /* Tipografías */
             --font-pixel: 'VT323', monospace;
             --font-serif: 'Space Mono', monospace;
@@ -41,7 +54,7 @@
         body {
             background-color: var(--bg-page);
             /* Patrón de cuadrícula muy sutil estilo papiro pixelado */
-            background-image: 
+            background-image:
                 linear-gradient(to right, rgba(194, 78, 49, 0.02) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(194, 78, 49, 0.02) 1px, transparent 1px);
             background-size: 16px 16px;
@@ -78,23 +91,25 @@
         /* Glitch y Aberración Cromática Retro-Epic */
         @keyframes title-glitch {
             0% {
-                text-shadow: 
-                    2.5px -1.5px 0 rgba(255, 64, 129, 0.75), 
-                    -2.5px 1.5px 0 rgba(0, 229, 255, 0.75), 
+                text-shadow:
+                    2.5px -1.5px 0 rgba(255, 64, 129, 0.75),
+                    -2.5px 1.5px 0 rgba(0, 229, 255, 0.75),
                     0 0 12px var(--color-accent);
                 transform: translate(0.5px, -0.5px) skewX(-1deg);
             }
+
             50% {
-                text-shadow: 
-                    -1.5px 2px 0 rgba(118, 255, 3, 0.75), 
-                    2px -2px 0 rgba(224, 64, 251, 0.75), 
+                text-shadow:
+                    -1.5px 2px 0 rgba(118, 255, 3, 0.75),
+                    2px -2px 0 rgba(224, 64, 251, 0.75),
                     0 0 18px #ffeb3b;
                 transform: translate(-0.8px, 0.6px) skewX(1deg) scale(1.01);
             }
+
             100% {
-                text-shadow: 
-                    1.5px -2.5px 0 rgba(0, 229, 255, 0.75), 
-                    -1.5px 1.5px 0 rgba(255, 235, 59, 0.75), 
+                text-shadow:
+                    1.5px -2.5px 0 rgba(0, 229, 255, 0.75),
+                    -1.5px 1.5px 0 rgba(255, 235, 59, 0.75),
                     0 0 10px var(--color-accent);
                 transform: translate(0.6px, 0.4px) skewX(0deg);
             }
@@ -128,8 +143,8 @@
             overflow: hidden;
             position: relative;
             /* Efecto retro de profundidad en el marco del juego */
-            box-shadow: 
-                inset 0 4px 0 var(--border-light), 
+            box-shadow:
+                inset 0 4px 0 var(--border-light),
                 inset 4px 0 0 var(--border-light),
                 inset 0 -4px 0 var(--border-shadow),
                 inset -4px 0 0 var(--border-shadow),
@@ -142,7 +157,10 @@
         .game-container::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             border-radius: 8px;
             box-shadow: inset 0 0 40px rgba(224, 90, 43, 0.15);
             pointer-events: none;
@@ -171,7 +189,7 @@
             left: 0;
             right: 0;
             height: 160px;
-            background-image: 
+            background-image:
                 radial-gradient(1.5px 1.5px at 35px 30px, #ffffff, transparent),
                 radial-gradient(1px 1px at 80px 75px, #cfd8dc, transparent),
                 radial-gradient(2px 2px at 140px 45px, #b3e5fc, transparent),
@@ -189,8 +207,13 @@
         }
 
         @keyframes pulse-stars {
-            0% { opacity: 0.6; }
-            100% { opacity: 1.0; }
+            0% {
+                opacity: 0.6;
+            }
+
+            100% {
+                opacity: 1.0;
+            }
         }
 
         /* Contenedores de Arte ASCII */
@@ -224,22 +247,48 @@
         }
 
         /* Detalle de color en los caracteres del fuego */
-        .flame-y { color: #ffb300; text-shadow: 0 0 6px rgba(255, 179, 0, 0.4); } /* Amarillo */
-        .flame-o { color: #ff6f00; text-shadow: 0 0 6px rgba(255, 111, 0, 0.4); } /* Naranja */
-        .flame-r { color: #d84315; } /* Terracota / Rojo */
-        .wood { color: #5d4037; }    /* Troncos */
-        .stones { color: #3e2723; }  /* Piedras base */
+        .flame-y {
+            color: #ffb300;
+            text-shadow: 0 0 6px rgba(255, 179, 0, 0.4);
+        }
+
+        /* Amarillo */
+        .flame-o {
+            color: #ff6f00;
+            text-shadow: 0 0 6px rgba(255, 111, 0, 0.4);
+        }
+
+        /* Naranja */
+        .flame-r {
+            color: #d84315;
+        }
+
+        /* Terracota / Rojo */
+        .wood {
+            color: #5d4037;
+        }
+
+        /* Troncos */
+        .stones {
+            color: #3e2723;
+        }
+
+        /* Piedras base */
 
         /* Animación de Parpadeo de Fogata */
         @keyframes flicker-normal {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1) skewX(0deg);
                 filter: drop-shadow(0 0 5px rgba(255, 111, 0, 0.3));
             }
+
             30% {
                 transform: scale(0.98) skewX(-1deg);
                 filter: drop-shadow(0 0 4px rgba(255, 111, 0, 0.25));
             }
+
             70% {
                 transform: scale(1.03) skewX(1deg);
                 filter: drop-shadow(0 0 7px rgba(255, 179, 0, 0.4));
@@ -247,10 +296,13 @@
         }
 
         @keyframes flicker-intense {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1.05) skewX(1.5deg);
                 filter: drop-shadow(0 0 10px rgba(255, 111, 0, 0.6));
             }
+
             50% {
                 transform: scale(0.96) skewX(-1.5deg);
                 filter: drop-shadow(0 0 14px rgba(255, 179, 0, 0.7));
@@ -260,7 +312,8 @@
         /* --- FIGURA CON CAPA (CLOAKED FIGURE) --- */
         .figure-container {
             left: 110px;
-            color: #b388ff; /* Púrpura/violeta mágico suave */
+            color: #b388ff;
+            /* Púrpura/violeta mágico suave */
             text-shadow: 0 0 6px rgba(179, 136, 255, 0.4);
             opacity: 0;
             transform: translateY(8px);
@@ -277,8 +330,15 @@
 
         /* Respiración de Michiko */
         @keyframes cat-breathe {
-            0%, 100% { transform: translateY(0) scaleY(1); }
-            50% { transform: translateY(0) scaleY(1.06); }
+
+            0%,
+            100% {
+                transform: translateY(0) scaleY(1);
+            }
+
+            50% {
+                transform: translateY(0) scaleY(1.06);
+            }
         }
 
         /* Cola de Michiko animada periódicamente */
@@ -289,28 +349,37 @@
         }
 
         @keyframes tail-wag-periodic {
-            0%, 56%, 100% {
+
+            0%,
+            56%,
+            100% {
                 transform: rotate(0deg) translateY(0);
             }
+
             63% {
                 transform: rotate(8deg) translateY(-1px);
             }
+
             70% {
                 transform: rotate(-4deg) translateY(0);
             }
+
             77% {
                 transform: rotate(8deg) translateY(-1px);
             }
+
             84% {
                 transform: rotate(-4deg) translateY(0);
             }
+
             91% {
                 transform: rotate(5deg) translateY(-0.5px);
             }
         }
 
         .figure-eyes {
-            color: #80deea; /* Brillo suave de ojos ocultos color cian mágico */
+            color: #80deea;
+            /* Brillo suave de ojos ocultos color cian mágico */
             text-shadow: 0 0 6px rgba(128, 222, 234, 0.8);
         }
 
@@ -337,29 +406,83 @@
         }
 
         @keyframes spark-rise-left {
-            0% { transform: translate(0, 0); opacity: 0; }
-            20% { opacity: 0.8; }
-            80% { opacity: 0.6; }
-            100% { transform: translate(-25px, -110px); opacity: 0; }
+            0% {
+                transform: translate(0, 0);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.8;
+            }
+
+            80% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translate(-25px, -110px);
+                opacity: 0;
+            }
         }
 
         @keyframes spark-rise-right {
-            0% { transform: translate(5px, 0); opacity: 0; }
-            10% { opacity: 0.9; }
-            70% { opacity: 0.5; }
-            100% { transform: translate(30px, -90px); opacity: 0; }
+            0% {
+                transform: translate(5px, 0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.9;
+            }
+
+            70% {
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translate(30px, -90px);
+                opacity: 0;
+            }
         }
 
-        .spark-1 { animation: spark-rise-left 3.2s infinite 0.1s; left: 15px; }
-        .spark-2 { animation: spark-rise-right 2.4s infinite 0.7s; left: 35px; color: #ff7043; }
-        .spark-3 { animation: spark-rise-left 3.8s infinite 1.5s; left: 25px; }
-        .spark-4 { animation: spark-rise-right 2.8s infinite 0.9s; left: 45px; color: #ffb300; }
+        .spark-1 {
+            animation: spark-rise-left 3.2s infinite 0.1s;
+            left: 15px;
+        }
+
+        .spark-2 {
+            animation: spark-rise-right 2.4s infinite 0.7s;
+            left: 35px;
+            color: #ff7043;
+        }
+
+        .spark-3 {
+            animation: spark-rise-left 3.8s infinite 1.5s;
+            left: 25px;
+        }
+
+        .spark-4 {
+            animation: spark-rise-right 2.8s infinite 0.9s;
+            left: 45px;
+            color: #ffb300;
+        }
 
         /* Aceleración de chispas en fuego intenso */
-        .sparks-container.intense .spark-1 { animation-duration: 1.6s; }
-        .sparks-container.intense .spark-2 { animation-duration: 1.2s; }
-        .sparks-container.intense .spark-3 { animation-duration: 1.9s; }
-        .sparks-container.intense .spark-4 { animation-duration: 1.4s; }
+        .sparks-container.intense .spark-1 {
+            animation-duration: 1.6s;
+        }
+
+        .sparks-container.intense .spark-2 {
+            animation-duration: 1.2s;
+        }
+
+        .sparks-container.intense .spark-3 {
+            animation-duration: 1.9s;
+        }
+
+        .sparks-container.intense .spark-4 {
+            animation-duration: 1.4s;
+        }
 
         /* ==========================================================================
            4. CAJA DE DIÁLOGO (DIALOGUE BOX)
@@ -391,18 +514,25 @@
             color: var(--text-light);
             box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.4);
         }
+
         .dialogue-box.narrator-style:hover {
-            background-color: #331f1c; /* Ligeramente más oscuro al hacer hover */
+            background-color: #331f1c;
+            /* Ligeramente más oscuro al hacer hover */
         }
+
         .dialogue-box.narrator-style .dialogue-text {
             color: var(--text-light);
         }
+
         .dialogue-box.narrator-style .text-cursor {
-            color: #ffca28; /* Cursor amarillo retro para destacar */
+            color: #ffca28;
+            /* Cursor amarillo retro para destacar */
         }
+
         .dialogue-box.narrator-style .continue-btn {
             color: var(--text-light);
         }
+
         .dialogue-box.narrator-style:hover .continue-btn {
             color: #ffca28;
         }
@@ -424,13 +554,17 @@
         }
 
         .speaker-badge.narrator {
-            background-color: #8d6e63; /* Color suave para el narrador */
+            background-color: #8d6e63;
+            /* Color suave para el narrador */
         }
 
         .speaker-badge.figure {
-            background-color: #b388ff; /* Violeta suave a juego con Michiko */
-            color: #120805; /* Texto oscuro para legibilidad y contraste */
+            background-color: #b388ff;
+            /* Violeta suave a juego con Michiko */
+            color: #120805;
+            /* Texto oscuro para legibilidad y contraste */
         }
+
         /* Texto de la Historia */
         .dialogue-text {
             font-family: var(--font-serif);
@@ -443,6 +577,7 @@
             scrollbar-width: thin;
             scrollbar-color: rgba(62, 39, 35, 0.2) transparent;
         }
+
         /* Cursor bloque titilante estilo Final Fantasy */
         .text-cursor {
             display: inline-block;
@@ -455,17 +590,26 @@
         }
 
         @keyframes retro-blink {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
+
+            0%,
+            100% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
         }
 
         /* Estilo Scrollbar para navegadores Webkit */
         .dialogue-text::-webkit-scrollbar {
             width: 4px;
         }
+
         .dialogue-text::-webkit-scrollbar-track {
             background: transparent;
         }
+
         .dialogue-text::-webkit-scrollbar-thumb {
             background-color: rgba(62, 39, 35, 0.2);
             border-radius: 2px;
@@ -505,8 +649,13 @@
         }
 
         @keyframes arrow-bounce {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(4px); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(4px);
+            }
         }
 
         /* Pantalla de Inicio / Comenzar */
@@ -543,12 +692,158 @@
         }
 
 
+        /* Grid de selección de Capítulos */
+        .chapters-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+        }
+
+        /* Tarjeta de Capítulo Cozy */
+        .chapter-card {
+            background-color: #fcf6e8;
+            border: 3px solid var(--border-game);
+            border-radius: 8px;
+            padding: 18px 12px;
+            width: 185px;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 3px 3px 0 var(--border-shadow);
+            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.15),
+                box-shadow 0.25s ease,
+                border-color 0.25s ease,
+                background-color 0.2s ease;
+            user-select: none;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 5px 9px 0 var(--border-shadow);
+            border-color: var(--border-accent);
+            background-color: #fffdf9;
+        }
+
+        .chapter-card:active {
+            transform: translateY(-2px);
+            box-shadow: 2px 4px 0 var(--border-shadow);
+        }
+
+        /* Ícono del capítulo */
+        .chapter-card-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .chapter-card:hover .chapter-card-icon {
+            transform: scale(1.2) rotate(3deg);
+        }
+
+        /* Títulos */
+        .chapter-card-title {
+            font-family: var(--font-pixel);
+            font-size: 22px;
+            color: var(--border-game);
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+            transition: color 0.2s ease;
+        }
+
+        .chapter-card:hover .chapter-card-title {
+            color: var(--border-accent);
+        }
+
+        .chapter-card-desc {
+            font-family: var(--font-serif);
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .chapter-card-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Insignias de la Tarjeta */
+        .chapter-card-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-pixel);
+            font-size: 11px;
+            color: var(--text-light);
+            background-color: #8d6e63;
+            border: 2px solid var(--border-game);
+            padding: 1px 8px 2px 8px;
+            border-radius: 4px;
+            box-shadow: 1.5px 1.5px 0 var(--border-shadow);
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+        }
+
+        .chapter-card-badge.new {
+            background-color: var(--border-accent);
+        }
+
+        /* Contenedor del Menú Principal */
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            gap: 15px;
+        }
+
+        .menu-header-title {
+            font-family: var(--font-pixel);
+            font-size: 24px;
+            color: var(--border-game);
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 0 rgba(194, 78, 49, 0.12);
+            margin-bottom: 5px;
+            user-select: none;
+        }
+
+        /* Comportamiento de la Consola al seleccionar Capítulo */
+        .game-container.menu-active .visual-canvas {
+            display: none !important;
+        }
+
+        .game-container.menu-active .dialogue-box {
+            height: 100%;
+            border-top: none;
+            cursor: default;
+        }
+
+        .game-container.menu-active .dialogue-box:hover {
+            background-color: var(--bg-page);
+        }
+
+        .game-container.menu-active .dialogue-text {
+            height: 100% !important;
+            margin-top: 0;
+            overflow: visible;
+        }
+
+
         /* ==========================================================================
            5. PERGAMINO DE CIERRE (OVERLAY "CONTINUARÁ...")
            ========================================================================== */
         .parchment-overlay {
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background-color: rgba(26, 15, 10, 0.85);
             display: flex;
             justify-content: center;
@@ -570,7 +865,7 @@
             padding: 40px 30px;
             border-radius: 6px;
             text-align: center;
-            box-shadow: 
+            box-shadow:
                 0 12px 28px rgba(0, 0, 0, 0.4),
                 inset 0 0 40px rgba(141, 110, 99, 0.15);
             max-width: 420px;
@@ -586,17 +881,25 @@
         }
 
         /* Bordes estilo pergamino enrollado */
-        .parchment-scroll::before, .parchment-scroll::after {
+        .parchment-scroll::before,
+        .parchment-scroll::after {
             content: '';
             position: absolute;
-            left: 10px; right: 10px;
+            left: 10px;
+            right: 10px;
             height: 8px;
             background-color: #8d6e63;
             border-radius: 4px;
             opacity: 0.7;
         }
-        .parchment-scroll::before { top: -4px; }
-        .parchment-scroll::after { bottom: -4px; }
+
+        .parchment-scroll::before {
+            top: -4px;
+        }
+
+        .parchment-scroll::after {
+            bottom: -4px;
+        }
 
         .end-title {
             font-family: var(--font-pixel);
@@ -604,7 +907,7 @@
             color: var(--border-accent);
             margin-bottom: 12px;
             letter-spacing: 2px;
-            text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
         }
 
         .end-text {
@@ -653,6 +956,7 @@
             text-decoration: none;
             font-weight: bold;
         }
+
         .cozy-footer a:hover {
             text-decoration: underline;
         }
@@ -694,27 +998,37 @@
 
         /* Animación de flote del sobre */
         @keyframes letter-float {
-            0%, 100% { transform: translateY(-50%) translateY(0) rotate(2deg); }
-            50% { transform: translateY(-50%) translateY(-12px) rotate(-1deg); }
+
+            0%,
+            100% {
+                transform: translateY(-50%) translateY(0) rotate(2deg);
+            }
+
+            50% {
+                transform: translateY(-50%) translateY(-12px) rotate(-1deg);
+            }
         }
 
         /* El sobre CSS */
         .envelope-wrapper {
             width: 76px;
             height: 52px;
-            background-color: #e6dbbe; /* Papiro apagado */
+            background-color: #e6dbbe;
+            /* Papiro apagado */
             border: 3.5px solid var(--border-game);
             border-radius: 6px;
             position: relative;
-            box-shadow: 
-                0 8px 16px rgba(62, 39, 35, 0.2), 
+            box-shadow:
+                0 8px 16px rgba(62, 39, 35, 0.2),
                 3px 3px 0 var(--border-shadow);
         }
 
         /* Solapa del sobre */
         .envelope-flap {
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 0;
             border-top: 26px solid var(--border-game);
             border-left: 35px solid transparent;
@@ -727,7 +1041,8 @@
         .envelope-flap::after {
             content: '';
             position: absolute;
-            top: -26px; left: -31.5px;
+            top: -26px;
+            left: -31.5px;
             height: 0;
             border-top: 22.5px solid #d4c7a6;
             border-left: 31.5px solid transparent;
@@ -737,7 +1052,9 @@
         /* Bolsillo frontal del sobre */
         .envelope-pocket {
             position: absolute;
-            bottom: 0; left: 0; right: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
             height: 29px;
             background-color: #ebdcb5;
             border-top: 3.5px solid var(--border-game);
@@ -770,8 +1087,13 @@
         }
 
         @keyframes pulse-heart {
-            0% { transform: scale(0.9); }
-            100% { transform: scale(1.15); }
+            0% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                transform: scale(1.15);
+            }
         }
 
         /* Sello de cera */
@@ -792,7 +1114,7 @@
             color: #ffffff;
             font-size: 11px;
             font-weight: bold;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
             transition: transform 0.3s ease, opacity 0.3s;
         }
 
@@ -834,7 +1156,10 @@
         /* Overlay del Modal de la Carta */
         .letter-modal-overlay {
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background-color: rgba(26, 15, 10, 0.8);
             display: flex;
             justify-content: center;
@@ -852,11 +1177,12 @@
 
         /* Papel de la Carta */
         .letter-modal-paper {
-            background-color: #fcf6e8; /* Papel envejecido cálido */
+            background-color: #fcf6e8;
+            /* Papel envejecido cálido */
             border: 4px double #8d6e63;
             padding: 40px 35px;
             border-radius: 8px;
-            box-shadow: 
+            box-shadow:
                 0 20px 45px rgba(0, 0, 0, 0.5),
                 inset 0 0 50px rgba(141, 110, 99, 0.15);
             max-width: 480px;
@@ -876,7 +1202,9 @@
         .letter-modal-paper::before {
             content: '';
             position: absolute;
-            top: 25px; bottom: 25px; left: 24px;
+            top: 25px;
+            bottom: 25px;
+            left: 24px;
             width: 1px;
             background-color: rgba(194, 78, 49, 0.25);
             border-right: 2px double rgba(194, 78, 49, 0.15);
@@ -916,7 +1244,8 @@
             line-height: 1.7;
             margin-bottom: 28px;
             text-align: justify;
-            padding-left: 15px; /* Dejar espacio para la línea roja de cuaderno */
+            padding-left: 15px;
+            /* Dejar espacio para la línea roja de cuaderno */
             white-space: pre-line;
             font-style: italic;
         }
@@ -959,8 +1288,11 @@
         /* Destello dorado al descifrar el título */
         .canvas-flash {
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle, rgba(255,251,230,0.95) 20%, rgba(255,183,77,0.7) 70%, rgba(224,90,43,0.35) 100%);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, rgba(255, 251, 230, 0.95) 20%, rgba(255, 183, 77, 0.7) 70%, rgba(224, 90, 43, 0.35) 100%);
             opacity: 0.95;
             z-index: 99;
             pointer-events: none;
@@ -968,8 +1300,14 @@
         }
 
         @keyframes flash-fade {
-            0% { opacity: 0.95; filter: brightness(1.6); }
-            100% { opacity: 0; }
+            0% {
+                opacity: 0.95;
+                filter: brightness(1.6);
+            }
+
+            100% {
+                opacity: 0;
+            }
         }
 
         /* ==========================================================================
@@ -984,15 +1322,25 @@
                 transform: rotate(2deg);
                 animation: letter-float-mobile 3.5s infinite ease-in-out;
             }
+
             .envelope-container:hover {
                 transform: scale(1.05) rotate(0deg);
             }
+
             .envelope-container:active {
                 transform: scale(0.95);
             }
+
             @keyframes letter-float-mobile {
-                0%, 100% { transform: translateY(0) rotate(2deg); }
-                50% { transform: translateY(-8px) rotate(-1deg); }
+
+                0%,
+                100% {
+                    transform: translateY(0) rotate(2deg);
+                }
+
+                50% {
+                    transform: translateY(-8px) rotate(-1deg);
+                }
             }
 
             .game-container {
@@ -1042,6 +1390,42 @@
             .header-title {
                 font-size: 2rem;
             }
+
+            /* Grid y Tarjetas de Capítulos en Móvil (Tablet/Horizontal) */
+            .chapters-grid {
+                gap: 12px;
+                padding: 4px;
+            }
+
+            .chapter-card {
+                width: 145px;
+                padding: 12px 8px;
+                border-width: 2px;
+            }
+
+            .chapter-card-icon {
+                font-size: 22px;
+                margin-bottom: 4px;
+            }
+
+            .chapter-card-title {
+                font-size: 18px;
+            }
+
+            .chapter-card-desc {
+                font-size: 11px;
+            }
+
+            .chapter-card-badge {
+                font-size: 9px;
+                top: -9px;
+                padding: 1px 6px;
+            }
+
+            .menu-header-title {
+                font-size: 20px;
+                margin-bottom: 2px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1062,9 +1446,956 @@
             .dialogue-box {
                 height: 215px;
             }
+
+            /* Grid y Tarjetas de Capítulos en Móvil Vertical */
+            .chapters-grid {
+                flex-direction: column;
+                gap: 15px;
+                padding: 2px;
+            }
+
+            .chapter-card {
+                width: 85%;
+                padding: 8px 14px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                text-align: left;
+                gap: 12px;
+            }
+
+            .chapter-card-icon {
+                margin-bottom: 0;
+            }
+
+            .chapter-card-info {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .chapter-card-badge {
+                left: auto;
+                right: 12px;
+                transform: none;
+                top: -8px;
+            }
+
+            .menu-container {
+                gap: 10px;
+            }
+
+            .menu-header-title {
+                font-size: 16px;
+                margin-bottom: 2px;
+            }
+        }
+
+        /* ==========================================================================
+           8. PANTALLA DE COMBATE (DECKBUILDING / AUTOCHESS)
+           ========================================================================== */
+        .combat-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--bg-canvas);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 15;
+            padding: 15px;
+            font-family: var(--font-serif);
+            color: var(--text-light);
+        }
+
+        /* Destello rojo al recibir daño */
+        .combat-screen.damage-flash-active::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(229, 57, 53, 0.35);
+            z-index: 90;
+            pointer-events: none;
+            animation: flash-fade-red 0.4s ease-out forwards;
+        }
+
+        @keyframes flash-fade-red {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* Sacudida de luchadores */
+        .shake-avatar {
+            animation: shake-anim 0.35s ease-in-out;
+        }
+
+        @keyframes shake-anim {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            15%,
+            45%,
+            75% {
+                transform: translateX(-8px) rotate(-1deg);
+            }
+
+            30%,
+            60%,
+            90% {
+                transform: translateX(8px) rotate(1deg);
+            }
+        }
+
+        /* Layout de la Arena: 2 columnas */
+        .combat-arena {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 250px;
+            border-bottom: 2px solid var(--border-game);
+            padding-bottom: 12px;
+            background: linear-gradient(to bottom, rgba(18, 8, 5, 1) 60%, rgba(33, 16, 11, 0.5) 100%);
+        }
+
+        .combat-fighter {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .fighter-name {
+            font-family: var(--font-pixel);
+            font-size: 20px;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            color: #ffca28;
+        }
+
+        .combat-fighter.enemy .fighter-name {
+            color: #ff8a80;
+        }
+
+        .fighter-stats {
+            width: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+
+        .stat-bar {
+            width: 100%;
+            height: 12px;
+            background-color: #37211b;
+            border: 2px solid var(--border-game);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .stat-fill {
+            height: 100%;
+            background-color: #4caf50;
+            transition: width 0.3s ease;
+        }
+
+        .stat-fill.enemy {
+            background-color: #e53935;
+        }
+
+        .stat-text {
+            font-size: 11px;
+            font-weight: bold;
+            color: var(--text-light);
+        }
+
+        .stat-shield {
+            font-family: var(--font-pixel);
+            font-size: 15px;
+            color: #80deea;
+            text-shadow: 0 0 4px rgba(128, 222, 234, 0.4);
+        }
+
+        .fighter-ascii {
+            font-family: monospace;
+            font-size: 13px;
+            font-weight: bold;
+            line-height: 1.15;
+            white-space: pre;
+            color: #81d4fa;
+            text-shadow: 0 0 6px rgba(129, 212, 250, 0.3);
+            transition: color 0.15s ease;
+            height: 90px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+            /* Para efectos visuales */
+        }
+
+        #player-ascii {
+            color: #b388ff;
+            /* Púrpura/violeta mágico suave de Michiko */
+            text-shadow: 0 0 6px rgba(179, 136, 255, 0.4);
+        }
+
+        .combat-fighter.enemy .fighter-ascii {
+            color: #b0bec5;
+            text-shadow: 0 0 6px rgba(176, 190, 197, 0.3);
+        }
+
+        .fighter-ascii.damaged {
+            color: #e53935 !important;
+            text-shadow: 0 0 10px rgba(229, 57, 53, 0.8) !important;
+        }
+
+        .enemy-intent {
+            font-family: var(--font-pixel);
+            font-size: 14px;
+            color: #ffb74d;
+            margin-top: 4px;
+            background: rgba(62, 39, 37, 0.6);
+            border: 1px solid var(--border-game);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .combat-center-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 10%;
+            gap: 12px;
+        }
+
+        .combat-turn {
+            font-family: var(--font-pixel);
+            font-size: 16px;
+            color: #a1887f;
+            border-bottom: 1px dashed var(--border-game);
+            padding-bottom: 2px;
+            white-space: nowrap;
+        }
+
+        .combat-vs {
+            font-family: var(--font-pixel);
+            font-size: 20px;
+            color: var(--border-accent);
+            animation: pulse-vs 1.5s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulse-vs {
+            0% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        .combat-energy {
+            font-family: var(--font-pixel);
+            font-size: 15px;
+            color: #fff176;
+            white-space: nowrap;
+        }
+
+        /* Historial del Combate (Centro) */
+        .combat-log {
+            flex: 1;
+            height: 100px;
+            overflow-y: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--border-game);
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 8px 12px;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #d7ccc8;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(62, 39, 35, 0.3) transparent;
+        }
+
+        .combat-log-entry {
+            margin-bottom: 4px;
+            border-bottom: 1px solid rgba(62, 39, 35, 0.15);
+            padding-bottom: 2px;
+        }
+
+        .combat-log-entry.system {
+            color: #80deea;
+        }
+
+        .combat-log-entry.player-action {
+            color: #fff176;
+        }
+
+        .combat-log-entry.enemy-action {
+            color: #ff8a80;
+        }
+
+        .combat-log-entry.victory {
+            color: #81c784;
+            font-weight: bold;
+        }
+
+        /* Controles Inferiores (Cinta y Mano) */
+        .combat-controls {
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .action-cinta-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(33, 16, 11, 0.8);
+            border: 2px solid var(--border-game);
+            border-radius: 6px;
+            padding: 6px 12px;
+            gap: 10px;
+        }
+
+        .cinta-label {
+            font-family: var(--font-pixel);
+            font-size: 15px;
+            color: #a1887f;
+            white-space: nowrap;
+        }
+
+        .action-slots {
+            display: flex;
+            gap: 12px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .action-slot {
+            width: 140px;
+            height: 38px;
+            border: 2px dashed #5c3e35;
+            background-color: rgba(18, 8, 5, 0.5);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+            color: #8d776f;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0 4px;
+        }
+
+        .action-slot.filled {
+            border: 2px solid var(--border-accent);
+            background-color: #3e2723;
+            color: var(--text-light);
+            box-shadow: 1.5px 1.5px 0 var(--border-shadow);
+        }
+
+        .action-slot.merged-left {
+            border-right: none !important;
+            border-top-right-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+            box-shadow: none !important;
+        }
+
+        .action-slot.merged-right {
+            border-left: none !important;
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+        }
+
+        .action-slot.executing {
+            animation: executing-pulse 0.4s infinite alternate ease-in-out;
+            border-color: #ffca28 !important;
+            color: #ffca28 !important;
+        }
+
+        @keyframes executing-pulse {
+            0% {
+                box-shadow: 0 0 2px #ffca28;
+            }
+
+            100% {
+                box-shadow: 0 0 10px #ffca28;
+            }
+        }
+
+        .confirm-combat-btn {
+            font-family: var(--font-pixel);
+            font-size: 16px;
+            background-color: var(--border-accent);
+            color: var(--text-light);
+            border: 2px solid var(--border-game);
+            padding: 4px 12px 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 2px 2px 0 var(--border-shadow);
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .confirm-combat-btn:hover {
+            background-color: var(--color-accent);
+            transform: translate(-1px, -1px);
+            box-shadow: 3px 3px 0 var(--border-shadow);
+        }
+
+        .confirm-combat-btn:active {
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0 var(--border-shadow);
+        }
+
+        /* Cartas en Mano */
+        .hand-container {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            height: 115px;
+            align-items: flex-end;
+        }
+
+        .combat-card {
+            background-color: #fcf6e8;
+            border: 2.5px solid var(--border-game);
+            border-radius: 6px;
+            padding: 6px 8px;
+            width: 175px;
+            height: 110px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            box-shadow: 2px 2px 0 var(--border-shadow);
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            user-select: none;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .combat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 4px 6px 0 var(--border-shadow);
+            border-color: var(--border-accent);
+        }
+
+        .combat-card:active {
+            transform: translateY(-2px);
+            box-shadow: 2px 3px 0 var(--border-shadow);
+        }
+
+        /* Animación física de robar carta dealt/received (50% más movimiento, 25% más lenta) */
+        @keyframes card-draw {
+            0% {
+                opacity: 0;
+                transform: translateY(55px) scale(0.65) rotate(-9deg);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotate(0deg);
+            }
+        }
+
+        .combat-card.draw-anim {
+            animation: card-draw 0.56s cubic-bezier(0.18, 0.89, 0.32, 1.28) backwards;
+        }
+
+        /* Animación de gastar/usar carta (desaparece subiendo) */
+        @keyframes card-use {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-40px);
+                opacity: 0;
+            }
+        }
+
+        .combat-card.use-anim {
+            animation: card-use 0.5s ease-out forwards !important;
+            pointer-events: none;
+        }
+
+        /* Efectos visuales de combate sobre avatares */
+        .damage-strike,
+        .shield-effect,
+        .heal-effect {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-pixel);
+            font-size: 42px;
+            font-weight: bold;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .damage-strike {
+            color: #ff1744;
+            text-shadow: 0 0 15px rgba(255, 23, 68, 0.9), 0 0 5px #000;
+            animation: strike-flash 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes strike-flash {
+            0% {
+                transform: translate(-50%, -50%) scale(0.3) rotate(-15deg);
+                opacity: 0;
+            }
+
+            30% {
+                transform: translate(-50%, -50%) scale(1.5) rotate(15deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1.1) rotate(25deg);
+                opacity: 0;
+            }
+        }
+
+        .shield-effect {
+            color: #00e5ff;
+            text-shadow: 0 0 15px rgba(0, 229, 255, 0.9), 0 0 5px #000;
+            animation: shield-pulse 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+        }
+
+        @keyframes shield-pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(0.5);
+                opacity: 0;
+            }
+
+            40% {
+                transform: translate(-50%, -50%) scale(1.4);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1.8);
+                opacity: 0;
+            }
+        }
+
+        .heal-effect {
+            color: #00e676;
+            text-shadow: 0 0 15px rgba(0, 230, 118, 0.9), 0 0 5px #000;
+            animation: heal-float 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+        }
+
+        @keyframes heal-float {
+            0% {
+                transform: translate(-50%, -50%) translateY(15px) scale(0.5);
+                opacity: 0;
+            }
+
+            30% {
+                transform: translate(-50%, -50%) translateY(-5px) scale(1.3);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) translateY(-35px) scale(0.9);
+                opacity: 0;
+            }
+        }
+
+        .combat-card.programmed {
+            opacity: 0.35;
+            cursor: default;
+            transform: translateY(2px);
+            box-shadow: none;
+        }
+
+        .combat-card.programmed:hover {
+            border-color: var(--border-game);
+        }
+
+        .combat-card.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .combat-card.disabled:hover {
+            transform: none;
+            box-shadow: 2px 2px 0 var(--border-shadow);
+            border-color: var(--border-game);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px dashed rgba(62, 39, 35, 0.25);
+            padding-bottom: 2px;
+        }
+
+        .card-name {
+            font-size: 11px;
+            font-weight: bold;
+            color: var(--text-dark);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 82%;
+        }
+
+        .card-cost {
+            font-family: var(--font-pixel);
+            font-size: 14px;
+            color: var(--border-accent);
+            font-weight: bold;
+        }
+
+        .card-ascii-icon {
+            font-family: monospace;
+            font-size: 10px;
+            line-height: 1.1;
+            white-space: pre;
+            text-align: center;
+            height: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: #d84315;
+            margin: 2px 0;
+        }
+
+        .card-desc {
+            font-size: 9px;
+            line-height: 1.3;
+            color: var(--text-muted);
+            text-align: center;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Overlay Roguelike */
+        .combat-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(20, 10, 8, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .gameover-box {
+            background-color: #f7ebd3;
+            border: 4px double #e53935;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            max-width: 380px;
+            color: #3e2723;
+        }
+
+        .gameover-title {
+            font-family: var(--font-pixel);
+            font-size: 38px;
+            color: #e53935;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .gameover-text {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .gameover-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .gameover-btn {
+            font-family: var(--font-pixel);
+            font-size: 18px;
+            background-color: #e53935;
+            color: var(--text-light);
+            border: 2px solid var(--border-game);
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 2px 2px 0 var(--border-game);
+            transition: all 0.15s ease;
+        }
+
+        .gameover-btn:hover {
+            background-color: #f44336;
+            transform: translate(-1px, -1px);
+            box-shadow: 3px 3px 0 var(--border-game);
+        }
+
+        .gameover-btn:active {
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0 var(--border-game);
+        }
+
+        .gameover-btn.alt {
+            background-color: #8d6e63;
+        }
+
+        .gameover-btn.alt:hover {
+            background-color: #a1887f;
+        }
+
+        /* Ajustes Responsivos para el Combate */
+        @media (max-width: 720px) {
+            .combat-arena {
+                height: 200px;
+                padding-bottom: 6px;
+            }
+
+            .fighter-ascii {
+                font-size: 10px;
+                height: 70px;
+            }
+
+            .stat-bar {
+                height: 8px;
+            }
+
+            .stat-text {
+                font-size: 9px;
+            }
+
+            .stat-shield {
+                font-size: 13px;
+            }
+
+            .fighter-name {
+                font-size: 16px;
+            }
+
+            .combat-log {
+                font-size: 11px;
+                padding: 6px 8px;
+            }
+
+            .combat-controls {
+                height: 155px;
+            }
+
+            .action-slots {
+                gap: 6px;
+            }
+
+            .action-slot {
+                width: 105px;
+                height: 30px;
+                font-size: 9px;
+            }
+
+            .hand-container {
+                gap: 6px;
+                height: 100px;
+            }
+
+            .combat-card {
+                width: 115px;
+                height: 95px;
+                padding: 4px 6px;
+            }
+
+            .card-name {
+                font-size: 9px;
+            }
+
+            .card-cost {
+                font-size: 11px;
+            }
+
+            .card-ascii-icon {
+                font-size: 8px;
+                height: 18px;
+            }
+
+            .card-desc {
+                font-size: 8px;
+                height: 30px;
+            }
+
+            .confirm-combat-btn {
+                font-size: 13px;
+                padding: 2px 8px 4px 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .combat-screen {
+                padding: 8px;
+            }
+
+            .combat-arena {
+                height: 190px;
+            }
+
+            .fighter-ascii {
+                font-size: 9px;
+                height: 60px;
+            }
+
+            .combat-controls {
+                height: 195px;
+            }
+
+            .action-cinta-container {
+                flex-direction: column;
+                padding: 4px;
+                gap: 4px;
+            }
+
+            .action-slots {
+                width: 100%;
+            }
+
+            .action-slot {
+                flex: 1;
+            }
+
+            .confirm-combat-btn {
+                width: 100%;
+                text-align: center;
+                padding: 4px 0;
+            }
+
+            .hand-container {
+                gap: 4px;
+                height: 90px;
+                width: 100%;
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 2px;
+            }
+
+            .combat-card {
+                flex-shrink: 0;
+                width: 110px;
+                height: 85px;
+            }
+        }
+
+        /* ==========================================================================
+           8. PANTALLA COMPLETA / ESCALADO COZY (FULLSCREEN/THEATER MODE)
+           ========================================================================== */
+        .maximize-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(18, 8, 5, 0.7);
+            border: 2px solid var(--border-light);
+            border-radius: 6px;
+            color: var(--text-light);
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            box-shadow: 1px 1px 0 var(--border-shadow);
+            user-select: none;
+        }
+
+        .maximize-btn::before {
+            content: "⛶";
+        }
+
+        .game-container.fullscreen-active .maximize-btn::before {
+            content: "⤡";
+        }
+
+        .maximize-btn:hover {
+            background-color: var(--border-accent);
+            border-color: var(--color-accent);
+            transform: scale(1.08);
+        }
+
+        .maximize-btn:active {
+            transform: scale(0.92);
+        }
+
+        /* Contenedor principal escalado en pantalla completa */
+        .game-container.fullscreen-active {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(var(--scale-factor, 1));
+            transform-origin: center center;
+            z-index: 999;
+            margin: 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75);
+            border-radius: 12px;
+        }
+
+        /* Fondo oscurecido para el modo pantalla completa */
+        body.fullscreen-mode::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(12, 5, 3, 0.96);
+            z-index: 998;
+            pointer-events: all;
+        }
+
+        /* Forzar que el sobre de la carta y el modal queden siempre por encima */
+        .envelope-container {
+            z-index: 1001 !important;
+        }
+
+        .letter-modal-overlay {
+            z-index: 1002 !important;
         }
     </style>
 </head>
+
 <body>
 
     <!-- Cabecera Cozy -->
@@ -1073,24 +2404,35 @@
 
     <!-- Contenedor RPG Principal -->
     <div class="game-container">
-        
+        <!-- Botón de Maximizar / Pantalla Completa Cozy -->
+        <button class="maximize-btn" id="btn-maximize" title="Agrandar / Pantalla Completa"></button>
+
         <!-- 1. Pantalla Visual de Arte ASCII -->
         <div class="visual-canvas" id="game-canvas">
-            
+
             <!-- Elemento de Audio de Fondo -->
             <audio id="bg-music" src="maintheme.mp3" loop></audio>
+            <audio id="bg-music-ch2" src="musicChapter2.mp3" loop></audio>
             <!-- Sonido de escritura de máquina de escribir -->
             <audio id="typewriter-sound" src="typing.mp3" loop></audio>
             <!-- Sonidos de la carta -->
             <audio id="open-letter-sound" src="openLetter.mp3"></audio>
             <audio id="close-letter-sound" src="closeLetter.mp3"></audio>
+            <!-- Sonido de daño / golpe -->
+            <audio id="damage-sound" src="damage.mp3"></audio>
             <!-- Sonido de trueno -->
             <audio id="thunder-sound" src="thunder.mp3"></audio>
-            
-            
+            <!-- Nuevos Sonidos de Combate e Interfaz -->
+            <audio id="shield-sound" src="shield.mp3"></audio>
+            <audio id="heal-sound" src="heal.mp3"></audio>
+            <audio id="button-sound" src="button.mp3"></audio>
+            <audio id="victory-sound" src="victory.mp3"></audio>
+            <audio id="lose-sound" src="lose.mp3"></audio>
+
+
             <!-- Estrellas de fondo -->
             <div class="stars"></div>
-            
+
             <!-- Chispas del fuego animadas -->
             <div class="sparks-container" id="sparks-box">
                 <span class="spark spark-1">.</span>
@@ -1098,20 +2440,20 @@
                 <span class="spark spark-3">.</span>
                 <span class="spark spark-4">+</span>
             </div>
-            
+
             <!-- Izquierda: Figura con Capa (Aparece con fade-in en diálogo 3) -->
+            <!-- prettier-ignore -->
             <div class="char-container figure-container" id="figure-char">
-<!-- Arte ASCII: Michiko -->
          /\_/\
         ( <span class="figure-eyes">^.^</span> )
         /  *  \
        /|     |\
       (_|_____|_)<span class="cat-tail">~~</span>
             </div>
-            
+
             <!-- Centro: Fogata Animada en CSS -->
+            <!-- prettier-ignore -->
             <div class="char-container campfire-container" id="campfire-char">
-<!-- Arte ASCII: Fogata -->
 <div class="campfire-flames">
 <span class="flame-y">         (</span>
 <span class="flame-o">        . )</span>
@@ -1122,16 +2464,16 @@
 <span class="wood">      \ \V/ /</span>
 <span class="stones">     #########</span>
             </div>
-            
+
 
         </div>
 
         <!-- 2. Caja de Diálogo con Typewriter -->
         <div class="dialogue-box" id="dialogue-click-area">
-            
+
             <!-- Pestaña flotante del personaje que habla -->
             <div class="speaker-badge narrator" id="speaker-label">Narrador</div>
-            
+
             <!-- Contenedor de Texto -->
             <div class="dialogue-text" id="dialogue-text-content">
                 <!-- Se inyecta por JS con efecto máquina de escribir -->
@@ -1146,12 +2488,83 @@
 
         </div>
 
+        <!-- 2.5. Pantalla de Combate Roguelike Deckbuilding/Autochess -->
+        <div class="combat-screen" id="combat-screen" style="display: none;">
+            <div class="combat-arena">
+                <div class="combat-fighter player" id="fighter-player">
+                    <div class="fighter-name">Michiko</div>
+                    <div class="fighter-stats">
+                        <div class="stat-bar">
+                            <div class="stat-fill" id="player-hp-fill" style="width: 100%;"></div>
+                        </div>
+                        <div class="stat-text" id="player-hp-text">HP: 30/30</div>
+                        <div class="stat-shield" id="player-shield-text">🛡️ 0</div>
+                    </div>
+                    <pre class="fighter-ascii" id="player-ascii"><span>         /\_/\
+        ( <span class="figure-eyes">^.^</span> )
+        /  *  \
+       /|     |\
+      (_|_____|_)<span class="cat-tail">~~</span></span></pre>
+                </div>
+                <div class="combat-center-info">
+                    <div class="combat-turn" id="combat-turn-text">TURNO 1</div>
+                    <div class="combat-vs">VS</div>
+                    <div class="combat-energy" id="combat-energy-text">⚡ 2/2</div>
+                </div>
+                <div class="combat-fighter enemy" id="fighter-enemy">
+                    <div class="fighter-name">Sombra de Miedo</div>
+                    <div class="fighter-stats">
+                        <div class="stat-bar">
+                            <div class="stat-fill enemy" id="enemy-hp-fill" style="width: 100%;"></div>
+                        </div>
+                        <div class="stat-text" id="enemy-hp-text">HP: 50/50</div>
+                        <div class="stat-shield" id="enemy-shield-text">🛡️ 0</div>
+                    </div>
+                    <pre class="fighter-ascii" id="enemy-ascii"><span>    /\___/\
+   /  * *  \
+  (  = W =  )
+   \  ---  /
+    \/___\/</span></pre>
+                    <div class="enemy-intent" id="enemy-intent-box">
+                        Próximo: <span id="enemy-intent-text">⚔️ 8</span>
+                    </div>
+                </div>
+            </div>
+            <div class="combat-log" id="combat-log"></div>
+            <div class="combat-controls">
+                <div class="action-cinta-container">
+                    <span class="cinta-label">Acciones:</span>
+                    <div class="action-slots">
+                        <div class="action-slot" id="action-slot-0" data-slot="0">[ Vacío ]</div>
+                        <div class="action-slot" id="action-slot-1" data-slot="1">[ Vacío ]</div>
+                    </div>
+                    <button class="confirm-combat-btn" id="btn-confirm-actions">Confirmar Acciones ▸</button>
+                </div>
+                <div class="hand-container" id="hand-container"></div>
+            </div>
+            <div class="combat-overlay" id="combat-gameover-overlay" style="display: none;">
+                <div class="gameover-box">
+                    <h2 class="gameover-title">DERROTA</h2>
+                    <p class="gameover-text">Has caído en batalla, la sombra ha disipado tus fuerzas...</p>
+                    <div class="gameover-buttons">
+                        <button class="gameover-btn" id="btn-retry-combat">Reintentar Combate ↺</button>
+                        <button class="gameover-btn alt" id="btn-exit-combat">Volver a empezar ⌂</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- 3. Pantalla Final (Pergamino "Continuará...") -->
         <div class="parchment-overlay" id="finish-screen">
             <div class="parchment-scroll">
-                <h2 class="end-title">Continuará...</h2>
-                <p class="end-text">La fogata seguirá encendida, y se alimenta con el aire que trae el viento, casi como una caricia.</p>
-                <button class="restart-btn" id="btn-restart">Volver a empezar ↺</button>
+                <h2 class="end-title" id="finish-title">Continuará...</h2>
+                <p class="end-text" id="finish-text">La fogata seguirá encendida, y se alimenta con el aire que trae el
+                    viento, casi como una caricia.</p>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <button class="restart-btn" id="btn-restart">Volver a empezar ↺</button>
+                    <button class="restart-btn" id="btn-next-chapter" style="display: none;">Avanzar al Capítulo II
+                        🍃</button>
+                </div>
             </div>
         </div>
 
@@ -1160,7 +2573,7 @@
     <!-- Footer -->
     <footer class="cozy-footer">
         Hecho con ♡ para Fau Hokama<br>
-        v0.1 - 23/05/26
+        v0.2 - 31/05
     </footer>
 
     <!-- 4. Sobre / Carta Flotante de K -->
@@ -1179,10 +2592,12 @@
         <div class="letter-modal-paper">
             <div class="letter-post-stamp">♥</div>
             <h3 class="letter-title">Carta de una Viajera agradecida</h3>
-            <div class="letter-text">Gracias por haberme hecho ver todo con más colores, y cada día multiplicar mis ganas de crecer y vivir.
+            <div class="letter-text">Gracias por haberme hecho ver todo con más colores, y cada día multiplicar mis
+                ganas de crecer y vivir.
 
-Te amo.
-<span class="letter-signature">K.</span></div>
+                Te amo.
+                <span class="letter-signature">K.</span>
+            </div>
             <button class="letter-close-btn" id="btn-close-letter">Guardar carta</button>
         </div>
     </div>
@@ -1193,104 +2608,189 @@ Te amo.
     <script>
         // 1. ARRAY DE ESCENAS / DIÁLOGOS DE LA HISTORIA (Fácilmente extensible)
         // Puedes agregar más escenas a esta lista siguiendo la misma estructura.
-        const storyScenes = [
-            {
-                speaker: "Narrador",
-                text: "En una tierra llena de distracciones y pseudo-héroes que solo buscan la gloria a costa de los demás…",
-                visuals: {
-                    showFigure: false,
-                    fireIntensity: "normal"
+        const storyChapters = {
+            1: [
+                {
+                    speaker: "Narrador",
+                    text: "En una tierra llena de distracciones y pseudo-héroes que solo buscan la gloria a costa de los demás…",
+                    visuals: {
+                        showFigure: false,
+                        fireIntensity: "normal"
+                    }
+                },
+                {
+                    speaker: "Narrador",
+                    text: "Existe una fuerza que para muchos es invisible. Es alguien que nunca descansa en pensar cómo cuidar, que va mucho más allá de simplemente cumplir con una tarea, sino que desea construir con sólidas bases y buenas prácticas…",
+                    visuals: {
+                        showFigure: false,
+                        fireIntensity: "normal"
+                    }
+                },
+                {
+                    // Michiko aparece al lado del fuego aquí.
+                    speaker: "Michiko",
+                    text: "– Te estabas perdiendo allá afuera, ¿verdad? Es fácil que eso suceda cuando vientos de muchas direcciones nos sacuden, y todos hablan, pero pocos escuchan.",
+                    delay: 3000,
+                    visuals: {
+                        showFigure: true,
+                        fireIntensity: "normal"
+                    }
+                },
+                {
+                    speaker: "Michiko",
+                    text: "Sentate. El fuego será nuestro compañero. Este será nuestro lugar seguro.",
+                    visuals: {
+                        showFigure: true,
+                        fireIntensity: "normal"
+                    }
+                },
+                {
+                    // Las chispas flotantes y la velocidad de parpadeo se intensifican sutilmente.
+                    speaker: "Michiko",
+                    text: "– Muchos han pasado por aquí, sin saber qué buscaban. Pero con vos es diferente… El movimiento del fuego me dice que ha llegado la persona correcta para escuchar la historia.",
+                    visuals: {
+                        showFigure: true,
+                        fireIntensity: "intense"
+                    }
+                },
+                {
+                    speaker: "Michiko",
+                    text: "Sé a quién estás buscando. Ha tenido muchos nombres, pero casi nadie conoce el verdadero… Si estás dispuesta a prestar atención… te voy a contar cómo sus actos y logros sostienen todo este lugar.",
+                    visuals: {
+                        showFigure: true,
+                        fireIntensity: "intense"
+                    }
+                },
+                {
+                    speaker: "Michiko",
+                    text: "En las antiguas crónicas la llamamos… Fau, la heroína del viento.",
+                    visuals: {
+                        showFigure: true,
+                        fireIntensity: "intense",
+                        revealTitle: true
+                    }
+                },
+                {
+                    speaker: "Michiko",
+                    text: "– Por ahora descansa, y recupera tus energías. Y tal vez quieras abrir la carta si todavía no lo has hecho…",
+                    visuals: {
+                        showFigure: true,
+                        fireIntensity: "intense",
+                        revealTitle: true,
+                        showEnvelope: true
+                    }
                 }
-            },
-            {
-                speaker: "Narrador",
-                text: "Existe una fuerza que para muchos es invisible. Es alguien que nunca descansa en pensar cómo cuidar, que va mucho más allá de simplemente cumplir con una tarea, sino que desea construir con sólidas bases y buenas prácticas…",
-                visuals: {
-                    showFigure: false,
-                    fireIntensity: "normal"
+            ],
+            2: [
+                {
+                    speaker: "Michiko",
+                    text: "– Así que has decidido continuar con nuestra aventura… Todos me ven solo como un gatito que maulla, pero tú has podido escuchar mi verdadera voz. En cierta forma, soy como la heroína del viento…",
+                    delay: 2000,
+                    visuals: {
+                        showFigure: true,
+                        fireIntensity: "normal",
+                        revealTitle: true
+                    }
+                },
+                {
+                    speaker: "Michiko",
+                    text: "Tiempo atrás, la heroína empezó descubriéndose a sí misma, y muchas veces tuvo miedo... Como cualquiera de nosotros... ¡Oh, espera!",
+                    visuals: {
+                        showFigure: true,
+                        fireIntensity: "normal",
+                        revealTitle: true
+                    }
+                },
+                {
+                    speaker: "Michiko",
+                    text: "– ¡Hay una Sombra de Miedo que no quiere que avancemos!  ¡Prepárate para luchar!",
+                    visuals: {
+                        showFigure: true,
+                        fireIntensity: "intense",
+                        revealTitle: true,
+                        triggerCombat: true
+                    }
+                },
+                {
+                    speaker: "Michiko",
+                    text: " – Es un buen comienzo... hemos disipado la primer Sombra de Miedo. Probablemente siga deambulando por allí... nunca se irá del todo. Pero no dejaremos que dicte nuestro destino.",
+                    delay: 1500,
+                    visuals: {
+                        showFigure: true,
+                        fireIntensity: "normal",
+                        revealTitle: true
+                    }
+                },
+                {
+                    speaker: "Michiko",
+                    text: "– Gracias por tu ayuda. Ahora descansemos hasta que se haga de día... Nuestro viaje apenas comienza, pero siento que tienes la madera para recorrer lo que nadie más ha hecho antes.",
+                    visuals: {
+                        showFigure: true,
+                        fireIntensity: "normal",
+                        revealTitle: true
+                    }
                 }
-            },
-            {
-                // Michiko aparece al lado del fuego aquí.
-                speaker: "Michiko",
-                text: "– Te estabas perdiendo allá afuera, ¿verdad? Es fácil que eso suceda cuando vientos de muchas direcciones nos sacuden, y todos hablan, pero pocos escuchan.",
-                delay: 3000,
-                visuals: {
-                    showFigure: true,
-                    fireIntensity: "normal"
-                }
-            },
-            {
-                speaker: "Michiko",
-                text: "Sentate. El fuego será nuestro compañero. Este será nuestro lugar seguro.",
-                visuals: {
-                    showFigure: true,
-                    fireIntensity: "normal"
-                }
-            },
-            {
-                // Las chispas flotantes y la velocidad de parpadeo se intensifican sutilmente.
-                speaker: "Michiko",
-                text: "– Muchos han pasado por aquí, sin saber qué buscaban. Pero con vos es diferente… El movimiento del fuego me dice que ha llegado la persona correcta para escuchar la historia.",
-                visuals: {
-                    showFigure: true,
-                    fireIntensity: "intense"
-                }
-            },
-            {
-                speaker: "Michiko",
-                text: "Sé a quién estás buscando. Ha tenido muchos nombres, pero casi nadie conoce el verdadero… Si estás dispuesta a prestar atención… te voy a contar cómo sus actos y logros sostienen todo este lugar.",
-                visuals: {
-                    showFigure: true,
-                    fireIntensity: "intense"
-                }
-            },
-            {
-                speaker: "Michiko",
-                text: "En las antiguas crónicas la llamamos… Fau, la heroína del viento.",
-                visuals: {
-                    showFigure: true,
-                    fireIntensity: "intense",
-                    revealTitle: true
-                }
-            },
-            {
-                speaker: "Michiko",
-                text: "– Por ahora descansa, y recupera tus energías. Y tal vez quieras abrir la carta si todavía no lo has hecho…",
-                visuals: {
-                    showFigure: true,
-                    fireIntensity: "intense",
-                    revealTitle: true,
-                    showEnvelope: true
-                }
-            }
-        ];
+            ]
+        };
 
         // 2. REFERENCIAS AL DOM
         const speakerLabel = document.getElementById("speaker-label");
         const dialogueTextContent = document.getElementById("dialogue-text-content");
         const dialogueClickArea = document.getElementById("dialogue-click-area");
         const btnNext = document.getElementById("btn-next");
-        
+
         // Elementos de audio
         const bgMusic = document.getElementById("bg-music");
+        const bgMusicCh2 = document.getElementById("bg-music-ch2");
         const typewriterSound = document.getElementById("typewriter-sound");
         const openLetterSound = document.getElementById("open-letter-sound");
         const closeLetterSound = document.getElementById("close-letter-sound");
         const thunderSound = document.getElementById("thunder-sound");
-        
+        const damageSound = document.getElementById("damage-sound");
+        const shieldSound = document.getElementById("shield-sound");
+        const healSound = document.getElementById("heal-sound");
+        const buttonSound = document.getElementById("button-sound");
+        const victorySound = document.getElementById("victory-sound");
+        const loseSound = document.getElementById("lose-sound");
+
+        // Elementos del combate
+        const combatScreen = document.getElementById("combat-screen");
+        const playerHpFill = document.getElementById("player-hp-fill");
+        const playerHpText = document.getElementById("player-hp-text");
+        const playerShieldText = document.getElementById("player-shield-text");
+        const playerAscii = document.getElementById("player-ascii");
+        const enemyHpFill = document.getElementById("enemy-hp-fill");
+        const enemyHpText = document.getElementById("enemy-hp-text");
+        const enemyShieldText = document.getElementById("enemy-shield-text");
+        const enemyAscii = document.getElementById("enemy-ascii");
+        const enemyIntentText = document.getElementById("enemy-intent-text");
+        const combatTurnText = document.getElementById("combat-turn-text");
+        const combatEnergyText = document.getElementById("combat-energy-text");
+        const combatLog = document.getElementById("combat-log");
+        const handContainer = document.getElementById("hand-container");
+        const btnConfirmActions = document.getElementById("btn-confirm-actions");
+        const combatGameoverOverlay = document.getElementById("combat-gameover-overlay");
+        const btnRetryCombat = document.getElementById("btn-retry-combat");
+        const btnExitCombat = document.getElementById("btn-exit-combat");
+        const actionSlots = [
+            document.getElementById("action-slot-0"),
+            document.getElementById("action-slot-1")
+        ];
+
         // Elementos de la cabecera para revelar
         const storyTitle = document.getElementById("story-title");
         const storySubtitle = document.getElementById("story-subtitle");
-        
+
         // Elementos visuales a manipular por escena
         const figureChar = document.getElementById("figure-char");
         const campfireChar = document.getElementById("campfire-char");
         const sparksBox = document.getElementById("sparks-box");
-        
+
         // Overlay final y botón de reinicio
         const finishScreen = document.getElementById("finish-screen");
         const btnRestart = document.getElementById("btn-restart");
+        const btnNextChapter = document.getElementById("btn-next-chapter");
+        const gameContainer = document.querySelector(".game-container");
 
         // Elementos de la carta secreta
         const envelopeWidget = document.getElementById("envelope-widget");
@@ -1298,6 +2798,7 @@ Te amo.
         const btnCloseLetter = document.getElementById("btn-close-letter");
 
         // 3. ESTADO DEL JUEGO
+        let currentChapter = 1;
         let currentSceneIndex = 0;
         let isTyping = false;
         let typewriterInterval = null;
@@ -1316,31 +2817,91 @@ Te amo.
             if (envelopeWidget) {
                 envelopeWidget.classList.remove("visible");
             }
-            
-            // Colocar botón para comenzar
+            if (combatScreen) {
+                combatScreen.style.display = "none";
+            }
+            if (gameContainer) {
+                gameContainer.classList.add("menu-active");
+            }
+
+            // Pausar y reiniciar audios al volver al menú principal
+            if (bgMusic) {
+                bgMusic.pause();
+                bgMusic.currentTime = 0;
+            }
+            if (bgMusicCh2) {
+                bgMusicCh2.pause();
+                bgMusicCh2.currentTime = 0;
+            }
+
+            // Colocar selector de capítulos en formato de tarjetas cozy
             dialogueTextContent.innerHTML = `
-                <div class="start-screen-container">
-                    <button class="start-btn" id="btn-start-game">Comenzar Historia ▸</button>
+                <div class="menu-container">
+                    <h2 class="menu-header-title">SELECCIONAR CAPÍTULO</h2>
+                    <div class="chapters-grid">
+                        <div class="chapter-card" id="btn-chapter-1">
+                            <div class="chapter-card-badge">COMPLETO</div>
+                            <div class="chapter-card-icon">🔥</div>
+                            <div class="chapter-card-info">
+                                <h3 class="chapter-card-title">Capítulo I</h3>
+                                <p class="chapter-card-desc">El Lugar Seguro</p>
+                            </div>
+                        </div>
+                        <div class="chapter-card" id="btn-chapter-2">
+                            <div class="chapter-card-badge new">NUEVO</div>
+                            <div class="chapter-card-icon">🍃</div>
+                            <div class="chapter-card-info">
+                                <h3 class="chapter-card-title">Capítulo II</h3>
+                                <p class="chapter-card-desc">La Sombra</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             `;
-            
-            document.getElementById("btn-start-game").addEventListener("click", (e) => {
+
+            document.getElementById("btn-chapter-1").addEventListener("click", (e) => {
                 e.stopPropagation();
-                startGame();
+                playAudioSafe(buttonSound);
+                startGame(1);
+            });
+
+            document.getElementById("btn-chapter-2").addEventListener("click", (e) => {
+                e.stopPropagation();
+                playAudioSafe(buttonSound);
+                startGame(2);
             });
         }
 
-        function startGame() {
+        function startGame(chapter) {
             gameStarted = true;
+            currentChapter = chapter || 1;
             speakerLabel.style.display = "block";
             btnNext.style.display = "flex";
-            
-            // Iniciar música de fondo al primer click/interacción
-            bgMusic.volume = 0.45; // Volumen suave
-            bgMusic.play().catch(err => {
-                console.log("Autoplay bloqueado por el navegador, requiere interacción:", err);
-            });
-            
+            if (gameContainer) {
+                gameContainer.classList.remove("menu-active");
+            }
+
+            // Lógica de audio: reproducir música temática según el capítulo activo
+            if (currentChapter === 1) {
+                if (bgMusicCh2) {
+                    bgMusicCh2.pause();
+                    bgMusicCh2.currentTime = 0;
+                }
+                bgMusic.volume = 0.45; // Volumen suave
+                bgMusic.play().catch(err => {
+                    console.log("Autoplay bloqueado por el navegador:", err);
+                });
+            } else {
+                bgMusic.pause();
+                bgMusic.currentTime = 0;
+                if (bgMusicCh2) {
+                    bgMusicCh2.volume = 0.45; // Volumen suave
+                    bgMusicCh2.play().catch(err => {
+                        console.log("Autoplay bloqueado por el navegador:", err);
+                    });
+                }
+            }
+
             currentSceneIndex = 0;
             renderScene(currentSceneIndex);
         }
@@ -1350,17 +2911,17 @@ Te amo.
             const length = targetText.length;
             let frame = 0;
             const maxFrames = 30; // Duración total en iteraciones (~1 segundo a 30ms/frame)
-            
+
             element.classList.add("decrypting");
-            
+
             const interval = setInterval(() => {
                 let currentOutput = "";
                 let settledCount = 0;
-                
+
                 for (let i = 0; i < length; i++) {
                     // Momento de fijación de cada carácter de izquierda a derecha
                     const lockFrame = Math.floor((i / length) * (maxFrames * 0.7));
-                    
+
                     if (frame >= lockFrame + 8) {
                         currentOutput += targetText[i];
                         settledCount++;
@@ -1372,10 +2933,10 @@ Te amo.
                         currentOutput += glyphs[Math.floor(Math.random() * glyphs.length)];
                     }
                 }
-                
+
                 element.innerText = currentOutput;
                 frame++;
-                
+
                 if (settledCount === length || frame > maxFrames + 10) {
                     clearInterval(interval);
                     element.innerText = targetText;
@@ -1388,7 +2949,7 @@ Te amo.
         function updateTitle(reveal) {
             if (reveal && !isTitleRevealed) {
                 isTitleRevealed = true;
-                
+
                 // Reproducir sonido de trueno
                 if (thunderSound) {
                     thunderSound.currentTime = 0;
@@ -1409,7 +2970,7 @@ Te amo.
                     storySubtitle.innerText = "O: cómo intentar crear un refugio para alguien que amás.";
                     storySubtitle.classList.add("visible");
                 });
-                
+
             } else if (!reveal && isTitleRevealed) {
                 isTitleRevealed = false;
                 storyTitle.style.opacity = "0";
@@ -1431,7 +2992,7 @@ Te amo.
             fullDialogueText = text;
             charIndex = 0;
             isTyping = true;
-            
+
             // Ocultar sutilmente la flecha mientras se escribe
             btnNext.style.opacity = "0.3";
 
@@ -1455,7 +3016,7 @@ Te amo.
                     // Obtener texto hasta el índice actual y anexar cursor bloque
                     const slicedText = fullDialogueText.slice(0, charIndex);
                     dialogueTextContent.innerHTML = slicedText.replace(/\n/g, '<br>') + '<span class="text-cursor">█</span>';
-                    
+
                     // Auto-scroll hacia abajo si el texto sobrepasa la caja
                     dialogueTextContent.scrollTop = dialogueTextContent.scrollHeight;
                 } else {
@@ -1477,13 +3038,33 @@ Te amo.
             // Reemplazar saltos de línea y volcar todo el texto con el cursor bloque
             dialogueTextContent.innerHTML = fullDialogueText.replace(/\n/g, '<br>') + '<span class="text-cursor">█</span>';
             isTyping = false;
-            // Mostrar flecha de continuar con brillo normal
-            btnNext.style.opacity = "1";
+
+            // Si la escena actual gatilla combate, mostrar botón especial para luchar
+            const scenes = storyChapters[currentChapter];
+            const scene = scenes[currentSceneIndex];
+            if (scene && scene.visuals && scene.visuals.triggerCombat) {
+                btnNext.style.display = "none";
+                const combatBtn = document.createElement("button");
+                combatBtn.className = "start-btn";
+                combatBtn.style.marginTop = "15px";
+                combatBtn.style.display = "block";
+                combatBtn.innerText = "¡Luchar! ⚔️";
+                combatBtn.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    playAudioSafe(buttonSound);
+                    startCombat();
+                });
+                dialogueTextContent.appendChild(combatBtn);
+            } else {
+                // Mostrar flecha de continuar con brillo normal
+                btnNext.style.opacity = "1";
+            }
         }
 
         // 5. CONTROLADOR DE ESCENAS
         function renderScene(index) {
-            const scene = storyScenes[index];
+            const scenes = storyChapters[currentChapter];
+            const scene = scenes[index];
             if (!scene) return;
 
             // Actualizar etiqueta del hablante y clase estética
@@ -1544,7 +3125,7 @@ Te amo.
                 btnNext.style.opacity = "0.3";
                 fullDialogueText = scene.text; // Permitir bypass con click rápido
                 dialogueTextContent.innerHTML = '<span class="text-cursor">█</span>';
-                
+
                 typewriterDelayTimeout = setTimeout(() => {
                     startTypewriter(scene.text);
                 }, scene.delay);
@@ -1558,9 +3139,16 @@ Te amo.
                 // Si está escribiendo, completar inmediatamente
                 completeTyping();
             } else {
+                // Si la escena actual gatilla combate, no avanzar
+                const scenes = storyChapters[currentChapter];
+                const scene = scenes[currentSceneIndex];
+                if (scene && scene.visuals && scene.visuals.triggerCombat) {
+                    return;
+                }
+
                 // Si ya terminó de escribir, avanzar
                 currentSceneIndex++;
-                if (currentSceneIndex < storyScenes.length) {
+                if (currentSceneIndex < scenes.length) {
                     renderScene(currentSceneIndex);
                 } else {
                     showEnding();
@@ -1573,9 +3161,25 @@ Te amo.
             if (envelopeWidget) {
                 envelopeWidget.classList.remove("visible");
             }
+
+            const finishTitle = document.getElementById("finish-title");
+            const finishText = document.getElementById("finish-text");
+
+            if (currentChapter === 1) {
+                if (finishTitle) finishTitle.innerText = "Capítulo I Completado";
+                if (finishText) finishText.innerText = "La fogata seguirá encendida, y se alimenta con el aire que trae el viento, casi como una caricia.";
+                btnRestart.style.display = "none";
+                btnNextChapter.style.display = "inline-block";
+            } else {
+                if (finishTitle) finishTitle.innerText = "Continuará...";
+                if (finishText) finishText.innerText = "El viaje de la heroína apenas comienza. Has demostrado que tu espíritu es inquebrantable frente a la oscuridad de las sombras.";
+                btnRestart.style.display = "inline-block";
+                btnNextChapter.style.display = "none";
+            }
         }
 
         function restartGame() {
+            playAudioSafe(buttonSound);
             if (typewriterSound) {
                 typewriterSound.pause();
                 typewriterSound.currentTime = 0;
@@ -1616,18 +3220,37 @@ Te amo.
         // Botón reiniciar
         btnRestart.addEventListener("click", restartGame);
 
+        // Botón avanzar al Capítulo II
+        btnNextChapter.addEventListener("click", () => {
+            playAudioSafe(buttonSound);
+            finishScreen.classList.remove("active");
+            startGame(2);
+        });
+
         // 8. LOGICA DE LA CARTA SECRETA
 
         // Función auxiliar para reproducir audio de forma segura y repetida
         function playAudioSafe(audioElement) {
             if (audioElement) {
                 try {
-                    audioElement.pause();
-                    audioElement.currentTime = 0;
-                    audioElement.play().catch(err => {
-                        console.log("Error al reproducir audio:", err);
-                        audioElement.load();
-                        audioElement.play().catch(e => console.log("Reintento de reproducción fallido:", e));
+                    // Si el audio es música de fondo o el typewriter (tienen loop), no los clonamos
+                    // porque necesitamos pausar, reanudar o reiniciar el mismo elemento.
+                    if (audioElement.loop || audioElement.id === "bg-music" || audioElement.id === "bg-music-ch2" || audioElement.id === "typewriter-sound") {
+                        audioElement.pause();
+                        audioElement.currentTime = 0;
+                        audioElement.play().catch(err => {
+                            console.log("Error al reproducir loop:", err);
+                            audioElement.load();
+                            audioElement.play().catch(e => console.log("Reintento de loop fallido:", e));
+                        });
+                        return;
+                    }
+
+                    // Para efectos cortos y repetitivos, clonamos para permitir reproducción simultánea
+                    const clone = audioElement.cloneNode(true);
+                    clone.volume = audioElement.volume;
+                    clone.play().catch(err => {
+                        console.log("Error al reproducir clon de audio:", err);
                     });
                 } catch (e) {
                     console.log("Error en playAudioSafe:", e);
@@ -1665,21 +3288,562 @@ Te amo.
             }
         });
 
+        // ==========================================================================
+        // 9. LÓGICA DEL COMBATE ROGUELIKE (AUTOCHESS + DECKBUILDING)
+        // ==========================================================================
+        const MI_MAZO_TOTAL = [
+            { id: 1, nombre: "Patadita Voladora", daño: 7, escudo: 0, cura: 0, costo: 1, desc: "Infligí 7 de daño.", icon: " \\o/ \n==O==" },
+            { id: 2, nombre: "Escudo de Espinas", daño: 3, escudo: 8, cura: 0, costo: 1, desc: "Ganás 8 de escudo e infligís 3 de daño.", icon: " .v. \n[#🛡#]" },
+            { id: 3, nombre: "Melodía Sanadora", daño: 0, escudo: 0, cura: 6, costo: 1, desc: "Curá 6 de vida.", icon: " ♪ ♫ \n( ♥ )" },
+            { id: 4, nombre: "Golpe Giratorio", daño: 5, escudo: 3, cura: 0, costo: 1, desc: "Infligí 5 de daño. Ganá 3 de escudo.", icon: " ( @ )\n--*--" },
+            { id: 5, nombre: "Puñalada Sombra", daño: 11, escudo: 0, cura: 0, costo: 2, desc: "Infligí 11 de daño.", icon: "  (†) \n/ | \\" },
+            { id: 6, nombre: "Último Aliento", daño: 0, escudo: 15, cura: 8, costo: 2, desc: "Solo jugable si tenés 10 o menos de vida. Ganá 15 de escudo y curá 8 de vida.", icon: " ʚ♥ɞ \n*:*:*" }
+        ];
+
+        let playerHP = 30;
+        let enemyHP = 50;
+        let playerShield = 0;
+        let enemyShield = 0;
+        let combatEnergy = 2;
+        let turnCount = 1;
+        let currentHand = [];
+        let actionQueue = []; // Contiene objetos { card: cardObj, handIndex: index }
+
+        // Lógica de intenciones del enemigo
+        function getEnemyIntent(turn) {
+            const cycle = (turn - 1) % 3;
+            if (cycle === 0) return { type: "attack", value: 8, name: "Ataque Ligero (⚔️ 8)" };
+            if (cycle === 1) return { type: "defend", value: 8, name: "Defensa (🛡️ 8)" };
+            return { type: "heavy_attack", value: 13, name: "Ataque Pesado (⚔️ 13)" };
+        }
+
+        // Iniciar el combate
+        function startCombat() {
+            // Ocultar pantalla de historia
+            dialogueClickArea.style.display = "none";
+            document.getElementById("game-canvas").style.display = "none";
+
+            // Mostrar pantalla de combate
+            combatScreen.style.display = "flex";
+
+            // Restablecer variables
+            playerHP = 30;
+            enemyHP = 50;
+            playerShield = 0;
+            enemyShield = 0;
+            combatEnergy = 2;
+            turnCount = 1;
+            actionQueue = [];
+
+            // Limpiar logs
+            combatLog.innerHTML = "";
+            logCombatMessage("¡Comienza el combate contra la Sombra de Miedo!", "system");
+
+            // Actualizar interfaz
+            updateCombatUI();
+
+            // Robar mano
+            drawCards(true);
+        }
+
+        function logCombatMessage(msg, type = "") {
+            const entry = document.createElement("div");
+            entry.className = `combat-log-entry ${type}`;
+            entry.innerText = msg;
+            combatLog.appendChild(entry);
+            combatLog.scrollTop = combatLog.scrollHeight;
+        }
+
+        function updateCombatUI() {
+            // HP bars
+            playerHpFill.style.width = `${Math.max(0, (playerHP / 30) * 100)}%`;
+            playerHpText.innerText = `HP: ${playerHP}/30`;
+            playerShieldText.innerText = `🛡️ ${playerShield}`;
+
+            enemyHpFill.style.width = `${Math.max(0, (enemyHP / 50) * 100)}%`;
+            enemyHpText.innerText = `HP: ${enemyHP}/50`;
+            enemyShieldText.innerText = `🛡️ ${enemyShield}`;
+
+            // Turno e intención
+            combatTurnText.innerText = `TURNO ${turnCount}`;
+            const intent = getEnemyIntent(turnCount);
+            enemyIntentText.innerText = intent.name;
+
+            // Energía
+            combatEnergyText.innerText = `⚡ ${combatEnergy}/2`;
+
+            // Limpiar clases y estilos de combinación de slots
+            actionSlots.forEach((s, idx) => {
+                s.classList.remove("filled", "merged-left", "merged-right");
+                s.style.removeProperty("margin-right");
+                s.innerText = `[ Slot ${idx + 1} ]`;
+            });
+
+            // Slots de acciones
+            if (actionQueue[0] && actionQueue[0].card.costo === 2) {
+                const card = actionQueue[0].card;
+                actionSlots[0].innerText = card.nombre;
+                actionSlots[0].classList.add("filled", "merged-left");
+                actionSlots[0].style.marginRight = "-12px"; // Cancelar gap
+
+                actionSlots[1].innerText = `⚡${card.costo}`;
+                actionSlots[1].classList.add("filled", "merged-right");
+            } else {
+                for (let i = 0; i < 2; i++) {
+                    const slot = actionSlots[i];
+                    if (actionQueue[i]) {
+                        slot.innerText = actionQueue[i].card.nombre;
+                        slot.classList.add("filled");
+                    }
+                }
+            }
+        }
+
+        function drawCards(isFirstTurn = false) {
+            let newCardIndices = [];
+            if (isFirstTurn) {
+                actionQueue = [];
+                combatEnergy = 2;
+                // Mezclar mazo y robar 3 completamente nuevas
+                const shuffled = [...MI_MAZO_TOTAL].sort(() => Math.random() - 0.5);
+                currentHand = shuffled.slice(0, 3);
+                newCardIndices = [0, 1, 2];
+            } else {
+                // Conservar las no usadas y reponer las usadas
+                const usedIndices = actionQueue.map(item => item.handIndex);
+                newCardIndices = [...usedIndices];
+
+                // Si se usaron cartas, rellenar los huecos correspondientes
+                if (usedIndices.length > 0) {
+                    // Cartas que se quedan en la mano (las que NO fueron programadas)
+                    const keptCards = currentHand.filter((card, idx) => !usedIndices.includes(idx));
+
+                    // Cartas del mazo total que NO están en keptCards
+                    const availableToDraw = MI_MAZO_TOTAL.filter(card =>
+                        !keptCards.some(kept => kept.id === card.id)
+                    );
+
+                    // Mezclar las disponibles
+                    const shuffledAvailable = availableToDraw.sort(() => Math.random() - 0.5);
+
+                    // Reemplazar en la mano las posiciones de las cartas usadas
+                    let drawIdx = 0;
+                    usedIndices.forEach(handIdx => {
+                        if (drawIdx < shuffledAvailable.length) {
+                            currentHand[handIdx] = shuffledAvailable[drawIdx];
+                            drawIdx++;
+                        }
+                    });
+                }
+
+                // Reiniciar estados del turno
+                actionQueue = [];
+                combatEnergy = 2;
+            }
+
+            renderHand(newCardIndices);
+            updateCombatUI();
+        }
+
+        function renderHand(newCardIndices = []) {
+            handContainer.innerHTML = "";
+            currentHand.forEach((card, index) => {
+                const isProgrammed = actionQueue.some(item => item.handIndex === index);
+
+                const cardDiv = document.createElement("div");
+                cardDiv.className = "combat-card";
+                if (isProgrammed) cardDiv.classList.add("programmed");
+
+                const isNew = newCardIndices.includes(index);
+                if (isNew) {
+                    cardDiv.classList.add("draw-anim");
+                    const newCardOrder = newCardIndices.indexOf(index);
+                    cardDiv.style.animationDelay = `${newCardOrder * 125}ms`;
+                }
+
+                // Habilitar / deshabilitar por costo o condiciones especiales
+                const isAffordable = combatEnergy >= card.costo;
+                const isUltimoAlientoValido = card.id !== 6 || playerHP <= 10;
+
+                if (!isProgrammed && (!isAffordable || !isUltimoAlientoValido)) {
+                    cardDiv.classList.add("disabled");
+                }
+
+                cardDiv.innerHTML = `
+                    <div class="card-header">
+                        <span class="card-name">${card.nombre}</span>
+                        <span class="card-cost">⚡${card.costo}</span>
+                    </div>
+                    <div class="card-ascii-icon" style="color: ${getCardColor(card.id)};">${card.icon.replace(/\n/g, '<br>')}</div>
+                    <div class="card-desc">${card.desc}</div>
+                `;
+
+                cardDiv.addEventListener("click", () => {
+                    if (isProgrammed) return;
+                    playAudioSafe(buttonSound);
+                    if (!isAffordable) {
+                        logCombatMessage("¡No tenés suficiente energía!", "system");
+                        return;
+                    }
+                    if (!isUltimoAlientoValido) {
+                        logCombatMessage("¡Último Aliento solo se puede jugar si tenés 10 o menos de HP!", "system");
+                        return;
+                    }
+                    selectCard(card, index);
+                });
+
+                handContainer.appendChild(cardDiv);
+            });
+        }
+
+        function getCardColor(id) {
+            if (id === 1) return "#ff8a80"; // Patadita - Rojo
+            if (id === 2) return "#80deea"; // Escudo - Cian
+            if (id === 3) return "#ff80ab"; // Melodía - Rosa
+            if (id === 4) return "#ffe082"; // Golpe Giratorio - Oro
+            if (id === 5) return "#b388ff"; // Puñalada - Violeta
+            return "#81c784"; // Último aliento - Verde
+        }
+
+        function selectCard(card, index) {
+            if (actionQueue.length >= 2) {
+                logCombatMessage("La lista de Acciones está llena (máximo 2 cartas).", "system");
+                return;
+            }
+            combatEnergy -= card.costo;
+            actionQueue.push({ card, handIndex: index });
+
+            renderHand();
+            updateCombatUI();
+        }
+
+        // Clic en los slots de las acciones para quitar cartas
+        actionSlots.forEach((slot, slotIndex) => {
+            slot.addEventListener("click", () => {
+                if (actionQueue[0] && actionQueue[0].card.costo === 2) {
+                    playAudioSafe(buttonSound);
+                    const removed = actionQueue.splice(0, 1)[0];
+                    combatEnergy += removed.card.costo;
+
+                    renderHand();
+                    updateCombatUI();
+                    return;
+                }
+
+                if (actionQueue[slotIndex]) {
+                    playAudioSafe(buttonSound);
+                    const removed = actionQueue.splice(slotIndex, 1)[0];
+                    combatEnergy += removed.card.costo;
+
+                    renderHand();
+                    updateCombatUI();
+                }
+            });
+        });
+
+        // Confirmar acciones e iniciar ejecución automática (Autochess)
+        btnConfirmActions.addEventListener("click", () => {
+            playAudioSafe(buttonSound);
+            executeTurn();
+        });
+
+        function executeTurn() {
+            // Deshabilitar clicks en mano y controles
+            handContainer.style.pointerEvents = "none";
+            btnConfirmActions.disabled = true;
+            actionSlots.forEach(s => s.style.pointerEvents = "none");
+
+            let currentStep = 0;
+
+            function nextStep() {
+                // Quitar luces de ejecución previa
+                actionSlots.forEach(s => s.classList.remove("executing"));
+
+                if (currentStep < actionQueue.length) {
+                    // Ejecutar carta de Fau
+                    const item = actionQueue[currentStep];
+                    actionSlots[currentStep].classList.add("executing");
+                    if (item.card.costo === 2 && actionSlots[currentStep + 1]) {
+                        actionSlots[currentStep + 1].classList.add("executing");
+                    }
+
+                    // Animación de uso de la carta en la mano
+                    const cardElement = handContainer.children[item.handIndex];
+                    if (cardElement) {
+                        cardElement.classList.add("use-anim");
+                    }
+
+                    applyCardEffect(item.card);
+
+                    currentStep++;
+                    setTimeout(nextStep, 600);
+                } else {
+                    // Turno del enemigo
+                    enemyAction();
+                }
+            }
+
+            nextStep();
+        }
+
+        // Generar efecto visual de combate temporal sobre el avatar
+        function triggerVisualEffect(targetId, type) {
+            const container = document.getElementById(targetId);
+            if (!container) return;
+
+            const effectDiv = document.createElement("div");
+            if (type === "damage") {
+                effectDiv.className = "damage-strike";
+                effectDiv.innerText = "💥";
+            } else if (type === "shield") {
+                effectDiv.className = "shield-effect";
+                effectDiv.innerText = "🛡️";
+                playAudioSafe(shieldSound);
+            } else if (type === "heal") {
+                effectDiv.className = "heal-effect";
+                effectDiv.innerText = "💚";
+                playAudioSafe(healSound);
+            }
+
+            container.appendChild(effectDiv);
+
+            setTimeout(() => {
+                effectDiv.remove();
+            }, 1000);
+        }
+
+        function applyCardEffect(card) {
+            logCombatMessage(`Michiko usa ${card.nombre}.`, "player-action");
+
+            // Daño
+            if (card.daño > 0) {
+                let damage = card.daño;
+                animateFighterHit("enemy");
+                triggerVisualEffect("enemy-ascii", "damage");
+                if (enemyShield > 0) {
+                    if (damage >= enemyShield) {
+                        damage -= enemyShield;
+                        logCombatMessage(`  Rompe el escudo de la Sombra de Miedo (absorbe ${enemyShield} de daño).`, "system");
+                        enemyShield = 0;
+                    } else {
+                        enemyShield -= damage;
+                        logCombatMessage(`  La Sombra de Miedo absorbe ${damage} de daño con su escudo (le quedan ${enemyShield}).`, "system");
+                        damage = 0;
+                    }
+                }
+                if (damage > 0) {
+                    enemyHP -= damage;
+                    logCombatMessage(`  Inflige ${damage} de daño a la Sombra de Miedo.`, "system");
+                }
+            }
+
+            // Escudo
+            if (card.escudo > 0) {
+                playerShield += card.escudo;
+                logCombatMessage(`  Gana ${card.escudo} de escudo.`, "system");
+                triggerVisualEffect("player-ascii", "shield");
+            }
+
+            // Cura
+            if (card.cura > 0) {
+                const heal = Math.min(card.cura, 30 - playerHP);
+                playerHP += heal;
+                logCombatMessage(`  Se cura ${heal} de vida.`, "system");
+                triggerVisualEffect("player-ascii", "heal");
+            }
+
+            updateCombatUI();
+        }
+
+        function animateFighterHit(target) {
+            const element = target === "player" ? playerAscii : enemyAscii;
+            element.classList.add("damaged", "shake-avatar");
+
+            if (target === "player") {
+                combatScreen.classList.add("damage-flash-active");
+            }
+
+            // Reproducir sonido de daño/golpe
+            playAudioSafe(damageSound);
+
+            setTimeout(() => {
+                element.classList.remove("damaged", "shake-avatar");
+                if (target === "player") {
+                    combatScreen.classList.remove("damage-flash-active");
+                }
+            }, 400);
+        }
+
+        function enemyAction() {
+            const intent = getEnemyIntent(turnCount);
+            logCombatMessage(`La Sombra de Miedo ejecuta su acción: ${intent.name}.`, "enemy-action");
+
+            if (intent.type === "attack" || intent.type === "heavy_attack") {
+                let damage = intent.value;
+                animateFighterHit("player");
+                triggerVisualEffect("player-ascii", "damage");
+
+                if (playerShield > 0) {
+                    if (damage >= playerShield) {
+                        damage -= playerShield;
+                        logCombatMessage(`  Rompe el escudo de Michiko (absorbe ${playerShield} de daño).`, "system");
+                        playerShield = 0;
+                    } else {
+                        playerShield -= damage;
+                        logCombatMessage(`  Michiko absorbe ${damage} de daño con su escudo (le quedan ${playerShield}).`, "system");
+                        damage = 0;
+                    }
+                }
+                if (damage > 0) {
+                    playerHP -= damage;
+                    logCombatMessage(`  Inflige ${damage} de daño a Michiko.`, "system");
+                }
+            } else if (intent.type === "defend") {
+                enemyShield += intent.value;
+                logCombatMessage(`  La Sombra de Miedo gana ${intent.value} de escudo.`, "system");
+                triggerVisualEffect("enemy-ascii", "shield");
+            }
+
+            updateCombatUI();
+
+            // Esperar y finalizar turno
+            setTimeout(finishTurn, 800);
+        }
+
+        function finishTurn() {
+            // Limpiar escudos
+            playerShield = 0;
+            enemyShield = 0;
+
+            // Habilitar controles
+            handContainer.style.pointerEvents = "auto";
+            btnConfirmActions.disabled = false;
+            actionSlots.forEach(s => s.style.pointerEvents = "auto");
+            actionSlots.forEach(s => s.classList.remove("executing"));
+
+            updateCombatUI();
+
+            // Validar fin del combate (prioriza derrota en caso de doble KO)
+            if (playerHP <= 0) {
+                loseCombat();
+            } else if (enemyHP <= 0) {
+                winCombat();
+            } else {
+                turnCount++;
+                drawCards();
+            }
+        }
+
+        function winCombat() {
+            playAudioSafe(victorySound);
+            logCombatMessage("¡VICTORIA! Michiko ha disipado la Sombra de Miedo.", "victory");
+
+            setTimeout(() => {
+                // Volver a la historia
+                combatScreen.style.display = "none";
+                dialogueClickArea.style.display = "flex";
+                document.getElementById("game-canvas").style.display = "flex";
+
+                // Avanzar a la escena post-combate
+                currentSceneIndex = 3; // Escena de victoria en Capítulo 2
+                renderScene(currentSceneIndex);
+            }, 1500);
+        }
+
+        function loseCombat() {
+            playAudioSafe(loseSound);
+            logCombatMessage("Michiko ha caído en batalla...", "enemy-action");
+
+            // Mutear / Pausar la música del capítulo 2
+            if (bgMusicCh2) {
+                bgMusicCh2.pause();
+                bgMusicCh2.currentTime = 0;
+            }
+
+            // Mostrar overlay de derrota
+            combatGameoverOverlay.style.display = "flex";
+        }
+
+        // Eventos del Overlay
+        btnRetryCombat.addEventListener("click", () => {
+            playAudioSafe(buttonSound);
+            combatGameoverOverlay.style.display = "none";
+
+            // Reiniciar música
+            if (bgMusicCh2) {
+                bgMusicCh2.volume = 0.45;
+                bgMusicCh2.play().catch(e => console.log(e));
+            }
+
+            // Reiniciar combate
+            startCombat();
+        });
+
+        btnExitCombat.addEventListener("click", () => {
+            playAudioSafe(buttonSound);
+            combatGameoverOverlay.style.display = "none";
+            combatScreen.style.display = "none";
+
+            // Reiniciar juego completo al selector
+            dialogueClickArea.style.display = "flex";
+            document.getElementById("game-canvas").style.display = "flex";
+            restartGame();
+        });
+
+        // 10. BOTÓN DE PANTALLA COMPLETA / AGRANDAR BOX
+        const btnMaximize = document.getElementById("btn-maximize");
+
+        function updateFullscreenScale() {
+            if (gameContainer.classList.contains("fullscreen-active")) {
+                const baseWidth = 680;
+                const baseHeight = 610;
+                const scaleX = window.innerWidth / baseWidth;
+                const scaleY = window.innerHeight / baseHeight;
+                // Dejar un 5% de margen de seguridad
+                const scale = Math.min(scaleX, scaleY) * 0.95;
+                gameContainer.style.setProperty("--scale-factor", scale);
+            } else {
+                gameContainer.style.removeProperty("--scale-factor");
+            }
+        }
+
+        btnMaximize.addEventListener("click", (e) => {
+            e.stopPropagation();
+            playAudioSafe(buttonSound);
+            gameContainer.classList.toggle("fullscreen-active");
+            document.body.classList.toggle("fullscreen-mode");
+            updateFullscreenScale();
+        });
+
+        window.addEventListener("resize", updateFullscreenScale);
+
+        // Cerrar pantalla completa con la tecla Escape
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                if (gameContainer.classList.contains("fullscreen-active")) {
+                    gameContainer.classList.remove("fullscreen-active");
+                    document.body.classList.remove("fullscreen-mode");
+                    updateFullscreenScale();
+                }
+            }
+        });
+
         // 7. INICIALIZACIÓN
         window.addEventListener("DOMContentLoaded", () => {
             showStartScreen();
 
-            // Pestañeo periódico de Michiko
-            const eyesElement = document.querySelector(".figure-eyes");
-            if (eyesElement) {
+            // Pestañeo periódico de Michiko (tanto en la historia como en el combate)
+            const eyesElements = document.querySelectorAll(".figure-eyes");
+            if (eyesElements.length > 0) {
                 setInterval(() => {
-                    eyesElement.innerText = "-.-"; // Cerrar ojos
+                    eyesElements.forEach(el => el.innerText = "-.-"); // Cerrar ojos
                     setTimeout(() => {
-                        eyesElement.innerText = "^.^"; // Abrir ojos
+                        eyesElements.forEach(el => el.innerText = "^.^"); // Abrir ojos
                     }, 200); // Duración de pestañeo (0.2s)
                 }, 2500); // Frecuencia (2.5s total: 2.3s abiertos, 0.2s cerrados)
             }
         });
     </script>
 </body>
+
 </html>
