@@ -118,14 +118,6 @@
       style="border:none;background:none;padding:0;margin:0 8px;color:#1A0703;font-size:1.7em;vertical-align:middle;text-decoration:none;">
       <i class="fab fa-linkedin"></i>
     </a>
-    <a href="https://www.youtube.com/@kierpreve/shorts" target="_self"
-      style="border:none;background:none;padding:0;margin:0 8px;color:#1A0703;font-size:1.7em;vertical-align:middle;text-decoration:none;">
-      <i class="fab fa-youtube"></i>
-    </a>
-    <a href="https://instagram.com/kier.preve" target="_self"
-      style="border:none;background:none;padding:0;margin:0 8px;color:#1A0703;font-size:1.7em;vertical-align:middle;text-decoration:none;">
-      <i class="fab fa-instagram"></i>
-    </a>
     <a href="CV%20Kiernan%20Preve%20June%202026.pdf" target="_blank" aria-label="Curriculum Vitae"
       style="border:none;background:none;padding:0;margin:0 8px;color:#1A0703;font-size:1.5em;vertical-align:middle;text-decoration:none;">
       <strong>CV</strong>
@@ -190,7 +182,14 @@
   <style>
     #contactModal {
       position: fixed;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      height: 100dvh;
+      /* evita el salto por la barra de navegación en móvil */
       display: none;
       align-items: center;
       justify-content: center;
@@ -203,6 +202,7 @@
       display: flex;
     }
 
+    #contactModal,
     #contactModal * {
       box-sizing: border-box;
     }
@@ -210,6 +210,9 @@
     #contactModal .contact-card {
       position: relative;
       width: min(92vw, 420px);
+      max-height: 85vh;
+      overflow-y: auto;
+      overscroll-behavior: contain;
       background: #fdf6f1;
       color: #1A0703;
       border: 2px solid #1A0703;
