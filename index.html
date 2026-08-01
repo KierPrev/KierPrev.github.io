@@ -6,7 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kiernan Preve — Física UNSL</title>
   <meta name="description"
-    content="Física en formación. Autora. Podcast 'La curiosidad nos va a salvar'. Explorando la intersección entre la ciencia y la narrativa.">
+    content="Kiernan Preve — estudiante de Física (UNSL) investigando en magnetobiología. Tesis experimental, instrumentación y visión por computadora. También escribo y hago música.">
+
+  <!-- Open Graph / redes sociales -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kier.ar/">
+  <meta property="og:title" content="Kiernan Preve — Física UNSL">
+  <meta property="og:description"
+    content="Estudiante de Física (UNSL) investigando en magnetobiología. Tesis experimental, instrumentación y visión por computadora. También escribo y hago música.">
+  <meta property="og:image" content="https://kier.ar/Fotos/ParaPerfil.jpg">
+  <meta property="og:locale" content="es_AR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kiernan Preve — Física UNSL">
+  <meta name="twitter:description"
+    content="Estudiante de Física (UNSL) investigando en magnetobiología. Tesis experimental, instrumentación y visión por computadora.">
+  <meta name="twitter:image" content="https://kier.ar/Fotos/ParaPerfil.jpg">
 
   <!-- Favicon -->
   <link rel="icon" href="icon.png" />
@@ -112,12 +126,10 @@
       style="border:none;background:none;padding:0;margin:0 8px;color:#1A0703;font-size:1.7em;vertical-align:middle;text-decoration:none;">
       <i class="fab fa-instagram"></i>
     </a>
-    <!--
-    <a href="CV.pdf" target="_self"
+    <a href="CV%20Kiernan%20Preve%20June%202026.pdf" target="_blank" aria-label="Curriculum Vitae"
       style="border:none;background:none;padding:0;margin:0 8px;color:#1A0703;font-size:1.5em;vertical-align:middle;text-decoration:none;">
       <strong>CV</strong>
     </a>
-    -->
   </div>
 
 
@@ -148,6 +160,140 @@
       <span data-i18n="projects">Proyectos</span>
     </a>
   </div>
+
+  <div class="proyectos-container">
+    <a class="link link-proyectos" id="openContact" href="contacto.html" role="button" aria-haspopup="dialog">
+      <i class="fas fa-envelope">&nbsp;</i>
+      <span data-i18n="contact">Contacto</span>
+    </a>
+  </div>
+
+  <!-- Popup de contacto -->
+  <div id="contactModal" aria-hidden="true">
+    <div class="contact-card" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+      <button class="contact-close" id="closeContact" aria-label="Cerrar">&times;</button>
+      <h2 id="contactTitle" data-i18n="contact_title">Escribime</h2>
+      <p class="contact-sub" data-i18n="contact_sub">Elegí el canal que prefieras. Respondo en horario de Argentina.</p>
+
+      <a class="contact-row" href="mailto:contact@kier.ar">
+        <i class="fas fa-envelope" aria-hidden="true"></i><span>contact@kier.ar</span>
+      </a>
+      <a class="contact-row" href="https://www.linkedin.com/in/kiernanpreve/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span>
+      </a>
+      <a class="contact-row" href="https://github.com/KierPrev" target="_blank" rel="noopener">
+        <i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span>
+      </a>
+    </div>
+  </div>
+
+  <style>
+    #contactModal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background: rgba(26, 7, 3, .45);
+      z-index: 9999;
+    }
+
+    #contactModal[aria-hidden="false"] {
+      display: flex;
+    }
+
+    #contactModal * {
+      box-sizing: border-box;
+    }
+
+    #contactModal .contact-card {
+      position: relative;
+      width: min(92vw, 420px);
+      background: #fdf6f1;
+      color: #1A0703;
+      border: 2px solid #1A0703;
+      border-radius: 18px;
+      box-shadow: 0 8px 0 #1A0703;
+      padding: 26px 22px 22px;
+      text-align: center;
+    }
+
+    #contactModal h2 {
+      margin: 0 0 6px;
+      font-size: 1.5em;
+    }
+
+    #contactModal .contact-sub {
+      margin: 0 0 18px;
+      font-size: .92em;
+      opacity: .75;
+    }
+
+    #contactModal .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      margin: 0 0 10px;
+      padding: 12px 16px;
+      border: 2px solid #1A0703;
+      border-radius: 12px;
+      background: #ffd0c3;
+      color: #1A0703;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 0 #1A0703;
+      transition: transform .12s ease;
+    }
+
+    #contactModal .contact-row:hover {
+      transform: translateY(-2px);
+    }
+
+    #contactModal .contact-close {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      background: transparent;
+      border: 0;
+      color: #1A0703;
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+  </style>
+
+  <script>
+    (function () {
+      const openBtn = document.getElementById('openContact');
+      const modal = document.getElementById('contactModal');
+      const closeBtn = document.getElementById('closeContact');
+
+      const open = e => {
+        e.preventDefault();            // si JS falla, el href lleva a contacto.html igual
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        closeBtn.focus();
+      };
+      const close = () => {
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+        openBtn.focus();
+      };
+
+      openBtn.addEventListener('click', open);
+      closeBtn.addEventListener('click', close);
+      modal.addEventListener('click', e => { if (e.target === modal) close(); });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') close();
+      });
+    })();
+  </script>
 
   <!-- Sección oculta inicialmente -->
   <div id="miSeccion" style="
@@ -203,6 +349,14 @@
         <div class="section-title" data-i18n="science">Ciencia</div>
         <hr class="section-divider">
 
+        <div class="item-title">
+          <a href="https://github.com/KierPrev/tesis-magnetobiologia-latex" target="_blank"
+            style="color:inherit; text-decoration:none;">
+            <span data-i18n="thesis_title">Campos magnéticos y germinación de <i>Zea mays</i></span>
+          </a>
+        </div>
+        <div data-i18n="thesis_in_progress">Proyecto en curso (Tesis)</div>
+        <br>
 
         <div class="item-title">
           <a href="https://kier.ar/magnetobiologia" target="_blank" style="color:inherit; text-decoration:none;">
@@ -303,6 +457,22 @@
         </div>
         <br>
         <div class="item-title">
+          <a href="https://github.com/KierPrev/tesis-magnetobiologia-latex" target="_blank"
+            style="color:inherit; text-decoration:none;">
+            <span data-i18n="phenotyping">Fenotipado automatizado (OpenCV)</span>
+          </a>
+        </div>
+        <div>2026</div>
+        <br>
+        <div class="item-title">
+          <a href="https://github.com/KierPrev/Nanotribologia" target="_blank"
+            style="color:inherit; text-decoration:none;">
+            <span data-i18n="nanotribology">Nanotribología — modelo Prandtl-Tomlinson</span>
+          </a>
+        </div>
+        <div>2024</div>
+        <br>
+        <div class="item-title">
           <a href="https://github.com/KierPrev/PIDController" target="_blank"
             style="color:inherit; text-decoration:none;">
             <span data-i18n="pid_controller">Controlador PID</span>
@@ -361,6 +531,11 @@
           writing: "Escribiendo...",
           programming: "Programación",
           thesis_in_progress: "Proyecto en curso (Tesis)",
+          thesis_title: "Campos magnéticos y germinación de <i>Zea mays</i>",
+          contact_title: "Escribime",
+          contact_sub: "Elegí el canal que prefieras. Respondo en horario de Argentina.",
+          phenotyping: "Fenotipado automatizado (OpenCV)",
+          nanotribology: "Nanotribología — modelo Prandtl-Tomlinson",
           music: "Música",
           science: "Ciencia",
           magnetobiology_mindmap: "Mapa Mental Magnetobiología",
@@ -386,6 +561,11 @@
           writing: "Writing",
           programming: "Programming",
           thesis_in_progress: "Thesis (In Progress)",
+          thesis_title: "Magnetic fields & <i>Zea mays</i> germination",
+          contact_title: "Get in touch",
+          contact_sub: "Pick whichever channel you prefer. I reply on Argentina time.",
+          phenotyping: "Automated phenotyping (OpenCV)",
+          nanotribology: "Nanotribology — Prandtl-Tomlinson model",
           helping: "Support my work",
           music: "Music",
           science: "Science",
@@ -420,7 +600,8 @@
           const key = el.getAttribute("data-i18n");
           const text = I18N[lang] && I18N[lang][key];
           if (text) {
-            el.textContent = text;
+            // innerHTML: el diccionario es estático y propio (permite <i> en nombres de especies)
+            el.innerHTML = text;
           } else {
             console.warn(`Translation key not found: ${key} for language ${lang}`);
           }
