@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Karla:wght@400;700&display=swap');
 
 :root {
     --bgColor: #2b776a;
@@ -6,12 +6,31 @@
     --accentColor: #000;
     --font:
         'Karla', sans-serif;
+    /* serif variable: prosa y display */
+    --font-serif: 'Fraunces', Georgia, serif;
     --delay: .3s;
 }
 
 
 
 
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* el body arranca en opacity:0 y solo lo revela la animación */
+    body {
+        opacity: 1 !important;
+    }
+}
 
 a {
     color: inherit;
@@ -31,7 +50,7 @@ body {
     padding: 0;
     min-height: 100vh;
     font-family: var(--font);
-    background: #f5f0e8;
+    background: #F1F7F5;
     /* background-image: url('https://bit.ly/3nFVqJh'); */
     opacity: 0;
     animation: 1s ease-out var(--delay) 1 transitionAnimation;
@@ -44,12 +63,14 @@ body {
 
 #userName {
     color: #1A0703;
-    font-size: 2em;
-    font-weight: bold;
-    line-height: 1.25;
+    font-size: 2.1em;
+    font-weight: 550;
+    letter-spacing: -.008em;
+    line-height: 1.15;
     display: block;
     margin-top: 80px;
-    font-family: var(--font);
+    font-family: var(--font-serif);
+    font-variation-settings: 'opsz' 80;
     width: 100%;
     text-align: center;
     text-decoration: none;
@@ -80,11 +101,12 @@ body {
 
 .link {
     position: relative;
-    background-color: #ffd0c3;
+    background-color: #8FD3C4;
     color: var(--accentColor);
     border: solid var(--accentColor) 2px;
     border-radius: 10px;
-    box-shadow: 6px 6px;
+    /* misma convención que las tarjetas de video: marrón translúcido, no negro sólido */
+    box-shadow: 4px 4px 0 rgba(26, 7, 3, 0.8);
     font-size: 1.2rem;
     font-weight: 400;
     text-align: center;
@@ -104,7 +126,7 @@ body {
 
 @media (hover: hover) {
     .link:hover {
-        background-color: #c9efd9;
+        background-color: #B3E3D7;
         color: var(--accentColor);
     }
 }
@@ -198,18 +220,22 @@ body {
     text-align: left;
     /* Para centrar todo el texto */
     color: #1A0703;
-    font-weight: 500;
-    font-size: 1.5em;
-    line-height: 1.4em;
+    font-family: var(--font-serif);
+    font-variation-settings: 'opsz' 14;
+    font-weight: 400;
+    font-size: 1.4em;
+    line-height: 1.62;
     /* Espacio entre líneas más cómodo */
 }
 
 .about__quote {
     text-align: center;
+    font-family: var(--font-serif);
+    font-variation-settings: 'opsz' 60;
     font-size: 1.5em;
     margin-bottom: 0.5em;
     font-weight: 600;
-    line-height: 1.6em;
+    line-height: 1.4;
     /* Separación tras la cita */
 }
 
@@ -298,7 +324,7 @@ body {
 
 .link.link-proyectos {
     display: inline-block;
-    width: 300px;
+    width: 260px;
     text-align: center;
 }
 

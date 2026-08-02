@@ -8,6 +8,8 @@
   <meta name="description"
     content="Kiernan Preve — estudiante de Física (UNSL) investigando en magnetobiología. Tesis experimental, instrumentación y visión por computadora. También escribo y hago música.">
 
+  <meta name="theme-color" content="#F1F7F5">
+
   <!-- Open Graph / redes sociales -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kier.ar/">
@@ -21,6 +23,54 @@
   <meta name="twitter:description"
     content="Estudiante de Física (UNSL) investigando en magnetobiología. Tesis experimental, instrumentación y visión por computadora.">
   <meta name="twitter:image" content="https://kier.ar/Fotos/ParaPerfil.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kiernan Preve",
+    "givenName": "Kiernan",
+    "familyName": "Preve",
+    "alternateName": ["Kiernan Elizabeth Preve", "K. E. Preve"],
+    "url": "https://kier.ar",
+    "image": "https://kier.ar/Fotos/ParaPerfil.jpg",
+    "email": "contact@kier.ar",
+    "jobTitle": "Physics student and researcher",
+    "description": "Physics student at Universidad Nacional de San Luis researching magnetobiology — the effect of static magnetic fields on Zea mays germination. Also a novelist and music producer.",
+    "nationality": {
+      "@type": "Country",
+      "name": "Argentina"
+    },
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Universidad Nacional de San Luis",
+      "alternateName": "UNSL",
+      "url": "https://www.unsl.edu.ar/"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Universidad Nacional de San Luis"
+    },
+    "knowsAbout": [
+      "Magnetobiology",
+      "Experimental physics",
+      "Scientific instrumentation",
+      "Computer vision",
+      "Scientific computing",
+      "Science communication"
+    ],
+    "knowsLanguage": ["es", "en"],
+    "sameAs": [
+      "https://github.com/KierPrev",
+      "https://www.linkedin.com/in/kiernanpreve/",
+      "https://www.youtube.com/@kierpreve",
+      "https://soundcloud.com/kierprev"
+    ]
+  }
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" href="icon.png" />
@@ -50,8 +100,8 @@
 
   <style>
     .profile-portrait {
-      width: 144px;
-      height: 144px;
+      width: 165px;
+      height: 165px;
       margin: 18px auto 12px;
       border-radius: 50%;
       overflow: hidden;
@@ -68,7 +118,7 @@
 
     .intro-copy {
       color: #1A0703;
-      font-weight: bold;
+      font-weight: 400;
       font-size: 1.05em;
       margin: 10px auto 0;
       max-width: 620px;
@@ -89,6 +139,15 @@
       display: block;
     }
 
+    .intro-main {
+      font-family: var(--font-serif);
+      font-variation-settings: 'opsz' 24;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.12em;
+      line-height: 1.4;
+    }
+
     .intro-also,
     .intro-about {
       margin-top: 0.35rem;
@@ -99,8 +158,8 @@
 
     @media (max-width: 640px) {
       .profile-portrait {
-        width: 128px;
-        height: 128px;
+        width: 144px;
+        height: 144px;
         margin-top: 16px;
       }
     }
@@ -213,7 +272,7 @@
       max-height: 85vh;
       overflow-y: auto;
       overscroll-behavior: contain;
-      background: #fdf6f1;
+      background: #F6FAF9;
       color: #1A0703;
       border: 2px solid #1A0703;
       border-radius: 18px;
@@ -242,7 +301,7 @@
       padding: 12px 16px;
       border: 2px solid #1A0703;
       border-radius: 12px;
-      background: #ffd0c3;
+      background: #8FD3C4;
       color: #1A0703;
       text-decoration: none;
       font-weight: bold;
@@ -320,7 +379,7 @@
   bottom: 16px;
   width: 84px; height: 84px; /* más cómodo para tap */
   border-radius: 50%;
-  background: #ffd0c3;
+  background: #8FD3C4;
   border: 2px solid #000;
   cursor: pointer;
   display: none;             /* ← oculto hasta abrir */

@@ -77,7 +77,7 @@ body {
 
 .link {
     position: relative;
-    background-color: #ffd0c3;
+    background-color: #8FD3C4;
     color: var(--accentColor);
     border: solid var(--accentColor) 2px;
     border-radius: 10px;
@@ -101,7 +101,7 @@ body {
 
 @media (hover: hover) {
     .link:hover {
-        background-color: #c9efd9;
+        background-color: #B3E3D7;
         color: var(--accentColor);
     }
 }
