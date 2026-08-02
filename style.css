@@ -275,7 +275,26 @@ body {
     /* Separación tras la cita */
 }
 
+/* Links dentro del texto: sin el padding de botón que aplica la regla global */
+.about p a,
+.about li a {
+    padding: 0;
+    border-radius: 0;
+    text-decoration: underline;
+    text-underline-offset: .16em;
+    text-decoration-thickness: 1px;
+    text-decoration-color: rgba(26, 7, 3, .45);
+}
+
+.about p a:hover,
+.about li a:hover {
+    background: none;
+    transform: none;
+    text-decoration-color: #1A0703;
+}
+
 .about p {
+    text-wrap: pretty;
     margin: 1em 0;
     /* Separación entre párrafos */
 }
@@ -291,10 +310,18 @@ body {
     margin: 0;
 }
 
-.about-photo-grid a {
+.about-photo-grid a,
+.about-photo-grid .photo-frame {
     display: block;
     overflow: hidden;
     border-radius: 8px;
+}
+
+/* fotos no ampliables: sin arrastrar ni menú de guardar */
+.about-photo-grid .photo-frame img {
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
 }
 
 .about-photo-grid img {
@@ -349,6 +376,29 @@ body {
     .about-photo-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Epígrafe de apertura: cita, no encabezado */
+/* .about p tiene más especificidad que una clase sola: por eso van calificadas */
+.about blockquote.about__epigraph {
+    margin: 1.6em auto 1.2em;
+    max-width: 100%;
+    text-align: center;
+    text-wrap: balance;
+    font-family: var(--font-serif);
+    font-variation-settings: 'opsz' 60;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.08em;
+    line-height: 1.45;
+    opacity: .8;
+}
+
+.about p.about__lede {
+    text-align: center;
+    text-wrap: balance;
+    margin: 0 auto 2.4em;
+    max-width: 100%;
 }
 
 .about__signature {
