@@ -381,10 +381,10 @@ body {
 /* Epígrafe de apertura: cita, no encabezado */
 /* .about p tiene más especificidad que una clase sola: por eso van calificadas */
 .about blockquote.about__epigraph {
-    margin: 1.6em auto 1.2em;
+    margin: 2.4em auto 2.6em;
+    width: fit-content;
     max-width: 100%;
     text-align: center;
-    text-wrap: balance;
     font-family: var(--font-serif);
     font-variation-settings: 'opsz' 60;
     font-style: italic;
@@ -392,6 +392,21 @@ body {
     font-size: 1.08em;
     line-height: 1.45;
     opacity: .8;
+}
+
+.about .about__epigraph cite {
+    display: block;
+    margin-top: .55em;
+    text-align: right;
+    font-family: var(--font);
+    font-style: normal;
+    font-size: .62em;
+    letter-spacing: .04em;
+    opacity: .75;
+}
+
+.about .about__epigraph cite::before {
+    content: '— ';
 }
 
 .about p.about__lede {
