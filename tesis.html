@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesis: campos magnéticos y germinación de Zea mays — Magnetobiología UNSL</title>
+    <meta name="description"
+        content="Trabajo especial de la Licenciatura en Física (UNSL): efecto de campos magnéticos estáticos sobre la germinación de Zea mays. Magnetopriming, diseño experimental e instrumentación en el Laboratorio de Magnetobiología (MBLab).">
+
+    <meta name="theme-color" content="#F1F7F5">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kier.ar/tesis.html">
+    <meta property="og:title" content="Campos magnéticos estáticos y germinación de Zea mays — Tesis, Magnetobiología UNSL">
+    <meta property="og:description"
+        content="Trabajo especial de la Licenciatura en Física en la UNSL: magnetopriming, diseño experimental controlado e instrumentación propia.">
+    <meta property="og:image" content="https://kier.ar/Fotos/ParaPerfil.jpg">
+    <meta property="og:locale" content="es_AR">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="icon" href="icon.png" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "@id": "https://kier.ar/tesis.html",
+      "name": "Efecto de campos magnéticos estáticos sobre la germinación de Zea mays: exploración de parámetros de exposición",
+      "inLanguage": "es",
+      "learningResourceType": "Tesis de grado",
+      "creativeWorkStatus": "En curso",
+      "author": {
+        "@type": "Person",
+        "name": "Kiernan Preve",
+        "url": "https://kier.ar"
+      },
+      "contributor": [
+        { "@type": "Person", "name": "Leonardo Makinistián", "jobTitle": "Director" },
+        { "@type": "Person", "name": "Daniel Guerreiro", "jobTitle": "Codirector" }
+      ],
+      "publisher": {
+        "@type": "CollegeOrUniversity",
+        "name": "Universidad Nacional de San Luis",
+        "alternateName": "UNSL"
+      },
+      "about": ["Magnetobiología", "Magnetopriming", "Campo magnético estático", "Zea mays", "Germinación",
+        "Mecanismo de pares de radicales"],
+      "keywords": "magnetobiología, magnetopriming, campo magnético estático, Zea mays, germinación, mecanismo de pares de radicales, UNSL"
+    }
+    </script>
+</head>
+
+<body>
+
+    <section class="about">
+
+        <div id="links">
+            <a class="link" href="index.html" target="_self">
+                <i class="fas fa-arrow-left">&nbsp;</i>Volver
+            </a>
+        </div>
+
+        <h1 class="about__quote">Campos magnéticos y germinación de <i>Zea mays</i></h1>
+
+        <p style="text-align:center; font-size:.8em; opacity:.75; margin-top:-.3em;">
+            Trabajo especial de la Licenciatura en Física · Laboratorio de Magnetobiología (MBLab) ·
+            Universidad Nacional de San Luis · <strong>en curso</strong>
+        </p>
+
+        <figure class="tesis-fig">
+            <img src="Tesis/cajon-semillas.jpg" loading="lazy"
+                alt="Bandeja de exposición impresa en 3D, dividida en cuatro celdas, con semillas de maíz tratadas dispuestas para el experimento">
+            <figcaption>Bandeja de exposición impresa en 3D con semillas de <i>Zea mays</i>, listas para las 72 h de
+                germinación.</figcaption>
+        </figure>
+
+        <h2 class="about__quote">La pregunta</h2>
+
+        <p>¿Puede un campo magnético estático cambiar cómo germina una semilla?</p>
+
+        <p>La <strong>magnetobiología</strong> estudia los efectos de los campos magnéticos sobre los sistemas vivos, y
+            el <em>magnetopriming</em> —exponer semillas a un campo antes o durante la germinación— aparece en la
+            literatura como un tratamiento de bajo costo y sin insumos químicos, con potencial en agricultura. El
+            problema es que los resultados publicados son dispares: distintos laboratorios reportan efectos de
+            distinto signo y magnitud, muchas veces sin caracterizar la variabilidad de su propio montaje.</p>
+
+        <p>Mi trabajo apunta ahí: no a demostrar que el efecto existe, sino a <strong>medirlo con un diseño lo
+                suficientemente controlado como para que el resultado signifique algo</strong>, sea cual sea.</p>
+
+        <h2 class="about__quote">El diseño experimental</h2>
+
+        <p>Antes de comparar un solo tratamiento, corrí <strong>tres experimentos de control negativo independientes de
+                72 horas cada uno</strong>, con un total de <strong>81 bandejas</strong>. El objetivo no era medir un
+            efecto, sino caracterizar la variabilidad espacial del propio sistema experimental: cuánto varía el
+            resultado entre posiciones cuando <em>no</em> hay tratamiento.</p>
+
+        <p>Ese piso de ruido es lo que permite después distinguir una diferencia real de una casualidad. Recién
+            entonces vienen los experimentos con imanes, exponiendo las semillas durante las primeras 72 horas de
+            germinación. La variable principal de análisis es el <strong>cambio porcentual en peso húmedo</strong>, y
+            se estiman tamaño de efecto, significancia estadística y reproducibilidad.</p>
+
+        <figure class="tesis-fig">
+            <img src="Tesis/controles-heatmap.png" loading="lazy"
+                alt="Mapa de calor del crecimiento relativo promedio por celda, de A1 a C9, en los controles negativos combinados">
+            <figcaption>Variabilidad del sistema <em>sin</em> tratamiento: el crecimiento relativo cambia según la
+                posición de la celda. Ese piso de ruido es la referencia contra la que se mide cualquier
+                efecto.</figcaption>
+        </figure>
+
+        <h2 class="about__quote">Lo que hubo que construir</h2>
+
+        <p>Buena parte del trabajo no fue medir, sino fabricar las condiciones para poder medir:</p>
+
+        <p>— <strong>Dispositivos de exposición impresos en 3D</strong>, diseñados en Tinkercad y build123d, para
+            sostener las semillas en posiciones reproducibles respecto del imán.</p>
+
+        <p>— <strong>Caracterización de los imanes</strong>, experimental y numérica: uno de ferrita cerámica y otro de
+            neodimio, ambos de geometría prismática rectangular.</p>
+
+        <p>— <strong>Un sistema de adquisición de imágenes</strong> construido específicamente para este trabajo, que
+            estandariza la captura de las bandejas a lo largo del tiempo.</p>
+
+        <p>— <strong>Herramientas informáticas propias</strong> para automatizar la organización de las muestras y el
+            análisis, incluyendo visión por computadora para medir plántulas sin hacerlo a mano.</p>
+
+        <figure class="tesis-fig">
+            <img src="Tesis/torre-campos.png" loading="lazy"
+                alt="Corte lateral a escala de la torre de exposición para el imán de cerámica y el de neodimio, con la intensidad del campo magnético en milITesla que recibe cada uno de los ocho niveles de cajones">
+            <figcaption>Corte a escala de la torre de exposición. El imán va en la base y los cajones se apilan encima;
+                cada número es el campo, en mT, que recibe ese nivel. Así cada semilla tiene una dosis conocida en
+                lugar de "estuvo cerca de un imán": en el primer nivel el neodimio entrega más del triple de campo que
+                la cerámica.</figcaption>
+        </figure>
+
+        <h2 class="about__quote">Estado</h2>
+
+        <p>La etapa experimental está en curso durante 2026. La tesis se defiende en la Universidad Nacional de San
+            Luis, bajo la dirección de <strong>Leonardo Makinistián</strong> y la codirección de <strong>Daniel
+                Guerreiro</strong>.</p>
+
+        <p>El documento se escribe en LaTeX y su desarrollo es público:</p>
+
+        <div class="proyectos-container" style="margin: 1.2em 0;">
+            <a class="link link-proyectos" href="https://github.com/KierPrev/tesis-magnetobiologia-latex"
+                target="_blank" rel="noopener">
+                <i class="fab fa-github">&nbsp;</i> Repositorio
+            </a>
+        </div>
+
+        <h2 class="about__quote">Resumen</h2>
+
+        <p style="font-size:.85em;">Se evaluó el efecto de campos magnéticos estáticos sobre la germinación y el
+            crecimiento inicial de semillas de <i>Zea mays</i>. Se realizaron tres controles negativos de 72 h cada uno
+            (n = 81 bandejas en total) para caracterizar la variabilidad espacial del sistema experimental, seguidos de
+            experimentos con imanes cerámicos de ferrita en configuración polo norte, exponiendo a las semillas durante
+            las primeras 72 h de germinación. La variable principal de análisis fue el cambio porcentual en peso
+            húmedo.</p>
+
+        <p style="font-size:.85em;">El estudio buscó identificar condiciones asociadas a mejoras en variables de
+            crecimiento temprano, priorizando un diseño experimental sistemático, controlado y cuantitativo. Se
+            estimaron tamaño de efecto, significancia estadística y reproducibilidad de los resultados bajo condiciones
+            controladas de germinación.</p>
+
+        <p style="font-size:.8em; opacity:.8;"><strong>Palabras clave:</strong> magnetobiología, magnetopriming, campo
+            magnético estático, <i>Zea mays</i>, germinación, mecanismo de pares de radicales.</p>
+
+        <h2 class="about__quote" lang="en">Abstract</h2>
+
+        <p style="font-size:.85em;" lang="en">The effect of static magnetic fields on the germination and early growth
+            of <i>Zea mays</i> seeds was assessed. Three independent 72-h negative-control experiments (n = 81 trays in
+            total) were carried out to characterise the spatial variability of the experimental setup, followed by
+            treatment experiments using north-pole ferrite ceramic magnets, with the seeds exposed during the first 72 h
+            of germination. The primary response variable was the percentage change in wet weight.</p>
+
+        <p style="font-size:.85em;" lang="en">The study aimed to identify exposure conditions associated with
+            improvements in early growth variables, prioritising a systematic, controlled and quantitative experimental
+            design. Effect sizes, statistical significance and reproducibility of the results were estimated under
+            controlled germination conditions.</p>
+
+        <p style="font-size:.8em; opacity:.8;" lang="en"><strong>Keywords:</strong> magnetobiology, magnetopriming,
+            static magnetic field, <i>Zea mays</i>, germination, radical pair mechanism.</p>
+
+        <br>
+
+        <div id="links">
+            <a class="link" href="index.html" target="_self">
+                <i class="fas fa-arrow-left">&nbsp;</i>Volver
+            </a>
+        </div>
+
+    </section>
+
+    <div id="hashtag">
+        <br><img src="icon.png" alt="❤️"
+            style="width:45px;height:45px; filter: grayscale(75%) brightness(140%); opacity:0.9">
+    </div>
+
+    <br>
+</body>
+
+</html>
