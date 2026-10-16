@@ -120,11 +120,10 @@
             <li><a href="blog/index.html" data-i18n="blog">Blog</a></li>
             <li><a id="openContact" href="contacto.html" role="button" aria-haspopup="dialog"
                 data-i18n="contact">Contacto</a></li>
+            <li class="sidenav__cvtab"><a href="cv.pdf" target="_blank">CV</a></li>
           </ul>
         </div>
       </nav>
-
-      <p class="sidenav__motto" data-i18n="tagline_also">La curiosidad nos va a salvar.</p>
 
       <p class="sidenav__foot">
         <a class="sidenav__cv" href="cv.pdf" target="_blank">CV</a><span class="sidenav__also"><span
@@ -141,9 +140,9 @@
     <main class="content" id="contenido">
 
       <header class="hero">
-        <p class="hero__main" data-i18n="tagline">Diseño y construyo sistemas de medición.</p>
-        <p class="hero__detail" data-i18n="tagline_detail">Setups experimentales, instrumentación y el código que
-          convierte datos en resultados.</p>
+        <p class="hero__name" aria-hidden="true">Kier Preve</p>
+        <p class="hero__main" data-i18n="tagline_also">La curiosidad nos va a salvar.</p>
+        <p class="hero__detail" data-i18n="tagline">Diseño y construyo sistemas de medición.</p>
         <p class="hero__sub" data-i18n="tagline_sub">Licenciatura en Física (UNSL) · tesis en magnetobiología (en
           curso).</p>
       </header>
@@ -167,6 +166,9 @@
                 adquisición de imágenes y visión por computadora para medir plántulas sin hacerlo a mano. Antes de
                 medir cualquier efecto corrí tres controles negativos de 72&nbsp;h (81 bandejas) para caracterizar el
                 piso de ruido del montaje.</p>
+              <button type="button" class="more-btn" hidden aria-expanded="false"><span class="more-btn__open"
+                  data-i18n="read_more">Leer más</span><span class="more-btn__close"
+                  data-i18n="read_less">Leer menos</span></button>
               <div class="project-tags" data-i18n="p_thesis_tags"><span>Diseño experimental</span><span>Impresión
                   3D</span><span>Python</span><span>OpenCV</span><span>Estadística</span></div>
               <div class="project-links">
@@ -191,6 +193,9 @@
                 (10,95&nbsp;mH, respuesta lineal corriente–campo) y armé el control con ESP32 y Python: barrido de
                 frecuencia de 540 a 615&nbsp;Hz en pasos de 0,5&nbsp;Hz y registro del sensor de CO₂ en corridas de 10
                 minutos.</p>
+              <button type="button" class="more-btn" hidden aria-expanded="false"><span class="more-btn__open"
+                  data-i18n="read_more">Leer más</span><span class="more-btn__close"
+                  data-i18n="read_less">Leer menos</span></button>
               <div class="project-tags" data-i18n="p_magnetcoil_tags"><span>ESP32</span><span>Python</span><span>Adquisición
                   de datos</span><span>Caracterización de campos</span><span>Modelado 3D</span></div>
               <div class="project-links">
@@ -202,7 +207,7 @@
 
           <!-- Deforestación -->
           <article class="project-card">
-            <div class="project-card__media project-card__media--fit">
+            <div class="project-card__media project-card__media--natural">
               <img src="Deforestacion/provincias.png" loading="lazy"
                 alt="Gráfico comparando la pérdida de bosque nativo de San Luis con las provincias vecinas a lo largo de dos décadas">
             </div>
@@ -213,6 +218,9 @@
                 incendios que el año anterior y, al mismo tiempo, fue el año de más deforestación en veinte años.
                 También comparé la serie de San Luis contra las provincias vecinas y mapeé los planes de
                 conservación.</p>
+              <button type="button" class="more-btn" hidden aria-expanded="false"><span class="more-btn__open"
+                  data-i18n="read_more">Leer más</span><span class="more-btn__close"
+                  data-i18n="read_less">Leer menos</span></button>
               <div class="project-tags" data-i18n="p_defor_tags"><span>Análisis de datos</span><span>Datos
                   públicos</span><span>Series temporales</span><span>Visualización</span></div>
               <div class="project-links">
@@ -223,18 +231,20 @@
 
           <!-- Controlador PID -->
           <article class="project-card">
-            <!-- TODO (Kier): (1) no hay imagen de este proyecto en el repo — si tenés una foto del
-                 montaje o una captura de la respuesta del lazo, la pongo acá y la tarjeta queda
-                 como las otras tres. (2) la descripción es genérica porque no sé si el proyecto es
-                 hardware, firmware o simulación: decime cuál y la ajusto. Tampoco le puse año
-                 (2018 en la versión anterior del sitio) por si preferís omitirlo. -->
-            <div class="project-card__media project-card__media--blank" aria-hidden="true">
-              <i class="fas fa-sliders-h"></i>
+            <!-- TODO (Kier): la descripción es genérica porque no sé si el proyecto es hardware,
+                 firmware o simulación: decime cuál y la ajusto. Tampoco le puse año (2018 en la
+                 versión anterior del sitio) por si preferís omitirlo. -->
+            <div class="project-card__media project-card__media--natural">
+              <img src="Arte/pid-dinamica-termica.png" loading="lazy"
+                alt="Gráfico de la dinámica térmica de un recipiente bajo control PID: la temperatura de la resistencia y de la base en función del tiempo, subiendo hasta estabilizarse cerca de los 40 minutos, con la base sobre la temperatura de consigna de unos 47 °C.">
             </div>
             <div class="project-card__body">
               <h3 class="project-card__title" data-i18n="p_pid_title">Controlador PID</h3>
               <p class="project-card__desc" data-i18n="p_pid_desc">Implementación de un controlador PID: lazo cerrado
                 sobre una variable medida, con ajuste de las constantes proporcional, integral y derivativa.</p>
+              <button type="button" class="more-btn" hidden aria-expanded="false"><span class="more-btn__open"
+                  data-i18n="read_more">Leer más</span><span class="more-btn__close"
+                  data-i18n="read_less">Leer menos</span></button>
               <div class="project-tags" data-i18n="p_pid_tags"><span>Control</span><span>Lazo
                   cerrado</span><span>Electrónica</span></div>
               <div class="project-links">
@@ -246,8 +256,9 @@
 
         </div>
 
-        <!-- Resto del trabajo: visible de entrada, sin click -->
-        <p class="worklist-title" data-i18n="worklist_title">Más trabajo</p>
+        <!-- Resto del trabajo: colapsado de entrada -->
+        <details class="worklist-wrap">
+          <summary class="worklist-title"><span data-i18n="worklist_title">Más trabajo</span><span class="worklist-count" aria-hidden="true">6</span></summary>
         <ul class="worklist">
           <li>
             <a href="Pluvi%C3%B3metro%20-%20Proy.%20Investigaci%C3%B3n%20CyT.pdf" target="_blank" rel="noopener">
@@ -303,6 +314,7 @@
             </a>
           </li>
         </ul>
+        </details>
       </section>
 
       <!-- ===================== FUERA DEL LAB ===================== -->
@@ -338,9 +350,6 @@
 
           <!-- Música -->
           <article class="project-card" id="musica">
-            <div class="project-card__media project-card__media--blank" aria-hidden="true">
-              <i class="fas fa-music"></i>
-            </div>
             <div class="project-card__body">
               <h3 class="project-card__title" data-i18n="b_music_title">Música</h3>
               <p class="project-card__desc" data-i18n="b_music_desc">Composición y producción. Bandas sonoras y piezas
@@ -370,9 +379,6 @@
 
           <!-- Videos -->
           <article class="project-card" id="videos">
-            <div class="project-card__media project-card__media--blank" aria-hidden="true">
-              <i class="fas fa-play"></i>
-            </div>
             <div class="project-card__body">
               <h3 class="project-card__title" data-i18n="b_video_title">Videos</h3>
               <p class="project-card__desc" data-i18n="b_video_desc">Divulgación en video, en español e inglés.</p>
@@ -537,7 +543,7 @@
       const I18N = {
         es: {
           skip_link: "Saltar al contenido",
-          sidenav_role: "Física · Instrumentación y sistemas de medición",
+          sidenav_role: "Física · Instrumentación",
           nav_work: "Trabajo",
           nav_more: "Más",
 
@@ -546,6 +552,8 @@
           p_defor_tags: "<span>Análisis de datos</span><span>Datos públicos</span><span>Series temporales</span><span>Visualización</span>",
 
           worklist_title: "Más trabajo",
+          read_more: "Leer más",
+          read_less: "Leer menos",
           w_rain_desc: "Pluviómetro autónomo de bajo costo con hardware y software libre: mide el nivel de un reservorio con un sensor de distancia. Comparamos la precisión de un sensor láser (IR) contra uno de ultrasonido. Trabajo en co-autoría (IMASL, UNSL–CONICET).",
           w_mindmap_desc: "Mapa navegable del campo de la magnetobiología.",
           w_latex_desc: "El documento de la tesis se escribe en LaTeX y su desarrollo es público.",
@@ -554,9 +562,8 @@
           w_github_desc: "Código de análisis, instrumentación y experimentos sueltos.",
 
           tagline: "Diseño y construyo sistemas de medición.",
-          tagline_detail: "Setups experimentales, instrumentación y el código que convierte datos en resultados.",
-          tagline_sub: "Licenciatura en Física (UNSL) · tesis en magnetobiología (en curso).",
           tagline_also: "La curiosidad nos va a salvar.",
+          tagline_sub: "Licenciatura en Física (UNSL) · tesis en magnetobiología (en curso).",
           projects: "Proyectos",
           blog: "Blog",
           contact: "Contacto",
@@ -604,7 +611,7 @@
         },
         en: {
           skip_link: "Skip to content",
-          sidenav_role: "Physics · Instrumentation & measurement systems",
+          sidenav_role: "Physics · Instrumentation",
           nav_work: "Work",
           nav_more: "More",
 
@@ -613,6 +620,8 @@
           p_defor_tags: "<span>Data analysis</span><span>Public data</span><span>Time series</span><span>Visualisation</span>",
 
           worklist_title: "More work",
+          read_more: "Read more",
+          read_less: "Read less",
           w_rain_desc: "A low-cost autonomous rain gauge built on free hardware and software: it reads the water level in a reservoir with a distance sensor. We compared the accuracy of a laser (IR) sensor against an ultrasonic one. Co-authored work (IMASL, UNSL–CONICET).",
           w_mindmap_desc: "A navigable map of the magnetobiology field.",
           w_latex_desc: "The thesis document is written in LaTeX and its development is public.",
@@ -621,9 +630,8 @@
           w_github_desc: "Analysis code, instrumentation, and one-off experiments.",
 
           tagline: "I design and build measurement systems.",
-          tagline_detail: "Experimental setups, instrumentation, and the code that turns data into results.",
-          tagline_sub: "Physics degree, UNSL · thesis in magnetobiology (in progress).",
           tagline_also: "Curiosity will save us.",
+          tagline_sub: "Physics degree, UNSL · thesis in magnetobiology (in progress).",
           projects: "Projects",
           blog: "Blog",
           contact: "Contact",
@@ -709,6 +717,34 @@
   </script>
 
   <script>
+    // Miniaturas automáticas: SoundCloud por oEmbed (sin clave) y YouTube por el id del video.
+    // Si algo falla, la lista queda como estaba: solo texto.
+    function thumb(src) {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = '';
+      img.loading = 'lazy';
+      img.className = 'card-thumb';
+      return img;
+    }
+
+    (function soundcloudThumbs() {
+      document.querySelectorAll('#musica .card-list li').forEach(li => {
+        const a = li.querySelector('a');
+        if (!a) return;
+        fetch('https://soundcloud.com/oembed?format=json&url=' + encodeURIComponent(a.href))
+          .then(r => r.ok ? r.json() : null)
+          .then(data => {
+            if (!data || !data.thumbnail_url) return;
+            li.prepend(thumb(data.thumbnail_url));
+            li.classList.add('has-thumb');
+          })
+          .catch(() => {});
+      });
+    })();
+  </script>
+
+  <script>
     (function fetchLatestVideos() {
       const channelId = 'UCN-bm7x1Mks0XWCQwXn4ZVQ';
       const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
@@ -729,6 +765,9 @@
             a.target = '_blank';
             a.rel = 'noopener';
             a.textContent = video.title;   // textContent: el feed es contenido externo
+            // el feed usa watch?v=, pero los Shorts pueden venir como /shorts/ID o con el guid yt:video:ID
+            const id = ((video.link + ' ' + (video.guid || '')).match(/(?:v=|shorts\/|video:)([\w-]{11})/) || [])[1];
+            if (id) li.appendChild(thumb(`https://i.ytimg.com/vi/${id}/mqdefault.jpg`));
             li.appendChild(a);
             return li.outerHTML;
           }).join('');
@@ -736,6 +775,24 @@
           list.hidden = false;
         })
         .catch(err => console.error('Error fetching YouTube feed:', err));
+    })();
+  </script>
+
+  <script>
+    // Tarjetas de Proyectos: la descripción se recorta y las etiquetas se ocultan hasta apretar "Leer más".
+    // Sin JS se ve todo. El botón siempre está: las etiquetas también cuelgan de él.
+    (function () {
+      document.querySelectorAll('#proyectos .project-card__body').forEach(body => {
+        const btn = body.querySelector('.more-btn');
+        if (!btn) return;
+        body.classList.add('is-collapsed');
+        btn.hidden = false;
+        btn.addEventListener('click', () => {
+          const open = btn.getAttribute('aria-expanded') !== 'true';
+          btn.setAttribute('aria-expanded', String(open));
+          body.classList.toggle('is-collapsed', !open);
+        });
+      });
     })();
   </script>
 

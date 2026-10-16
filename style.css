@@ -1379,6 +1379,18 @@ body.dark-theme-compatibility .thumbnail-wrapper {
     box-sizing: border-box;
 }
 
+/* gráficos que ocupan todo el ancho con su proporción natural, sin recorte ni márgenes */
+.project-card__media--natural {
+    aspect-ratio: auto;
+    background: #FFFFFF;
+}
+
+.project-card__media--natural img {
+    width: 100%;
+    height: auto;
+    object-fit: initial;
+}
+
 /* placeholder cuando todavía no hay imagen: una banda fina, no un hueco 16:9 */
 .project-card__media--blank {
     display: flex;
@@ -1456,6 +1468,18 @@ body.dark-theme-compatibility .thumbnail-wrapper {
 .project-links a:hover {
     background: #8FD3C4;
     transform: translateY(-2px);
+}
+
+/* el link principal es el único con sombra dura; los demás van con borde suave */
+.project-links a + a {
+    background: transparent;
+    border: 1.5px solid rgba(26, 7, 3, 0.55);
+    box-shadow: none;
+}
+
+.project-links a + a:hover {
+    background: rgba(143, 211, 196, 0.35);
+    transform: none;
 }
 
 /* lista interna de las tarjetas de "Fuera del lab" */
@@ -1642,19 +1666,6 @@ html {
     background: rgba(143, 211, 196, 0.5);
 }
 
-.sidenav__motto {
-    font-family: var(--font-serif);
-    font-variation-settings: 'opsz' 14;
-    font-style: italic;
-    font-size: 0.88em;
-    line-height: 1.4;
-    text-align: center;
-    text-wrap: balance;
-    opacity: 0.58;
-    margin: auto 0 0;
-    padding: 0 0.2em;
-}
-
 .sidenav__foot {
     margin-top: 0;
     padding-top: 1.3em;
@@ -1677,6 +1688,12 @@ html {
     background: none;
     transform: none;
     border-bottom-color: #1A0703;
+}
+
+/* solo existen en pantallas angostas (ver @media): en escritorio el CV vive en el pie del panel */
+.sidenav__cvtab,
+.hero__name {
+    display: none;
 }
 
 /* el CV es el link que más importa: se distingue por el peso, no por un botón */
@@ -1724,6 +1741,11 @@ html {
     text-wrap: balance;
 }
 
+/* con la frase grande arriba, el titular baja a subtítulo y se acerca a ella */
+.hero__main + .hero__detail {
+    margin-top: 0.6em;
+}
+
 .hero__sub {
     font-size: 0.88em;
     line-height: 1.5;
@@ -1751,13 +1773,151 @@ html {
     text-wrap: balance;
 }
 
-/* ---- "Más trabajo": lista compacta, todo visible ---- */
+/* ---- "Más trabajo": desplegable con el mismo lenguaje de chip que los botones ---- */
+.worklist-wrap {
+    margin: 2.6em 0 0;
+}
+
 .worklist-title {
-    font-size: 0.72em;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    opacity: 0.55;
-    margin: 2.6em 0 0.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7em;
+    width: 100%;
+    max-width: 22em;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    list-style: none;
+    font-size: 0.98em;
+    font-weight: bold;
+    padding: 0.7em 1.2em;
+    border: 2px solid #1A0703;
+    border-radius: 12px;
+    background: #8FD3C4;
+    color: #1A0703;
+    box-shadow: 0 4px 0 #1A0703;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    margin-bottom: 1.1em;
+}
+
+.worklist-count {
+    font-size: 0.8em;
+    line-height: 1;
+    padding: 0.28em 0.6em;
+    border-radius: 999px;
+    background: #1A0703;
+    color: #F1F7F5;
+}
+
+.worklist-wrap[open]>.worklist-title {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #1A0703;
+}
+
+.worklist-title::-webkit-details-marker {
+    display: none;
+}
+
+.worklist-title::after,
+.more-btn::after {
+    content: "";
+    width: 0.45em;
+    height: 0.45em;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-0.12em) rotate(45deg);
+    transition: transform 0.2s ease;
+}
+
+.worklist-wrap[open]>.worklist-title::after,
+.more-btn[aria-expanded="true"]::after {
+    transform: translateY(0.1em) rotate(225deg);
+}
+
+.worklist-title:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #1A0703;
+}
+
+.worklist-wrap[open]>.worklist-title:hover {
+    transform: translateY(0);
+    box-shadow: 0 4px 0 #1A0703;
+}
+
+.worklist-title:focus-visible,
+.more-btn:focus-visible {
+    outline: 2px solid #1A0703;
+    outline-offset: 3px;
+}
+
+/* tarjeta colapsada: las etiquetas esperan al "Leer más" */
+.project-card__body.is-collapsed .project-tags {
+    display: none;
+}
+
+/* miniaturas de las listas de Música y Videos */
+.card-thumb {
+    width: 4.2em;
+    height: 4.2em;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(26, 7, 3, 0.16);
+    flex-shrink: 0;
+}
+
+.card-list li.has-thumb,
+#latest-videos-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.9em;
+    margin-bottom: 0.8em;
+}
+
+/* botón "Leer más" de las tarjetas (lo muestra el JS) */
+.more-btn {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: -0.3em 0 0.9em;
+    padding: 0.38em 0.8em;
+    font: inherit;
+    font-size: 0.78em;
+    font-weight: bold;
+    color: #1A0703;
+    background: transparent;
+    border: 1px solid rgba(26, 7, 3, 0.55);
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.more-btn[hidden] {
+    display: none;
+}
+
+.more-btn:hover {
+    background: rgba(143, 211, 196, 0.45);
+}
+
+.more-btn__close,
+.more-btn[aria-expanded="true"] .more-btn__open {
+    display: none;
+}
+
+.more-btn[aria-expanded="true"] .more-btn__close {
+    display: inline;
+}
+
+.project-card__body.is-collapsed .project-card__desc {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    margin-bottom: 0.5em;
+    -webkit-mask-image: linear-gradient(#000 calc(100% - 1.5em), transparent);
+    mask-image: linear-gradient(#000 calc(100% - 1.5em), transparent);
 }
 
 .worklist {
@@ -1845,14 +2005,35 @@ html {
         margin: 0;
     }
 
+    /* el avatar identifica; el nombre pasa al hero y el h1 queda para lectores de pantalla */
     .sidenav__name {
-        font-size: 1em;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
         white-space: nowrap;
+    }
+
+    .hero__name {
+        display: block;
+        margin: 0 0 0.5em;
+        font-size: 0.85em;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        opacity: 0.65;
+    }
+
+    .sidenav__cvtab {
+        display: list-item;
+    }
+
+    .sidenav__cvtab a {
+        font-weight: 700;
     }
 
     .sidenav__role,
     .sidenav__label,
-    .sidenav__motto,
     .sidenav__also {
         display: none;
     }
@@ -1906,12 +2087,7 @@ html {
     }
 
     .sidenav__foot {
-        margin: 0;
-        padding: 0.15em 0 0.15em 0.9em;
-        border-top: 0;
-        border-left: 1px solid rgba(26, 7, 3, 0.18);
-        flex-shrink: 0;
-        font-size: 0.85em;
+        display: none;
     }
 
     .content {
