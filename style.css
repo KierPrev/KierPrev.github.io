@@ -2160,6 +2160,12 @@ html {
         margin-top: 2.8em;
     }
 
+    /* en móvil "Más trabajos" ocupa el mismo ancho que las tarjetas */
+    .worklist-title {
+        max-width: none;
+        width: 100%;
+    }
+
     .content .section-block,
     .content .hero {
         scroll-margin-top: 4.5rem;
