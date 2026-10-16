@@ -88,6 +88,10 @@
   <a class="skip-link" href="#contenido" data-i18n="skip_link">Saltar al contenido</a>
 
   <div class="layout">
+    <!-- pizarra con la ley de Faraday: adorno, arranca en el borde de la página y se funde con el fondo
+         desde la esquina superior derecha (en móvil se ve apenas a través de la barra translúcida) -->
+    <img class="page-board" src="Fotos/pizarra-faraday.jpg" alt="" aria-hidden="true" loading="lazy">
+
 
     <!-- ============================================================
          PANEL LATERAL — lista todas las secciones a la vez.
@@ -350,6 +354,7 @@
           <article class="project-card" id="musica">
             <div class="project-card__body">
               <h3 class="project-card__title" data-i18n="b_music_title">Música</h3>
+              <p class="project-card__role" data-i18n="b_music_role">Productora musical (UNSL)</p>
               <p class="project-card__desc" data-i18n="b_music_desc">Composición y producción. Bandas sonoras y piezas
                 propias, en SoundCloud.</p>
               <ul class="card-list">
@@ -601,6 +606,7 @@
           b_writing_desc: "Ciencia ficción. Una novela publicada y su continuación en curso.",
           writing: "Escribiendo...",
           b_music_title: "Música",
+          b_music_role: "Productora musical (UNSL)",
           b_music_desc: "Composición y producción. Bandas sonoras y piezas propias, en SoundCloud.",
           b_video_title: "Videos",
           b_video_desc: "Divulgación en video, en español e inglés.",
@@ -670,6 +676,7 @@
           b_writing_desc: "Science fiction. One published novel and its sequel in progress.",
           writing: "Writing",
           b_music_title: "Music",
+          b_music_role: "Music producer (UNSL)",
           b_music_desc: "Composition and production. Soundtracks and original pieces, on SoundCloud.",
           b_video_title: "Videos",
           b_video_desc: "Science communication on video, in Spanish and English.",
@@ -836,6 +843,17 @@
         });
         io.observe(el);
       });
+    })();
+  </script>
+
+  <script>
+    // Barra móvil: translúcida en el tope (se ve la pizarra detrás) y casi opaca apenas se baja.
+    (function () {
+      const bar = document.querySelector('.sidenav');
+      if (!bar) return;
+      const update = () => bar.classList.toggle('is-scrolled', window.scrollY > 8);
+      window.addEventListener('scroll', update, { passive: true });
+      update();
     })();
   </script>
 
