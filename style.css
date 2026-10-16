@@ -1856,6 +1856,45 @@ html {
     display: none;
 }
 
+/* entrada al bajar (ver el script de .reveal en index.html) */
+.js .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+        opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--i, 0) * 90ms),
+        transform 1.1s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--i, 0) * 90ms);
+}
+
+.js .reveal.is-in {
+    opacity: 1;
+    transform: none;
+}
+
+/* la imagen de la tarjeta se acerca apenas, como si se enfocara al pasar el mouse */
+.project-card__media img {
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover .project-card__media img {
+    transform: scale(1.03);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .project-card__media img {
+        transition: none;
+    }
+
+    .project-card:hover .project-card__media img {
+        transform: none;
+    }
+}
+
 /* miniaturas de las listas de Música y Videos */
 .card-thumb {
     width: 4.2em;

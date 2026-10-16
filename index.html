@@ -797,6 +797,44 @@
   </script>
 
   <script>
+    // Entrada al bajar: cada bloque sube y aparece al entrar en pantalla, con un leve escalonado dentro de cada grilla.
+    // Solo corre si hay JS (la clase "js" la pone este mismo script); sin JS todo se ve de entrada.
+    (function () {
+      if (!('IntersectionObserver' in window)) return;
+      document.documentElement.classList.add('js');
+
+      const targets = [
+        ...document.querySelectorAll('.hero'),
+        ...document.querySelectorAll('.block-title'),
+        ...document.querySelectorAll('.project-grid > .project-card'),
+        ...document.querySelectorAll('.worklist-wrap')
+      ];
+
+      // escalonado por grilla: cada tarjeta espera un poco más que la anterior
+      document.querySelectorAll('.project-grid').forEach(grid => {
+        Array.from(grid.children).forEach((el, i) => el.style.setProperty('--i', i));
+      });
+
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          e.target.classList.add('is-in');
+          io.unobserve(e.target);
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+
+      targets.forEach(el => {
+        el.classList.add('reveal');
+        // cuando termina la entrada se saca la clase, así no pelea con las transiciones de hover
+        el.addEventListener('transitionend', e => {
+          if (e.target === el) el.classList.remove('reveal', 'is-in');
+        });
+        io.observe(el);
+      });
+    })();
+  </script>
+
+  <script>
     // Scroll-spy: resalta en el panel la sección que se está viendo.
     // Es puro adorno — sin JS las anclas siguen funcionando igual.
     (function () {
