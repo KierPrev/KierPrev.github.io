@@ -1295,3 +1295,654 @@ body.dark-theme-compatibility .thumbnail-wrapper {
         margin: 1.5rem auto 0;
     }
 }
+
+/* ===== Bloques de sección (Proyectos / Fuera del lab) ===== */
+.section-block {
+    max-width: 900px;
+    margin: 3.4em auto 0;
+    padding: 0 1rem;
+    color: #1A0703;
+    scroll-margin-top: 1.5rem;
+}
+
+.block-title {
+    font-family: var(--font-serif);
+    font-variation-settings: 'opsz' 48;
+    font-size: 1.75em;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 0.15em;
+}
+
+/* un título sin subtítulo debajo pone el aire él mismo.
+   Si el navegador no soporta :has, solo queda algo más justo: no rompe nada. */
+.block-title:not(:has(+ .block-sub)) {
+    margin-bottom: 0.7em;
+}
+
+.block-sub {
+    text-align: center;
+    font-size: 0.9em;
+    opacity: 0.72;
+    margin: 0 auto 1.6em;
+    max-width: 44em;
+    line-height: 1.5;
+}
+
+/* ===== Grilla de tarjetas ===== */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    background: rgba(26, 7, 3, 0.03);
+    border: 2px solid rgba(26, 7, 3, 0.85);
+    border-radius: 12px;
+    box-shadow: 4px 4px 0 rgba(26, 7, 3, 0.85);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 6px 7px 0 rgba(26, 7, 3, 0.85);
+}
+
+.project-card__media {
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #E4EFEC;
+    border-bottom: 2px solid rgba(26, 7, 3, 0.85);
+}
+
+.project-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* imágenes que no son fotos (gráficos, tapas): se muestran enteras en vez de
+   recortarse, porque el recorte 16:9 les come el título o el encuadre */
+.project-card__media--fit {
+    background: #E9F2EF;
+}
+
+.project-card__media--fit img {
+    object-fit: contain;
+    padding: 0.5em;
+    box-sizing: border-box;
+}
+
+/* placeholder cuando todavía no hay imagen: una banda fina, no un hueco 16:9 */
+.project-card__media--blank {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(26, 7, 3, 0.3);
+    aspect-ratio: auto;
+    height: 3.2em;
+    font-size: 1.5em;
+}
+
+.project-card__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.05em 1.15em 1.15em;
+}
+
+.project-card__title {
+    font-family: var(--font-serif);
+    font-variation-settings: 'opsz' 24;
+    font-size: 1.16em;
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0 0 0.45em;
+}
+
+.project-card__desc {
+    font-size: 0.88em;
+    line-height: 1.55;
+    margin: 0 0 0.9em;
+    opacity: 0.88;
+}
+
+.project-card__desc:last-of-type {
+    margin-bottom: 0.9em;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4em;
+    margin-bottom: 1em;
+}
+
+.project-tags span {
+    font-size: 0.72em;
+    line-height: 1;
+    padding: 0.42em 0.6em;
+    border: 1px solid rgba(26, 7, 3, 0.55);
+    border-radius: 999px;
+    opacity: 0.85;
+    white-space: nowrap;
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-top: auto;
+}
+
+.project-links a {
+    font-size: 0.82em;
+    font-weight: bold;
+    padding: 0.5em 0.85em;
+    border: 2px solid #1A0703;
+    border-radius: 10px;
+    background: #8FD3C4;
+    color: #1A0703;
+    box-shadow: 0 3px 0 #1A0703;
+    transition: transform 0.12s ease;
+}
+
+.project-links a:hover {
+    background: #8FD3C4;
+    transform: translateY(-2px);
+}
+
+/* lista interna de las tarjetas de "Fuera del lab" */
+.card-list {
+    list-style: none;
+    margin: 0 0 1em;
+    padding: 0;
+    font-size: 0.88em;
+}
+
+.card-list li {
+    margin-bottom: 0.5em;
+    line-height: 1.4;
+}
+
+.card-list a {
+    font-weight: bold;
+    padding: 0.1em 0.25em;
+    margin-left: -0.25em;
+    border-bottom: 1px solid rgba(26, 7, 3, 0.35);
+    border-radius: 0;
+}
+
+.card-list a:hover {
+    transform: none;
+}
+
+.card-list .card-list__meta {
+    opacity: 0.6;
+    font-weight: 400;
+}
+
+@media (max-width: 720px) {
+
+    .project-grid,
+    #fuera-del-lab .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .block-title {
+        font-size: 1.5em;
+    }
+
+    .section-block {
+        margin-top: 2.6em;
+    }
+}
+
+/* ============================================================
+   Layout con panel lateral (index)
+   ============================================================ */
+html {
+    scroll-behavior: smooth;
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    background: #F6FAF9;
+    border: 2px solid #1A0703;
+    padding: 0.6em 1em;
+}
+
+.skip-link:focus {
+    left: 8px;
+    top: 8px;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    align-items: start;
+    max-width: 1440px;
+    margin: 0 auto;
+    /* escala suave: ~16px a 900px de ancho, ~17.5px a 1600px.
+       Va acá y no en html{} para no alterar el resto de las páginas. */
+    font-size: clamp(1rem, 0.88rem + 0.214vw, 1.094rem);
+}
+
+/* ---- Panel lateral ---- */
+.sidenav {
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    max-height: 100dvh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6em;
+    padding: 2.4em 1.5em 1.8em;
+    color: #1A0703;
+    /* la divisoria vive en .content, para que recorra toda la página */
+}
+
+.sidenav a:hover {
+    background: none;
+    transform: none;
+}
+
+.sidenav__id {
+    text-align: center;
+}
+
+.sidenav__portrait {
+    width: 92px;
+    height: 92px;
+    margin: 0 auto 0.7em;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(26, 7, 3, 0.85);
+}
+
+.sidenav__portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 38%;
+    display: block;
+}
+
+.sidenav__name {
+    font-family: var(--font-serif);
+    font-variation-settings: 'opsz' 48;
+    font-size: 1.38em;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+
+.sidenav__role {
+    font-size: 0.82em;
+    line-height: 1.4;
+    opacity: 0.85;
+    max-width: 21ch;
+    margin: 0.45em auto 0;
+    /* evita que quede "Physics ·" solo en la primera línea */
+    text-wrap: balance;
+}
+
+.sidenav__label {
+    font-size: 0.68em;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.45;
+    margin: 0 0 0.6em;
+    padding-left: 0.7em;
+}
+
+.sidenav__group+.sidenav__group {
+    margin-top: 1.3em;
+}
+
+.sidenav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidenav li+li {
+    margin-top: 0.15em;
+}
+
+.sidenav li a {
+    display: block;
+    padding: 0.45em 0.7em;
+    border-radius: 9px;
+    font-size: 0.95em;
+    font-weight: 400;
+    transition: background-color 0.15s ease;
+}
+
+.sidenav li a:hover,
+.sidenav li a:focus-visible {
+    background: rgba(143, 211, 196, 0.26);
+}
+
+/* sección activa: la marca el scroll-spy. Una sola señal — el fondo —
+   reforzada por el peso; sin borde extra, que ensuciaba la píldora. */
+.sidenav li a[aria-current="true"] {
+    font-weight: 600;
+    background: rgba(143, 211, 196, 0.5);
+}
+
+.sidenav__motto {
+    font-family: var(--font-serif);
+    font-variation-settings: 'opsz' 14;
+    font-style: italic;
+    font-size: 0.88em;
+    line-height: 1.4;
+    text-align: center;
+    text-wrap: balance;
+    opacity: 0.58;
+    margin: auto 0 0;
+    padding: 0 0.2em;
+}
+
+.sidenav__foot {
+    margin-top: 0;
+    padding-top: 1.3em;
+    border-top: 1px solid rgba(26, 7, 3, 0.16);
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 0.9em;
+    line-height: 1.8;
+}
+
+.sidenav__foot a {
+    padding: 0.1em 0.15em;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(26, 7, 3, 0.32);
+    transition: border-color 0.15s ease;
+}
+
+.sidenav__foot a:hover,
+.sidenav__foot a:focus-visible {
+    background: none;
+    transform: none;
+    border-bottom-color: #1A0703;
+}
+
+/* el CV es el link que más importa: se distingue por el peso, no por un botón */
+.sidenav__cv {
+    font-weight: 700;
+}
+
+.sidenav__sep {
+    opacity: 0.38;
+    padding: 0 0.4em;
+}
+
+/* ---- Columna de contenido ---- */
+.content {
+    min-width: 0;
+    padding: 0 0 4em;
+    /* hairline de altura completa: .content mide toda la página, el panel no */
+    border-left: 1px solid rgba(26, 7, 3, 0.16);
+}
+
+.hero {
+    padding: 3.2em 1.5rem 0;
+    max-width: 44em;
+}
+
+.hero__main {
+    font-family: var(--font-serif);
+    font-variation-settings: 'opsz' 36;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 1.1rem + 1.1vw, 2.1rem);
+    line-height: 1.3;
+    text-wrap: balance;
+    color: #1A0703;
+    margin: 0;
+}
+
+.hero__detail {
+    font-size: 1.02em;
+    line-height: 1.55;
+    opacity: 0.88;
+    margin: 1.05em 0 0;
+    /* sin max-width propio: hereda la medida del bloque y entra en una línea.
+       balance reparte parejo cuando la pantalla la obliga a envolver. */
+    text-wrap: balance;
+}
+
+.hero__sub {
+    font-size: 0.88em;
+    line-height: 1.5;
+    opacity: 0.65;
+    margin: 0.95em 0 0;
+}
+
+/* las secciones dentro de la columna ya no se centran solas */
+.content .section-block {
+    margin: 3.6em 0 0;
+    max-width: none;
+    padding: 0 1.5rem;
+    scroll-margin-top: 1.5rem;
+}
+
+.content .block-title,
+.content .block-sub {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.content .block-sub {
+    max-width: 40em;
+    text-wrap: balance;
+}
+
+/* ---- "Más trabajo": lista compacta, todo visible ---- */
+.worklist-title {
+    font-size: 0.72em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    margin: 2.6em 0 0.2em;
+}
+
+.worklist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.worklist li {
+    border-top: 1px solid rgba(26, 7, 3, 0.18);
+}
+
+.worklist li:last-child {
+    border-bottom: 1px solid rgba(26, 7, 3, 0.18);
+}
+
+.worklist a {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.2em 1em;
+    align-items: baseline;
+    padding: 0.85em 0.5em;
+    border-radius: 8px;
+}
+
+.worklist a:hover {
+    background: rgba(143, 211, 196, 0.3);
+    transform: none;
+}
+
+.worklist__title {
+    font-weight: bold;
+    font-size: 0.98em;
+}
+
+.worklist__year {
+    font-size: 0.82em;
+    opacity: 0.6;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.worklist__desc {
+    grid-column: 1 / -1;
+    font-size: 0.85em;
+    line-height: 1.45;
+    opacity: 0.75;
+}
+
+/* ---- Pantallas angostas: el panel pasa a ser una barra arriba.
+       El corte está en 1000px y no más abajo porque entre ~860 y ~1000 el panel
+       de 260px dejaba las tarjetas en ~280px, demasiado apretadas. ---- */
+@media (max-width: 1000px) {
+
+    /* minmax(0, 1fr) y no 1fr: con 1fr el mínimo de la columna es min-content,
+       y la fila del panel la estiraba más ancha que la pantalla. */
+    .layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .sidenav {
+        position: sticky;
+        top: 0;
+        max-height: none;
+        overflow: visible;
+        z-index: 50;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.9em;
+        padding: 0.7em 1rem;
+        background: #F1F7F5;
+        border-bottom: 2px solid rgba(26, 7, 3, 0.2);
+    }
+
+    .sidenav__id {
+        display: flex;
+        align-items: center;
+        gap: 0.6em;
+        flex-shrink: 0;
+    }
+
+    .sidenav__portrait {
+        width: 40px;
+        height: 40px;
+        margin: 0;
+    }
+
+    .sidenav__name {
+        font-size: 1em;
+        white-space: nowrap;
+    }
+
+    .sidenav__role,
+    .sidenav__label,
+    .sidenav__motto,
+    .sidenav__also {
+        display: none;
+    }
+
+    /* las dos listas del panel se unen en una sola fila scrolleable */
+    .sidenav__nav {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        gap: 0.4em;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .sidenav__nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* el ítem que queda a medias se desvanece en vez de cortarse seco:
+       señala que la navegación sigue, y no choca con el CV */
+    .sidenav__nav {
+        -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+        mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+    }
+
+    .sidenav__group+.sidenav__group {
+        margin-top: 0;
+    }
+
+    .sidenav ul {
+        display: flex;
+        gap: 0.3em;
+    }
+
+    .sidenav li+li {
+        margin-top: 0;
+    }
+
+    .sidenav li a {
+        white-space: nowrap;
+        font-size: 0.85em;
+        padding: 0.4em 0.7em;
+        border-left: 0;
+        border-bottom: 2px solid transparent;
+    }
+
+    .sidenav li a[aria-current="true"] {
+        border-left: 0;
+        border-bottom-color: #1A0703;
+    }
+
+    .sidenav__foot {
+        margin: 0;
+        padding: 0.15em 0 0.15em 0.9em;
+        border-top: 0;
+        border-left: 1px solid rgba(26, 7, 3, 0.18);
+        flex-shrink: 0;
+        font-size: 0.85em;
+    }
+
+    .content {
+        border-left: 0;
+    }
+
+    .hero {
+        padding: 2.2em 1rem 0;
+    }
+
+    .hero__main {
+        font-size: clamp(1.3rem, 1.05rem + 1.1vw, 1.75rem);
+    }
+
+    .hero__detail {
+        font-size: 0.98em;
+    }
+
+    .content .section-block {
+        padding: 0 1rem;
+        margin-top: 2.8em;
+    }
+
+    .content .section-block,
+    .content .hero {
+        scroll-margin-top: 4.5rem;
+    }
+}
+
+/* "Fuera del lab" son 3 tarjetas: que entren las que quepan sin bajar de 260px.
+   auto-fit colapsa las pistas vacías, así que con 3 items nunca pasa de 3 en fila. */
+#fuera-del-lab .project-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}

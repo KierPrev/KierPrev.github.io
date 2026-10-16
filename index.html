@@ -4,24 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kier Preve — Física UNSL</title>
+  <title>Kier Preve — Física · Instrumentación y sistemas de medición</title>
   <meta name="description"
-    content="Kier Preve — estudiante de Física (UNSL) investigando en magnetobiología. Tesis experimental, instrumentación y visión por computadora. También escribo y hago música.">
+    content="Kier Preve — diseño y construyo sistemas de medición: setups experimentales, instrumentación y el código que convierte datos en resultados. Licenciatura en Física (UNSL), tesis en magnetobiología en curso.">
 
   <meta name="theme-color" content="#F1F7F5">
 
   <!-- Open Graph / redes sociales -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kier.ar/">
-  <meta property="og:title" content="Kier Preve — Física UNSL">
+  <meta property="og:title" content="Kier Preve — Física · Instrumentación y sistemas de medición">
   <meta property="og:description"
-    content="Estudiante de Física (UNSL) investigando en magnetobiología. Tesis experimental, instrumentación y visión por computadora. También escribo y hago música.">
+    content="Diseño y construyo sistemas de medición: setups experimentales, instrumentación y el código que convierte datos en resultados. Licenciatura en Física (UNSL), tesis en magnetobiología en curso.">
   <meta property="og:image" content="https://kier.ar/Fotos/ParaPerfil.jpg">
   <meta property="og:locale" content="es_AR">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Kier Preve — Física UNSL">
+  <meta name="twitter:title" content="Kier Preve — Física · Instrumentación y sistemas de medición">
   <meta name="twitter:description"
-    content="Estudiante de Física (UNSL) investigando en magnetobiología. Tesis experimental, instrumentación y visión por computadora.">
+    content="Diseño y construyo sistemas de medición: setups experimentales, instrumentación y el código que convierte datos en resultados.">
   <meta name="twitter:image" content="https://kier.ar/Fotos/ParaPerfil.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,8 +38,8 @@
     "url": "https://kier.ar",
     "image": "https://kier.ar/Fotos/ParaPerfil.jpg",
     "email": "contact@kier.ar",
-    "jobTitle": "Physics student and researcher",
-    "description": "Physics student at Universidad Nacional de San Luis researching magnetobiology — the effect of static magnetic fields on Zea mays germination. Also a novelist and music producer.",
+    "jobTitle": "Experimental physicist — instrumentation and measurement systems",
+    "description": "I design and build measurement systems end to end: experimental setups, instrumentation, and the code that turns data into results. Physics degree candidate at Universidad Nacional de San Luis, with a thesis in progress on the effect of static magnetic fields on Zea mays germination. Also a novelist and music producer.",
     "nationality": {
       "@type": "Country",
       "name": "Argentina"
@@ -55,9 +55,12 @@
       "name": "Universidad Nacional de San Luis"
     },
     "knowsAbout": [
-      "Magnetobiology",
-      "Experimental physics",
+      "Measurement systems",
       "Scientific instrumentation",
+      "Experimental design",
+      "Experimental physics",
+      "Data acquisition",
+      "Magnetobiology",
       "Computer vision",
       "Scientific computing",
       "Science communication"
@@ -82,141 +85,311 @@
 
 <body>
 
-  <h1 id="userName">
-    Kier Preve
-  </h1>
+  <a class="skip-link" href="#contenido" data-i18n="skip_link">Saltar al contenido</a>
 
-  <div class="profile-portrait">
-    <img src="Fotos/ParaPerfil.jpg" alt="Retrato de Kier Preve">
-  </div>
+  <div class="layout">
 
-  <center class="intro-copy">
-    <a href="unpocodemi.html" class="glow-link">
-      <span class="intro-main" data-i18n="tagline">Estudiante de física investigando en magnetobiología.</span>
-      <span class="intro-also" data-i18n="tagline_also">La curiosidad nos va a salvar.</span>
-      <span class="intro-about" data-i18n="about_me">→ Sobre mí</span>
-    </a>
-  </center>
+    <!-- ============================================================
+         PANEL LATERAL — lista todas las secciones a la vez.
+         Son anclas: funciona sin JS y todo el contenido queda indexable.
+         En ≤860px se convierte en una barra sticky arriba.
+         ============================================================ -->
+    <aside class="sidenav">
 
-  <style>
-    .profile-portrait {
-      width: 165px;
-      height: 165px;
-      margin: 18px auto 12px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 2px solid rgba(26, 7, 3, 0.85);
-    }
+      <div class="sidenav__id">
+        <div class="sidenav__portrait">
+          <img src="Fotos/ParaPerfil.jpg" alt="Retrato de Kier Preve">
+        </div>
+        <h1 class="sidenav__name">Kier Preve</h1>
+        <p class="sidenav__role" data-i18n="sidenav_role">Física · Instrumentación y sistemas de medición</p>
+      </div>
 
-    .profile-portrait img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 38%;
-      display: block;
-    }
+      <nav class="sidenav__nav" aria-label="Secciones">
+        <div class="sidenav__group">
+          <p class="sidenav__label" data-i18n="nav_work">Trabajo</p>
+          <ul>
+            <li><a href="#proyectos" data-i18n="projects">Proyectos</a></li>
+            <li><a href="#escritura" data-i18n="b_writing_title">Escritura</a></li>
+            <li><a href="#musica" data-i18n="b_music_title">Música</a></li>
+            <li><a href="#videos" data-i18n="b_video_title">Videos</a></li>
+          </ul>
+        </div>
+        <div class="sidenav__group">
+          <p class="sidenav__label" data-i18n="nav_more">Más</p>
+          <ul>
+            <li><a href="blog/index.html" data-i18n="blog">Blog</a></li>
+            <li><a id="openContact" href="contacto.html" role="button" aria-haspopup="dialog"
+                data-i18n="contact">Contacto</a></li>
+          </ul>
+        </div>
+      </nav>
 
-    .intro-copy {
-      color: #1A0703;
-      font-weight: 400;
-      font-size: 1.05em;
-      margin: 10px auto 0;
-      max-width: 620px;
-      padding: 0 1rem;
-      line-height: 1.35;
-    }
+      <p class="sidenav__motto" data-i18n="tagline_also">La curiosidad nos va a salvar.</p>
 
-    .glow-link {
-      color: #1A0703;
-      text-decoration: none;
-      position: relative;
-      display: inline-block;
-    }
+      <p class="sidenav__foot">
+        <a class="sidenav__cv" href="cv.pdf" target="_blank">CV</a><span class="sidenav__also"><span
+            class="sidenav__sep" aria-hidden="true">·</span><a href="https://github.com/KierPrev">GitHub</a><span
+            class="sidenav__sep" aria-hidden="true">·</span><a
+            href="https://www.linkedin.com/in/kiernanpreve/">LinkedIn</a></span>
+      </p>
 
-    .intro-main,
-    .intro-also,
-    .intro-about {
-      display: block;
-    }
+    </aside>
 
-    .intro-main {
-      font-family: var(--font-serif);
-      font-variation-settings: 'opsz' 24;
-      font-style: italic;
-      font-weight: 400;
-      font-size: 1.12em;
-      line-height: 1.4;
-    }
+    <!-- ============================================================
+         COLUMNA DE CONTENIDO
+         ============================================================ -->
+    <main class="content" id="contenido">
 
-    .intro-also,
-    .intro-about {
-      margin-top: 0.35rem;
-      font-size: 0.86em;
-      font-weight: 400;
-      opacity: 0.78;
-    }
+      <header class="hero">
+        <p class="hero__main" data-i18n="tagline">Diseño y construyo sistemas de medición.</p>
+        <p class="hero__detail" data-i18n="tagline_detail">Setups experimentales, instrumentación y el código que
+          convierte datos en resultados.</p>
+        <p class="hero__sub" data-i18n="tagline_sub">Licenciatura en Física (UNSL) · tesis en magnetobiología (en
+          curso).</p>
+      </header>
 
-    @media (max-width: 640px) {
-      .profile-portrait {
-        width: 144px;
-        height: 144px;
-        margin-top: 16px;
-      }
-    }
-  </style>
+      <!-- ===================== PROYECTOS ===================== -->
+      <section class="section-block" id="proyectos">
+        <h2 class="block-title" data-i18n="projects_title">Proyectos</h2>
+        <div class="project-grid">
 
+          <!-- Tesis -->
+          <article class="project-card">
+            <div class="project-card__media">
+              <img src="Tesis/setup-y-campo.jpg" loading="lazy"
+                alt="Mapa del campo Bz del imán de cerámica en un corte xz, medido contra simulado: núcleo rojo, dos lóbulos azules y líneas de campo. Abajo a la izquierda, un recuadro con la foto de la bandeja de exposición impresa en 3D y las semillas de maíz.">
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title" data-i18n="p_thesis_title">Campos magnéticos y germinación de <i>Zea
+                  mays</i></h3>
+              <p class="project-card__desc" data-i18n="p_thesis_desc">Construí el experimento completo: torre de
+                exposición impresa en 3D, caracterización experimental y numérica de los imanes, un sistema propio de
+                adquisición de imágenes y visión por computadora para medir plántulas sin hacerlo a mano. Antes de
+                medir cualquier efecto corrí tres controles negativos de 72&nbsp;h (81 bandejas) para caracterizar el
+                piso de ruido del montaje.</p>
+              <div class="project-tags" data-i18n="p_thesis_tags"><span>Diseño experimental</span><span>Impresión
+                  3D</span><span>Python</span><span>OpenCV</span><span>Estadística</span></div>
+              <div class="project-links">
+                <a href="tesis.html" data-i18n="cta_detail">Ver el proyecto</a>
+                <a href="https://github.com/KierPrev/tesis-magnetobiologia-latex" target="_blank" rel="noopener"
+                  data-i18n="cta_latex">Repo LaTeX</a>
+              </div>
+            </div>
+          </article>
 
-  <br>
+          <!-- MagnetCOIL -->
+          <article class="project-card">
+            <div class="project-card__media">
+              <img src="Arte/poster-magnetcoil.png" loading="lazy"
+                alt="Póster del proyecto MagnetCOIL: exposición magnética de S. cerevisiae con campos estáticos y alternos">
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title" data-i18n="p_magnetcoil_title">MagnetCOIL — exposición magnética de
+                <i>S. cerevisiae</i></h3>
+              <p class="project-card__desc" data-i18n="p_magnetcoil_desc">Medí si un campo estático sumado a uno
+                alterno modula la producción de CO₂ de un cultivo de levaduras. Caractericé la bobina
+                (10,95&nbsp;mH, respuesta lineal corriente–campo) y armé el control con ESP32 y Python: barrido de
+                frecuencia de 540 a 615&nbsp;Hz en pasos de 0,5&nbsp;Hz y registro del sensor de CO₂ en corridas de 10
+                minutos.</p>
+              <div class="project-tags" data-i18n="p_magnetcoil_tags"><span>ESP32</span><span>Python</span><span>Adquisición
+                  de datos</span><span>Caracterización de campos</span><span>Modelado 3D</span></div>
+              <div class="project-links">
+                <a href="Poster%20MagnetCOIL.pdf" target="_blank" rel="noopener" data-i18n="cta_poster">Póster
+                  (PDF)</a>
+              </div>
+            </div>
+          </article>
 
-  <div id="links">
-    <a href="https://github.com/KierPrev" target="_self" aria-label="GitHub"
-      style="border:none;background:none;padding:0;margin:0 8px;color:#1A0703;font-size:1.7em;vertical-align:middle;text-decoration:none;">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/kiernanpreve/" target="_self" aria-label="LinkedIn"
-      style="border:none;background:none;padding:0;margin:0 8px;color:#1A0703;font-size:1.7em;vertical-align:middle;text-decoration:none;">
-      <i class="fab fa-linkedin"></i>
-    </a>
-    <a href="CV%20Kiernan%20Preve%20June%202026.pdf" target="_blank" aria-label="Curriculum Vitae"
-      style="border:none;background:none;padding:0;margin:0 8px;color:#1A0703;font-size:1.5em;vertical-align:middle;text-decoration:none;">
-      <strong>CV</strong>
-    </a>
-  </div>
+          <!-- Deforestación -->
+          <article class="project-card">
+            <div class="project-card__media project-card__media--fit">
+              <img src="Deforestacion/provincias.png" loading="lazy"
+                alt="Gráfico comparando la pérdida de bosque nativo de San Luis con las provincias vecinas a lo largo de dos décadas">
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title" data-i18n="p_defor_title">Deforestación en San Luis</h3>
+              <p class="project-card__desc" data-i18n="p_defor_desc">Tomé dos décadas de datos públicos de pérdida de
+                bosque nativo e incendios y los convertí en gráficos que separan una causa de la otra: 2023 tuvo menos
+                incendios que el año anterior y, al mismo tiempo, fue el año de más deforestación en veinte años.
+                También comparé la serie de San Luis contra las provincias vecinas y mapeé los planes de
+                conservación.</p>
+              <div class="project-tags" data-i18n="p_defor_tags"><span>Análisis de datos</span><span>Datos
+                  públicos</span><span>Series temporales</span><span>Visualización</span></div>
+              <div class="project-links">
+                <a href="deforestacion.html" data-i18n="cta_detail">Ver el proyecto</a>
+              </div>
+            </div>
+          </article>
 
+          <!-- Controlador PID -->
+          <article class="project-card">
+            <!-- TODO (Kier): (1) no hay imagen de este proyecto en el repo — si tenés una foto del
+                 montaje o una captura de la respuesta del lazo, la pongo acá y la tarjeta queda
+                 como las otras tres. (2) la descripción es genérica porque no sé si el proyecto es
+                 hardware, firmware o simulación: decime cuál y la ajusto. Tampoco le puse año
+                 (2018 en la versión anterior del sitio) por si preferís omitirlo. -->
+            <div class="project-card__media project-card__media--blank" aria-hidden="true">
+              <i class="fas fa-sliders-h"></i>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title" data-i18n="p_pid_title">Controlador PID</h3>
+              <p class="project-card__desc" data-i18n="p_pid_desc">Implementación de un controlador PID: lazo cerrado
+                sobre una variable medida, con ajuste de las constantes proporcional, integral y derivativa.</p>
+              <div class="project-tags" data-i18n="p_pid_tags"><span>Control</span><span>Lazo
+                  cerrado</span><span>Electrónica</span></div>
+              <div class="project-links">
+                <a href="https://github.com/KierPrev/PIDController" target="_blank" rel="noopener"
+                  data-i18n="cta_repo">Repo</a>
+              </div>
+            </div>
+          </article>
 
+        </div>
 
-  <div class="proyectos-container">
-    <a class="link link-proyectos" href="blog/index.html" target="_self">
-      <i class="fas fa-book">&nbsp;</i>
-      <span data-i18n="blog">Blog</span>
-    </a>
-  </div>
+        <!-- Resto del trabajo: visible de entrada, sin click -->
+        <p class="worklist-title" data-i18n="worklist_title">Más trabajo</p>
+        <ul class="worklist">
+          <li>
+            <a href="Pluvi%C3%B3metro%20-%20Proy.%20Investigaci%C3%B3n%20CyT.pdf" target="_blank" rel="noopener">
+              <span class="worklist__title" data-i18n="electronic_rain_gauge">Pluviómetro electrónico</span>
+              <span class="worklist__year">2019</span>
+              <span class="worklist__desc" data-i18n="w_rain_desc">Pluviómetro autónomo de bajo costo con hardware y
+                software libre: mide el nivel de un reservorio con un sensor de distancia. Comparamos la precisión de
+                un sensor láser (IR) contra uno de ultrasonido. Trabajo en co-autoría (IMASL, UNSL–CONICET).</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://kier.ar/magnetobiologia" target="_blank" rel="noopener">
+              <span class="worklist__title" data-i18n="magnetobiology_mindmap">Mapa Mental Magnetobiología</span>
+              <span class="worklist__year">2025</span>
+              <!-- TODO (Kier): describí esto en una línea y lo reemplazo — el mapa vive fuera de
+                   este repo, así que no tengo de dónde sacar una descripción fiel. -->
+              <span class="worklist__desc" data-i18n="w_mindmap_desc">Mapa navegable del campo de la magnetobiología.</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/KierPrev/tesis-magnetobiologia-latex" target="_blank" rel="noopener">
+              <span class="worklist__title" data-i18n="thesis_latex">Tesis en LaTeX (repo público)</span>
+              <span class="worklist__year">2026</span>
+              <span class="worklist__desc" data-i18n="w_latex_desc">El documento de la tesis se escribe en LaTeX y su
+                desarrollo es público.</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://labunsl.github.io/" target="_blank" rel="noopener">
+              <span class="worklist__title">LibreLab UNSL</span>
+              <span class="worklist__year">2022</span>
+              <!-- TODO (Kier): confirmame qué fue tu rol acá y ajusto la línea. -->
+              <span class="worklist__desc" data-i18n="w_librelab_desc">Laboratorio de herramientas libres en la
+                Universidad Nacional de San Luis.</span>
+            </a>
+          </li>
+          <li>
+            <a href="P%C3%B3ster%20Hidrodin%C3%A1mica%20-%20Kiernan%20Preve.pdf" target="_blank" rel="noopener">
+              <span class="worklist__title" data-i18n="hydrodynamics">Hidrodinámica</span>
+              <span class="worklist__year">2019</span>
+              <!-- TODO (Kier): el PDF es una imagen escaneada, no pude leer el texto para
+                   describirlo. Pasame una línea y la pongo. -->
+              <span class="worklist__desc" data-i18n="w_hidro_desc">Póster de un trabajo experimental de
+                hidrodinámica.</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/KierPrev" target="_blank" rel="noopener">
+              <span class="worklist__title" data-i18n="github_projects">Proyectos en GitHub</span>
+              <span class="worklist__year">→</span>
+              <span class="worklist__desc" data-i18n="w_github_desc">Código de análisis, instrumentación y
+                experimentos sueltos.</span>
+            </a>
+          </li>
+        </ul>
+      </section>
 
+      <!-- ===================== FUERA DEL LAB ===================== -->
+      <section class="section-block" id="fuera-del-lab">
+        <h2 class="block-title" data-i18n="beyond_title">Fuera del lab</h2>
+        <p class="block-sub" data-i18n="beyond_sub">Escribo novelas, produzco música y hago videos. La misma
+          curiosidad, otras herramientas.</p>
 
+        <div class="project-grid">
 
+          <!-- Escritura -->
+          <article class="project-card" id="escritura">
+            <div class="project-card__media project-card__media--fit">
+              <img src="Arte/TapaWEB.png" loading="lazy" alt="Tapa de la novela Dentro del origen">
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title" data-i18n="b_writing_title">Escritura</h3>
+              <p class="project-card__desc" data-i18n="b_writing_desc">Ciencia ficción. Una novela publicada y su
+                continuación en curso.</p>
+              <ul class="card-list">
+                <li>
+                  <a href="https://www.wattpad.com/story/396226382-andra-m%C3%A1s-all%C3%A1-del-origen" target="_blank"
+                    rel="noopener">Andra: Más allá del origen</a>
+                  <span class="card-list__meta">· <span data-i18n="writing">Escribiendo...</span></span>
+                </li>
+                <li>
+                  <a href="dentrodelorigen.html">Dentro del origen</a>
+                  <span class="card-list__meta">· 2023</span>
+                </li>
+              </ul>
+            </div>
+          </article>
 
-  <!--
-  <div class="proyectos-container">
-    <a class="link link-proyectos" href="unpocodemi.html" target="_self">
-      <i class="fas fa-book">&nbsp;</i>
-      <span data-i18n="about">Un poco de mí</span>
-    </a>
-  </div>
-  -->
+          <!-- Música -->
+          <article class="project-card" id="musica">
+            <div class="project-card__media project-card__media--blank" aria-hidden="true">
+              <i class="fas fa-music"></i>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title" data-i18n="b_music_title">Música</h3>
+              <p class="project-card__desc" data-i18n="b_music_desc">Composición y producción. Bandas sonoras y piezas
+                propias, en SoundCloud.</p>
+              <ul class="card-list">
+                <li>
+                  <a href="https://soundcloud.com/kierprev/rumbos" target="_blank" rel="noopener">Rumbos</a>
+                  <span class="card-list__meta">· 2019</span>
+                </li>
+                <li>
+                  <a href="https://soundcloud.com/kierprev/sets/argentum-online-soundtrack" target="_blank"
+                    rel="noopener">Argentum Online Soundtrack</a>
+                  <span class="card-list__meta">· 2015</span>
+                </li>
+                <li>
+                  <a href="https://soundcloud.com/kierprev/sets/cr-nicas-del-cosmos" target="_blank"
+                    rel="noopener">Crónicas del cosmos</a>
+                  <span class="card-list__meta">· 2013</span>
+                </li>
+              </ul>
+              <div class="project-links">
+                <a href="https://soundcloud.com/kierprev" target="_blank" rel="noopener"
+                  data-i18n="cta_soundcloud">SoundCloud</a>
+              </div>
+            </div>
+          </article>
 
+          <!-- Videos -->
+          <article class="project-card" id="videos">
+            <div class="project-card__media project-card__media--blank" aria-hidden="true">
+              <i class="fas fa-play"></i>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title" data-i18n="b_video_title">Videos</h3>
+              <p class="project-card__desc" data-i18n="b_video_desc">Divulgación en video, en español e inglés.</p>
+              <!-- Se llena con los últimos videos del canal si el fetch funciona; si no, queda vacío
+                   y el botón de abajo sigue llevando al canal. -->
+              <ul class="card-list" id="latest-videos-list" hidden></ul>
+              <div class="project-links">
+                <a href="https://www.youtube.com/@kierpreve" target="_blank" rel="noopener"
+                  data-i18n="cta_youtube">YouTube</a>
+              </div>
+            </div>
+          </article>
 
-  <div class="proyectos-container">
-    <a class="link link-proyectos" href="javascript:void(0);" onclick="toggleSeccion()" role="button">
-      <i class="fas fa-star">&nbsp;</i>
-      <span data-i18n="projects">Proyectos</span>
-    </a>
-  </div>
+        </div>
+      </section>
 
-  <div class="proyectos-container">
-    <a class="link link-proyectos" id="openContact" href="contacto.html" role="button" aria-haspopup="dialog">
-      <i class="fas fa-envelope">&nbsp;</i>
-      <span data-i18n="contact">Contacto</span>
-    </a>
+    </main>
   </div>
 
   <!-- Popup de contacto -->
@@ -357,290 +530,144 @@
     })();
   </script>
 
-  <!-- Sección oculta inicialmente -->
-  <div id="miSeccion" style="
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.75s ease, opacity 0.75s ease, padding-top 0.75s ease, padding-bottom 0.75s ease;
-    text-align: center;
-    color: #1A0703;
-    padding: 0 1em;
-    border-radius: 8px;
-    margin: 0 auto;
-    width: fit-content;
-    position: relative;
-  ">
-
-    <!-- Botón flotante (empieza oculto) -->
-    <button id="closeSeccion" type="button" aria-label="Colapsar" title="Colapsar" style="
-  position: fixed;           /* ← flota respecto a la ventana */
-  right: 16px;
-  bottom: 16px;
-  width: 84px; height: 84px; /* más cómodo para tap */
-  border-radius: 50%;
-  background: #8FD3C4;
-  border: 2px solid #000;
-  cursor: pointer;
-  display: none;             /* ← oculto hasta abrir */
-  z-index: 2147483647;       /* por encima de todo */
-  box-shadow: 0 8px 20px rgba(0,0,0,.25);
-  align-items: center; justify-content: center; font-size: 22px; line-height: 1;
-">×</button>
-
-    <div class="columns-container">
-      <!-- Columna izquierda -->
-      <div class="column">
-        <div class="section-title" data-i18n="books">Libros</div>
-        <hr class="section-divider">
-        <div class="item-title">
-          <a href="https://www.wattpad.com/story/396226382-andra-m%C3%A1s-all%C3%A1-del-origen" target="_blank"
-            style="color:inherit; text-decoration:none;">
-            Andra: Más allá del origen
-          </a>
-        </div>
-        <div data-i18n="writing">Escribiendo...</div>
-        <br>
-        <div class="item-title">
-          <a href="dentrodelorigen.html" style="color:inherit; text-decoration:none;">Dentro del origen</a>
-        </div>
-        <div>2023</div>
-
-        <div class="spacer-small"></div>
-
-        <div class="section-title" data-i18n="science">Ciencia</div>
-        <hr class="section-divider">
-
-        <div class="item-title">
-          <a href="tesis.html" target="_self" style="color:inherit; text-decoration:none;">
-            <span data-i18n="thesis_title">Campos magnéticos y germinación de <i>Zea mays</i></span>
-          </a>
-        </div>
-        <div data-i18n="thesis_in_progress">Proyecto en curso (Tesis)</div>
-        <br>
-
-        <div class="item-title">
-          <a href="https://kier.ar/magnetobiologia" target="_blank" style="color:inherit; text-decoration:none;">
-            <span data-i18n="magnetobiology_mindmap">Mapa Mental Magnetobiología</span>
-          </a>
-        </div>
-        <div>2025</div>
-        <br>
-
-        <div class="item-title">
-          <a href="Poster%20MagnetCOIL.pdf" target="_blank" style="color:inherit; text-decoration:none;">
-            <span data-i18n="magnetcoil">MagnetCOIL</span>
-          </a>
-        </div>
-        <div>2025</div>
-        <br>
-
-        <div class="item-title">
-          <a href="deforestacion.html" target="_self" style="color:inherit; text-decoration:none;">
-            <i class="fas fa-tree"></i>&nbsp;
-            <span data-i18n="deforestation">Deforestación en San Luis</span>
-          </a>
-        </div>
-        <div>2025</div>
-
-
-        <!--
-        <a class="link" href="reflexionesfisica.html" target="_self">
-          <i class="fas fa-book">&nbsp;</i>
-          <span data-i18n="physics_notes">Reflexiones en Física</span>
-        </a>
-        -->
-
-        <br>
-
-        <div class="item-title">
-          <a href="https://labunsl.github.io/" target="_blank" style="color:inherit; text-decoration:none;">
-            LibreLab UNSL
-          </a>
-        </div>
-        <div>2022</div>
-        <br>
-        <div class="item-title">
-          <a href="Pluviómetro - Proy. Investigación CyT.pdf" target="_blank"
-            style="color:inherit; text-decoration:none;">
-            <span data-i18n="electronic_rain_gauge">Pluviómetro electrónico</span>
-          </a>
-        </div>
-        <div>2019</div>
-        <br>
-        <div class="item-title">
-          <a href="Póster Hidrodinámica - Kiernan Preve.pdf" target="_blank"
-            style="color:inherit; text-decoration:none;">
-            <span data-i18n="hydrodynamics">Hidrodinámica</span>
-          </a>
-        </div>
-        <div>2019</div>
-
-      </div>
-
-      <!-- Columna derecha -->
-      <div class="column">
-        <div class="section-title" data-i18n="music">Música</div>
-        <hr class="section-divider">
-        <div class="item-title">
-          <a href="https://soundcloud.com/kierprev/rumbos" target="_blank" style="color:inherit; text-decoration:none;">
-            Rumbos
-          </a>
-        </div>
-        <div>2019</div>
-        <br>
-        <div class="item-title">
-          <a href="https://soundcloud.com/kierprev/sets/argentum-online-soundtrack" target="_blank"
-            style="color:inherit; text-decoration:none;">
-            Argentum Online Soundtrack
-          </a>
-        </div>
-        <div>2015</div>
-        <br>
-        <div class="item-title">
-          <a href="https://soundcloud.com/kierprev/sets/cr-nicas-del-cosmos" target="_blank"
-            style="color:inherit; text-decoration:none;">
-            Crónicas del cosmos
-          </a>
-        </div>
-        <div>2013</div>
-
-        <div class="spacer-small"></div>
-
-        <div class="section-title" data-i18n="programming">Programación</div>
-        <hr class="section-divider">
-
-
-        <div class="item-title">
-          <a href="https://github.com/kierprev" target="_blank" style="color:inherit; text-decoration:none;">
-            <span data-i18n="github_projects">Proyectos en GitHub</span>
-          </a>
-        </div>
-        <br>
-        <div class="item-title">
-          <a href="https://github.com/KierPrev/tesis-magnetobiologia-latex" target="_blank"
-            style="color:inherit; text-decoration:none;">
-            <span data-i18n="phenotyping">Fenotipado automatizado (OpenCV)</span>
-          </a>
-        </div>
-        <div>2026</div>
-        <br>
-        <div class="item-title">
-          <a href="https://github.com/KierPrev/Nanotribologia" target="_blank"
-            style="color:inherit; text-decoration:none;">
-            <span data-i18n="nanotribology">Nanotribología — modelo Prandtl-Tomlinson</span>
-          </a>
-        </div>
-        <div>2024</div>
-        <br>
-        <div class="item-title">
-          <a href="https://github.com/KierPrev/PIDController" target="_blank"
-            style="color:inherit; text-decoration:none;">
-            <span data-i18n="pid_controller">Controlador PID</span>
-          </a>
-        </div>
-        <div>2018</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="videos-container" id="latest-videos-section" style="display: none;">
-    <div class="section-title" data-i18n="latest_videos">También hago videos:</div>
-    <div class="videos-grid" id="latest-videos-grid"></div>
-  </div>
-
-  <br>
-
-
-  <script>
-    function toggleSeccion() {
-      const seccion = document.getElementById('miSeccion');
-      const closeBtn = document.getElementById('closeSeccion');
-      const isHidden = seccion.style.maxHeight === '' || seccion.style.maxHeight === '0px';
-
-      if (isHidden) {
-        seccion.style.maxHeight = seccion.scrollHeight + 'px';
-        seccion.style.opacity = '1';
-        seccion.style.paddingTop = '1em';
-        seccion.style.paddingBottom = '1em';
-        closeBtn.style.display = 'flex';
-      } else {
-        seccion.style.maxHeight = '0';
-        seccion.style.opacity = '0';
-        seccion.style.paddingTop = '0';
-        seccion.style.paddingBottom = '0';
-        closeBtn.style.display = 'none';
-      }
-    }
-
-    document.getElementById('closeSeccion')?.addEventListener('click', toggleSeccion);
-  </script>
-
   <script>
     // Sistema de internacionalización simplificado
     (function () {
       // Diccionario de traducción
       const I18N = {
         es: {
-          tagline: "Estudiante de física investigando en magnetobiología.",
+          skip_link: "Saltar al contenido",
+          sidenav_role: "Física · Instrumentación y sistemas de medición",
+          nav_work: "Trabajo",
+          nav_more: "Más",
+
+          p_defor_title: "Deforestación en San Luis",
+          p_defor_desc: "Tomé dos décadas de datos públicos de pérdida de bosque nativo e incendios y los convertí en gráficos que separan una causa de la otra: 2023 tuvo menos incendios que el año anterior y, al mismo tiempo, fue el año de más deforestación en veinte años. También comparé la serie de San Luis contra las provincias vecinas y mapeé los planes de conservación.",
+          p_defor_tags: "<span>Análisis de datos</span><span>Datos públicos</span><span>Series temporales</span><span>Visualización</span>",
+
+          worklist_title: "Más trabajo",
+          w_rain_desc: "Pluviómetro autónomo de bajo costo con hardware y software libre: mide el nivel de un reservorio con un sensor de distancia. Comparamos la precisión de un sensor láser (IR) contra uno de ultrasonido. Trabajo en co-autoría (IMASL, UNSL–CONICET).",
+          w_mindmap_desc: "Mapa navegable del campo de la magnetobiología.",
+          w_latex_desc: "El documento de la tesis se escribe en LaTeX y su desarrollo es público.",
+          w_librelab_desc: "Laboratorio de herramientas libres en la Universidad Nacional de San Luis.",
+          w_hidro_desc: "Póster de un trabajo experimental de hidrodinámica.",
+          w_github_desc: "Código de análisis, instrumentación y experimentos sueltos.",
+
+          tagline: "Diseño y construyo sistemas de medición.",
+          tagline_detail: "Setups experimentales, instrumentación y el código que convierte datos en resultados.",
+          tagline_sub: "Licenciatura en Física (UNSL) · tesis en magnetobiología (en curso).",
           tagline_also: "La curiosidad nos va a salvar.",
-          about_me: "→ Sobre mí",
-          contact: "Contacto",
-          about: "Un poco de mí",
           projects: "Proyectos",
-          books: "Libros",
-          writing: "Escribiendo...",
-          programming: "Programación",
-          thesis_in_progress: "Proyecto en curso (Tesis)",
-          thesis_title: "Campos magnéticos y germinación de <i>Zea mays</i>",
-          contact_title: "Escribime",
-          contact_sub: "Elegí el canal que prefieras. Respondo en horario de Argentina.",
-          phenotyping: "Fenotipado automatizado (OpenCV)",
-          nanotribology: "Nanotribología — modelo Prandtl-Tomlinson",
-          music: "Música",
-          science: "Ciencia",
+          blog: "Blog",
+          contact: "Contacto",
+
+          projects_title: "Proyectos",
+
+          p_thesis_title: "Campos magnéticos y germinación de <i>Zea mays</i>",
+          p_thesis_desc: "Construí el experimento completo: torre de exposición impresa en 3D, caracterización experimental y numérica de los imanes, un sistema propio de adquisición de imágenes y visión por computadora para medir plántulas sin hacerlo a mano. Antes de medir cualquier efecto corrí tres controles negativos de 72&nbsp;h (81 bandejas) para caracterizar el piso de ruido del montaje.",
+          p_thesis_tags: "<span>Diseño experimental</span><span>Impresión 3D</span><span>Python</span><span>OpenCV</span><span>Estadística</span>",
+
+          p_magnetcoil_title: "MagnetCOIL — exposición magnética de <i>S. cerevisiae</i>",
+          p_magnetcoil_desc: "Medí si un campo estático sumado a uno alterno modula la producción de CO₂ de un cultivo de levaduras. Caractericé la bobina (10,95&nbsp;mH, respuesta lineal corriente–campo) y armé el control con ESP32 y Python: barrido de frecuencia de 540 a 615&nbsp;Hz en pasos de 0,5&nbsp;Hz y registro del sensor de CO₂ en corridas de 10 minutos.",
+          p_magnetcoil_tags: "<span>ESP32</span><span>Python</span><span>Adquisición de datos</span><span>Caracterización de campos</span><span>Modelado 3D</span>",
+
+
+          p_pid_title: "Controlador PID",
+          p_pid_desc: "Implementación de un controlador PID: lazo cerrado sobre una variable medida, con ajuste de las constantes proporcional, integral y derivativa.",
+          p_pid_tags: "<span>Control</span><span>Lazo cerrado</span><span>Electrónica</span>",
+
+          cta_detail: "Ver el proyecto",
+          cta_latex: "Repo LaTeX",
+          cta_repo: "Repo",
+          cta_poster: "Póster (PDF)",
+          cta_soundcloud: "SoundCloud",
+          cta_youtube: "YouTube",
+
           magnetobiology_mindmap: "Mapa Mental Magnetobiología",
-          magnetcoil: "MagnetCOIL",
-          deforestation: "Deforestación en San Luis",
+          thesis_latex: "Tesis en LaTeX (repo público)",
           electronic_rain_gauge: "Pluviómetro electrónico",
           hydrodynamics: "Hidrodinámica",
           github_projects: "Proyectos en GitHub",
-          pid_controller: "Controlador PID",
-          physics_notes: "Reflexiones en Física",
-          blog: "Blog",
-          contact: "Contacto",
-          latest_videos: "También hago videos:"
+
+          beyond_title: "Fuera del lab",
+          beyond_sub: "Escribo novelas, produzco música y hago videos. La misma curiosidad, otras herramientas.",
+          b_writing_title: "Escritura",
+          b_writing_desc: "Ciencia ficción. Una novela publicada y su continuación en curso.",
+          writing: "Escribiendo...",
+          b_music_title: "Música",
+          b_music_desc: "Composición y producción. Bandas sonoras y piezas propias, en SoundCloud.",
+          b_video_title: "Videos",
+          b_video_desc: "Divulgación en video, en español e inglés.",
+
+          contact_title: "Escribime",
+          contact_sub: "Elegí el canal que prefieras. Respondo en horario de Argentina."
         },
         en: {
-          tagline: "Physics student working on magnetobiology.",
+          skip_link: "Skip to content",
+          sidenav_role: "Physics · Instrumentation & measurement systems",
+          nav_work: "Work",
+          nav_more: "More",
+
+          p_defor_title: "Deforestation in San Luis",
+          p_defor_desc: "I took two decades of public data on native forest loss and wildfires and turned it into charts that pull the two causes apart: 2023 had fewer fires than the year before and was, at the same time, the worst year for deforestation in twenty years. I also compared the San Luis series against neighbouring provinces and mapped the conservation plans.",
+          p_defor_tags: "<span>Data analysis</span><span>Public data</span><span>Time series</span><span>Visualisation</span>",
+
+          worklist_title: "More work",
+          w_rain_desc: "A low-cost autonomous rain gauge built on free hardware and software: it reads the water level in a reservoir with a distance sensor. We compared the accuracy of a laser (IR) sensor against an ultrasonic one. Co-authored work (IMASL, UNSL–CONICET).",
+          w_mindmap_desc: "A navigable map of the magnetobiology field.",
+          w_latex_desc: "The thesis document is written in LaTeX and its development is public.",
+          w_librelab_desc: "A free-tools laboratory at Universidad Nacional de San Luis.",
+          w_hidro_desc: "Poster from an experimental hydrodynamics project.",
+          w_github_desc: "Analysis code, instrumentation, and one-off experiments.",
+
+          tagline: "I design and build measurement systems.",
+          tagline_detail: "Experimental setups, instrumentation, and the code that turns data into results.",
+          tagline_sub: "Physics degree, UNSL · thesis in magnetobiology (in progress).",
           tagline_also: "Curiosity will save us.",
-          about_me: "→ About me",
-          contact: "Contact",
-          about: "About",
           projects: "Projects",
-          books: "Books",
-          writing: "Writing",
-          programming: "Programming",
-          thesis_in_progress: "Thesis (In Progress)",
-          thesis_title: "Magnetic fields & <i>Zea mays</i> germination",
-          contact_title: "Get in touch",
-          contact_sub: "Pick whichever channel you prefer. I reply on Argentina time.",
-          phenotyping: "Automated phenotyping (OpenCV)",
-          nanotribology: "Nanotribology — Prandtl-Tomlinson model",
-          helping: "Support my work",
-          music: "Music",
-          science: "Science",
+          blog: "Blog",
+          contact: "Contact",
+
+          projects_title: "Projects",
+
+          p_thesis_title: "Magnetic fields & <i>Zea mays</i> germination",
+          p_thesis_desc: "I built the whole experiment: a 3D-printed exposure tower, experimental and numerical characterisation of the magnets, a purpose-built image acquisition system, and computer vision to measure seedlings without doing it by hand. Before measuring any effect I ran three 72&nbsp;h negative controls (81 trays) to characterise the setup's own noise floor.",
+          p_thesis_tags: "<span>Experimental design</span><span>3D printing</span><span>Python</span><span>OpenCV</span><span>Statistics</span>",
+
+          p_magnetcoil_title: "MagnetCOIL — magnetic exposure of <i>S. cerevisiae</i>",
+          p_magnetcoil_desc: "I measured whether a static field plus an alternating one modulates CO₂ output from a yeast culture. I characterised the coil (10.95&nbsp;mH, linear current-to-field response) and built the control stack on an ESP32 with Python: a 540–615&nbsp;Hz frequency sweep in 0.5&nbsp;Hz steps, logging the CO₂ sensor over 10-minute runs.",
+          p_magnetcoil_tags: "<span>ESP32</span><span>Python</span><span>Data acquisition</span><span>Field characterisation</span><span>3D modelling</span>",
+
+
+          p_pid_title: "PID Controller",
+          p_pid_desc: "Implementation of a PID controller: a closed loop over a measured variable, with tuning of the proportional, integral, and derivative constants.",
+          p_pid_tags: "<span>Control</span><span>Closed loop</span><span>Electronics</span>",
+
+          cta_detail: "View the project",
+          cta_latex: "LaTeX repo",
+          cta_repo: "Repo",
+          cta_poster: "Poster (PDF)",
+          cta_soundcloud: "SoundCloud",
+          cta_youtube: "YouTube",
+
           magnetobiology_mindmap: "Magnetobiology Mind Map",
-          magnetcoil: "MagnetCOIL",
-          deforestation: "Deforestation in San Luis",
+          thesis_latex: "Thesis in LaTeX (public repo)",
           electronic_rain_gauge: "Electronic Rain Gauge",
           hydrodynamics: "Hydrodynamics",
           github_projects: "GitHub Projects",
-          pid_controller: "PID Controller",
-          physics_notes: "Physics Notes",
-          blog: "Blog",
-          contact: "Contact",
-          latest_videos: "I also make videos:"
+
+          beyond_title: "Beyond the lab",
+          beyond_sub: "I write novels, produce music, and make videos. Same curiosity, different tools.",
+          b_writing_title: "Writing",
+          b_writing_desc: "Science fiction. One published novel and its sequel in progress.",
+          writing: "Writing",
+          b_music_title: "Music",
+          b_music_desc: "Composition and production. Soundtracks and original pieces, on SoundCloud.",
+          b_video_title: "Videos",
+          b_video_desc: "Science communication on video, in Spanish and English.",
+
+          contact_title: "Get in touch",
+          contact_sub: "Pick whichever channel you prefer. I reply on Argentina time."
         }
       };
 
@@ -655,13 +682,12 @@
       function applyI18n(lang) {
         document.documentElement.setAttribute("lang", lang);
         const elements = document.querySelectorAll("[data-i18n]");
-        console.log(`Applying ${lang} translations to ${elements.length} elements`);
 
         elements.forEach(el => {
           const key = el.getAttribute("data-i18n");
           const text = I18N[lang] && I18N[lang][key];
           if (text) {
-            // innerHTML: el diccionario es estático y propio (permite <i> en nombres de especies)
+            // innerHTML: el diccionario es estático y propio (permite <i> y <span> en los textos)
             el.innerHTML = text;
           } else {
             console.warn(`Translation key not found: ${key} for language ${lang}`);
@@ -669,14 +695,15 @@
         });
       }
 
-      // Aplicar traducciones cuando el DOM esté listo
+      // Expuesto para que otros scripts (p. ej. los videos) sepan el idioma activo
+      window.__lang = detectLang();
+
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function () {
-          applyI18n(detectLang());
+          applyI18n(window.__lang);
         });
       } else {
-        // DOM ya está cargado
-        applyI18n(detectLang());
+        applyI18n(window.__lang);
       }
     })();
   </script>
@@ -690,30 +717,56 @@
       fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-          if (data.status === 'ok' && data.items && data.items.length > 0) {
-            const grid = document.getElementById('latest-videos-grid');
-            const section = document.getElementById('latest-videos-section');
-            if (!grid || !section) return;
+          if (data.status !== 'ok' || !data.items || !data.items.length) return;
 
-            const latestVideos = data.items.slice(0, 3);
-            grid.innerHTML = latestVideos.map(video => {
-              return `
-                <a href="${video.link}" target="_blank" class="video-card">
-                  <div class="thumbnail-wrapper">
-                    <img src="${video.thumbnail}" alt="${video.title}" loading="lazy">
-                    <div class="play-overlay">
-                      <i class="fas fa-play"></i>
-                    </div>
-                  </div>
-                  <div class="video-title">${video.title}</div>
-                </a>
-              `;
-            }).join('');
+          const list = document.getElementById('latest-videos-list');
+          if (!list) return;
 
-            section.style.display = 'block';
-          }
+          list.innerHTML = data.items.slice(0, 3).map(video => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = video.link;
+            a.target = '_blank';
+            a.rel = 'noopener';
+            a.textContent = video.title;   // textContent: el feed es contenido externo
+            li.appendChild(a);
+            return li.outerHTML;
+          }).join('');
+
+          list.hidden = false;
         })
         .catch(err => console.error('Error fetching YouTube feed:', err));
+    })();
+  </script>
+
+  <script>
+    // Scroll-spy: resalta en el panel la sección que se está viendo.
+    // Es puro adorno — sin JS las anclas siguen funcionando igual.
+    (function () {
+      const links = Array.from(document.querySelectorAll('.sidenav a[href^="#"]'));
+      const targets = links
+        .map(a => ({ a, el: document.getElementById(a.getAttribute('href').slice(1)) }))
+        .filter(t => t.el);
+      if (!targets.length || !('IntersectionObserver' in window)) return;
+
+      const visible = new Map();
+
+      const mark = () => {
+        let best = null;
+        for (const t of targets) {
+          const ratio = visible.get(t.el) || 0;
+          if (ratio > 0 && (!best || ratio > best.ratio)) best = { t, ratio };
+        }
+        links.forEach(a => a.removeAttribute('aria-current'));
+        if (best) best.t.a.setAttribute('aria-current', 'true');
+      };
+
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => visible.set(e.target, e.isIntersecting ? e.intersectionRatio : 0));
+        mark();
+      }, { threshold: [0, 0.15, 0.4, 0.75, 1], rootMargin: '-15% 0px -45% 0px' });
+
+      targets.forEach(t => obs.observe(t.el));
     })();
   </script>
 
