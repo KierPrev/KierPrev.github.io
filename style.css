@@ -1586,8 +1586,8 @@ html {
 }
 
 .sidenav__portrait {
-    width: 92px;
-    height: 92px;
+    width: 128px;
+    height: 128px;
     margin: 0 auto 0.7em;
     border-radius: 50%;
     overflow: hidden;
@@ -1692,7 +1692,7 @@ html {
 
 /* solo existen en pantallas angostas (ver @media): en escritorio el CV vive en el pie del panel */
 .sidenav__cvtab,
-.hero__name {
+.sidenav__wordmark {
     display: none;
 }
 
@@ -1732,9 +1732,11 @@ html {
 }
 
 .hero__detail {
-    font-size: 1.02em;
-    line-height: 1.55;
-    opacity: 0.88;
+    font-size: clamp(1.1rem, 1rem + 0.45vw, 1.4rem);
+    font-weight: 500;
+    line-height: 1.4;
+    color: #1A0703;
+    opacity: 0.92;
     margin: 1.05em 0 0;
     /* sin max-width propio: hereda la medida del bloque y entra en una línea.
        balance reparte parejo cuando la pantalla la obliga a envolver. */
@@ -2038,12 +2040,6 @@ html {
         flex-shrink: 0;
     }
 
-    .sidenav__portrait {
-        width: 40px;
-        height: 40px;
-        margin: 0;
-    }
-
     /* el avatar identifica; el nombre pasa al hero y el h1 queda para lectores de pantalla */
     .sidenav__name {
         position: absolute;
@@ -2054,13 +2050,23 @@ html {
         white-space: nowrap;
     }
 
-    .hero__name {
+    .sidenav__portrait {
+        width: 56px;
+        height: 56px;
+        margin: 0;
+    }
+
+    /* foto + "Kier" van pegados en la barra, como un logo: el nombre no flota suelto */
+    .sidenav__wordmark {
         display: block;
-        margin: 0 0 0.5em;
-        font-size: 0.85em;
+        font-family: var(--font-serif);
+        font-variation-settings: 'opsz' 48;
+        font-size: 1.25rem;
         font-weight: 600;
-        letter-spacing: 0.04em;
-        opacity: 0.65;
+        line-height: 1;
+        letter-spacing: -0.015em;
+        color: #1A0703;
+        white-space: nowrap;
     }
 
     .sidenav__cvtab {
@@ -2142,7 +2148,7 @@ html {
     }
 
     .hero__detail {
-        font-size: 0.98em;
+        font-size: 1.1rem;
     }
 
     .content .section-block {
@@ -2160,4 +2166,111 @@ html {
    auto-fit colapsa las pistas vacías, así que con 3 items nunca pasa de 3 en fila. */
 #fuera-del-lab .project-grid {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* ==========================================================================
+   Prueba de estilo "táctil suave": bordes finos, sombras difusas, botón
+   principal relleno y acento menta solo para estados. Para volver atrás,
+   borrar este bloque (copia previa en la carpeta scratchpad de la sesión).
+   ========================================================================== */
+
+/* tarjetas: radio más amplio y sombra difusa en lugar de la dura */
+.project-card {
+    border: 1px solid rgba(26, 7, 3, 0.14);
+    border-radius: 16px;
+    box-shadow: 0 1px 2px rgba(26, 7, 3, 0.06), 0 8px 24px rgba(26, 7, 3, 0.08);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(26, 7, 3, 0.06), 0 16px 40px rgba(26, 7, 3, 0.12);
+}
+
+.project-card__media {
+    border-bottom: 1px solid rgba(26, 7, 3, 0.1);
+}
+
+/* etiquetas: contorno fino y tono más suave */
+.project-tags span {
+    border: 1px solid rgba(26, 7, 3, 0.18);
+    opacity: 0.8;
+}
+
+/* botón principal: relleno en tinta oscura, sin sombra dura */
+.project-links a {
+    background: #1A0703;
+    color: #F6F8F7;
+    border: none;
+    border-radius: 999px;
+    box-shadow: none;
+    padding: 0.6em 1.2em;
+    font-weight: 600;
+}
+
+.project-links a:hover {
+    background: #3a1a14;
+    color: #F6F8F7;
+    transform: translateY(-1px);
+}
+
+/* secundarios: contorno fino, sin relleno */
+.project-links a+a {
+    background: transparent;
+    color: #1A0703;
+    border: 1px solid rgba(26, 7, 3, 0.25);
+}
+
+.project-links a+a:hover {
+    background: rgba(143, 211, 196, 0.25);
+    color: #1A0703;
+    transform: none;
+}
+
+/* "Leer más": contorno fino y el acento menta solo al pasar el mouse */
+.more-btn {
+    border: 1px solid rgba(26, 7, 3, 0.2);
+}
+
+.more-btn:hover {
+    background: rgba(143, 211, 196, 0.25);
+}
+
+/* "Más trabajo": botón principal de la sección, relleno oscuro */
+.worklist-title {
+    background: #1A0703;
+    color: #F6F8F7;
+    border: none;
+    border-radius: 999px;
+    box-shadow: none;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+}
+
+.worklist-title:hover {
+    background: #3a1a14;
+    transform: translateY(-1px);
+    box-shadow: none;
+}
+
+.worklist-wrap[open]>.worklist-title {
+    transform: none;
+    box-shadow: none;
+}
+
+.worklist-wrap[open]>.worklist-title:hover {
+    transform: translateY(-1px);
+    box-shadow: none;
+}
+
+.worklist-count {
+    background: #8FD3C4;
+    color: #1A0703;
+}
+
+.worklist-title::after {
+    border-color: #F6F8F7;
+}
+
+.worklist-wrap[open]>.worklist-title::after {
+    border-color: #F6F8F7;
 }
