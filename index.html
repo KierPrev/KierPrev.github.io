@@ -110,9 +110,7 @@
           <p class="sidenav__label" data-i18n="nav_work">Trabajo</p>
           <ul>
             <li><a href="#proyectos" data-i18n="projects">Proyectos</a></li>
-            <li><a href="#escritura" data-i18n="b_writing_title">Escritura</a></li>
-            <li><a href="#musica" data-i18n="b_music_title">Música</a></li>
-            <li><a href="#videos" data-i18n="b_video_title">Videos</a></li>
+            <li><a href="#fuera-del-lab" data-i18n="creations_nav">Creaciones</a></li>
           </ul>
         </div>
         <div class="sidenav__group">
@@ -121,13 +119,13 @@
             <li><a href="blog/index.html" data-i18n="blog">Blog</a></li>
             <li><a id="openContact" href="contacto.html" role="button" aria-haspopup="dialog"
                 data-i18n="contact">Contacto</a></li>
-            <li class="sidenav__cvtab"><a href="cv.pdf" target="_blank">CV</a></li>
+            <li class="sidenav__cvtab"><a class="cv-link" href="cv.pdf" target="_blank">CV</a></li>
           </ul>
         </div>
       </nav>
 
       <p class="sidenav__foot">
-        <a class="sidenav__cv" href="cv.pdf" target="_blank">CV</a><span class="sidenav__also"><span
+        <a class="sidenav__cv cv-link" href="cv.pdf" target="_blank">CV</a><span class="sidenav__also"><span
             class="sidenav__sep" aria-hidden="true">·</span><a href="https://github.com/KierPrev">GitHub</a><span
             class="sidenav__sep" aria-hidden="true">·</span><a
             href="https://www.linkedin.com/in/kiernanpreve/">LinkedIn</a></span>
@@ -596,7 +594,8 @@
           hydrodynamics: "Hidrodinámica",
           github_projects: "Proyectos en GitHub",
 
-          beyond_title: "Fuera del lab",
+          beyond_title: "Mis creaciones",
+          creations_nav: "Creaciones",
           beyond_sub: "Escribo novelas, produzco música y hago videos. La misma curiosidad, otras herramientas.",
           b_writing_title: "Escritura",
           b_writing_desc: "Ciencia ficción. Una novela publicada y su continuación en curso.",
@@ -664,7 +663,8 @@
           hydrodynamics: "Hydrodynamics",
           github_projects: "GitHub Projects",
 
-          beyond_title: "Beyond the lab",
+          beyond_title: "My creations",
+          creations_nav: "Creations",
           beyond_sub: "I write novels, produce music, and make videos. Same curiosity, different tools.",
           b_writing_title: "Writing",
           b_writing_desc: "Science fiction. One published novel and its sequel in progress.",
@@ -690,6 +690,11 @@
       function applyI18n(lang) {
         document.documentElement.setAttribute("lang", lang);
         const elements = document.querySelectorAll("[data-i18n]");
+
+        // el CV cambia de archivo según el idioma: versión en español o en inglés
+        document.querySelectorAll("a.cv-link").forEach(a => {
+          a.setAttribute("href", lang === "es" ? "cv-es.pdf" : "cv.pdf");
+        });
 
         elements.forEach(el => {
           const key = el.getAttribute("data-i18n");
