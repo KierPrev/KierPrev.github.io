@@ -2025,10 +2025,10 @@ html {
         max-height: none;
         overflow: visible;
         z-index: 50;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.6em 0.9em;
+        /* grilla y no flex: cada fila ocupa su propio ancho, sin depender del ancho del contenido */
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 0.6em;
         padding: 0.6em 1rem 0.5em;
         background: #F1F7F5;
         border-bottom: 2px solid rgba(26, 7, 3, 0.2);
