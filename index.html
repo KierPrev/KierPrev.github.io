@@ -120,6 +120,7 @@
         <div class="sidenav__group">
           <p class="sidenav__label" data-i18n="nav_more">Más</p>
           <ul>
+            <li><a class="about-link" href="unpocodemi.html" data-i18n="about">Acerca de mí</a></li>
             <li><a href="blog/index.html" data-i18n="blog">Blog</a></li>
             <li><a id="openContact" href="contacto.html" role="button" aria-haspopup="dialog"
                 data-i18n="contact">Contacto</a></li>
@@ -568,6 +569,7 @@
           tagline_also: "La curiosidad nos va a salvar.",
           tagline_sub: "Licenciatura en Física (UNSL) · tesis en magnetobiología (en curso).",
           projects: "Proyectos",
+          about: "Acerca de mí",
           blog: "Blog",
           contact: "Contacto",
 
@@ -638,6 +640,7 @@
           tagline_also: "Curiosity will save us.",
           tagline_sub: "Physics degree, UNSL · thesis in magnetobiology (in progress).",
           projects: "Projects",
+          about: "About me",
           blog: "Blog",
           contact: "Contact",
 
@@ -701,6 +704,10 @@
         // el CV cambia de archivo según el idioma: versión en español o en inglés
         document.querySelectorAll("a.cv-link").forEach(a => {
           a.setAttribute("href", lang === "es" ? "cv-es.pdf" : "cv.pdf");
+        });
+        // "Acerca de mí" también tiene una página por idioma
+        document.querySelectorAll("a.about-link").forEach(a => {
+          a.setAttribute("href", lang === "es" ? "unpocodemi.html" : "aboutme.html");
         });
 
         elements.forEach(el => {
